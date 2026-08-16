@@ -71,6 +71,29 @@
     }
     footer.site p { margin: 0 0 10px; }
     footer.site a { color: var(--accent); }
+
+    /* Drop cap on the first paragraph of the article body */
+    article.post > p.lead::first-letter,
+    article.post > p.dropcap::first-letter {
+      float: left;
+      font-size: 66px;
+      line-height: 54px;
+      padding: 4px 10px 0 0;
+      font-weight: 700;
+      color: var(--accent);
+      font-family: Georgia, "Times New Roman", serif;
+    }
+    /* Pull quote */
+    .pullquote {
+      margin: 30px 0;
+      padding: 4px 0;
+      border-top: 2px solid var(--accent);
+      border-bottom: 2px solid var(--accent);
+      font: italic 600 24px/1.4 Georgia, "Times New Roman", serif;
+      color: #1a1a1a;
+      text-align: left;
+    }
+    .pullquote p { margin: 14px 0; }
   </style>
 </head>
 <body>
@@ -95,9 +118,10 @@
     <article class="post">
       <h1>Peabody Was Convicted. It Took a Resident to Make That Happen.</h1>
       <p class="byline">By David Wood &middot; Published 16 August 2026</p>
-      <p>On 11 August 2026, a representative of the Peabody Trust stood in Thames Magistrates' Court and pleaded guilty to a criminal offence: failing, without reasonable excuse, to provide a leaseholder with a written summary of service charge costs. The court fined Peabody &pound;1,000, reduced from &pound;1,500 for the guilty plea, plus &pound;400 in costs.</p>
+      <p class="lead">On 11 August 2026, a representative of the Peabody Trust stood in Thames Magistrates' Court and pleaded guilty to a criminal offence: failing, without reasonable excuse, to provide a leaseholder with a written summary of service charge costs. The court fined Peabody &pound;1,000, reduced from &pound;1,500 for the guilty plea, plus &pound;400 in costs.</p>
       <p>No council brought this case. No regulator brought it. A leaseholder at Goldpence Apartments in Tower Hamlets did, as a private prosecution, because every other route had already been tried and had not produced compliance.</p>
       <p>The fine isn't the point. The point is that it took two years, a criminal prosecution, and I still don't have the accounts I first asked for back in 2023.</p>
+      <div class="pullquote"><p>Peabody can write a cheque for a fine. It can't write one for reputation.</p></div>
       <h2>What Peabody Was Actually Required to Show Me</h2>
       <p>Leaseholders on the estate don't just pay for their own block. Like most developments this size, some costs are pooled across the wider campus (grounds, shared staff, buildings insurance) and apportioned out block by block, flat by flat. My share of the total costs is a little over half a percent.</p>
       <p>The section 21 summary is supposed to show the costs behind the service charge. Section 22 then gives leaseholders the right to inspect the receipts and other documents supporting that summary. Together, those rights are meant to let leaseholders understand the full costs across the scheme and the basis on which those costs were divided up. That is the only way anyone can actually check whether the split is fair. Service charges across the wider estate came to a little over &pound;1 million in the same year.</p>
@@ -113,6 +137,7 @@
       <p>Having admitted it in writing, Peabody then missed its own deadline for putting the record right, and simply set a new one, which it also missed. It offered no explanation, and faced no consequences.</p>
       <p>That last point is the one that shocks me most. I told Rushanara Ali's office, MP for Bethnal Green and Stepney, in writing, that the organisation which had misled them was now convicted of a criminal offence for the same underlying failure. Her response amounted to three lines: thanks for the update, I've passed it on, I've added it to our records. Nothing about a national housing association saying it had complied with the law, when it hadn't, seemed information to note, at least, not by the date of publication. Whether intended or not, the effect of that inaccurate assurance was to make a constituent's complaint go away.</p>
       <p>The inaccurate information traces back to advice given, apparently in good faith, by an unnamed member of Peabody's service charge team. The staff passed that advice on to the MP, the Ombudsman and me, without checking it. As far as anything in the record shows, whoever gave that advice faced no repercussions for it. Does giving inaccurate information to an MP carry any consequence at Peabody?</p>
+      <div class="pullquote"><p>Does giving inaccurate information to an MP carry any consequence at Peabody?</p></div>
       <h2>The Council Wouldn't Prosecute and Neither, At First, Would the Court</h2>
       <p>I do not think it unreasonable to expect that when a law has likely been broken, someone investigates and prosecutes. I see fly-tipping, I report it. I see a smashed car window, I report it. I expect both to lead somewhere. Local authorities have the power to prosecute section 25 offences, and I asked Tower Hamlets Council to consider it. Nothing came of that, so I applied for the summons myself.</p>
       <p>The court refused it too, citing a law that only applies in Wales, and a legal category that was repealed in 2008. For a lot of people, that would have been the end of it; there's no obvious reason to doubt a court's legal adviser. But I wrote back setting out why the refusal was wrong, and the court finally accepted its reading of the law was eighteen years out of date.</p>
@@ -140,6 +165,7 @@
       <p>This was a win for leaseholder transparency, but it also shows how broken enforcement is. I didn't bring this prosecution because I wanted to be in a courtroom. Residents asked for the information, complained, went to our MP, went to the Ombudsman, and asked the council to act. None of that produced the summary. What's true is that it arrived the day after I applied for a criminal summons, two months after it was legally due. You can come to your own conclusions.</p>
       <p>Be clear about what the conviction actually did, though. Section 25 only allows a fine, imposed after the fact, for a duty already breached. It orders nothing for the future. And as the numbers show, the fine is cheaper than doing the job properly. For an organisation the size of Peabody it changes nothing: comply, or treat the fine as the cost of doing business.</p>
       <p>That is the charitable reading, the one where Peabody at least put some thought into it, though I am not sure it did. Harder to stomach is the likelier explanation: that an organisation this large simply could not, across three years and repeated requests, organise itself to obey a one-month deadline written into a forty-year-old law, and faced nothing that made it worth learning how. A right nobody can enforce isn't really a right. Neither is a duty a landlord can shrug off for a piddly fine.</p>
+      <div class="pullquote"><p>A right nobody can enforce isn't really a right. Neither is a duty a landlord can shrug off for a piddly fine.</p></div>
       <p>Peabody's conviction is a genuine result. It should also be read as an indictment of everything that had to fail first for it to happen. It shouldn't take a two-year paper trail, a residents' association, an MP, the Ombudsman, a council that declined to act, and finally a private prosecution to get one of England's largest housing associations to do something it was already required by law to do.</p>
       <p><strong>Residents shouldn't have to become prosecutors to make landlords follow the law.</strong></p>
     </article>

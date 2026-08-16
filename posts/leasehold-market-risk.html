@@ -76,6 +76,29 @@
     }
     footer.site p { margin: 0 0 10px; }
     footer.site a { color: var(--accent); }
+
+    /* Drop cap on the first paragraph of the article body */
+    article.post > p.lead::first-letter,
+    article.post > p.dropcap::first-letter {
+      float: left;
+      font-size: 66px;
+      line-height: 54px;
+      padding: 4px 10px 0 0;
+      font-weight: 700;
+      color: var(--accent);
+      font-family: Georgia, "Times New Roman", serif;
+    }
+    /* Pull quote */
+    .pullquote {
+      margin: 30px 0;
+      padding: 4px 0;
+      border-top: 2px solid var(--accent);
+      border-bottom: 2px solid var(--accent);
+      font: italic 600 24px/1.4 Georgia, "Times New Roman", serif;
+      color: #1a1a1a;
+      text-align: left;
+    }
+    .pullquote p { margin: 14px 0; }
   </style>
 </head>
 <body>
@@ -101,8 +124,9 @@
       <h1>Leasehold: The Market Is Finally Pricing In The Risk</h1>
       <p class="byline">By David Wood &middot; Published August 2026</p>
       <p><em>Government has diagnosed what's wrong with leasehold. The slow, cautious transition to fix it may itself be part of what's now showing up in flat prices.</em></p>
-      <p>Average house prices in Britain have risen 43% since 2016. Flats have managed 10%. In England during 2025, 80.5% of leasehold flats listed for sale had still not sold within six months; in London, closer to 87%. Zoopla, asked to explain the gap, names several factors, but puts uncertainty around leasehold in England among them.</p>
+      <p class="lead">Average house prices in Britain have risen 43% since 2016. Flats have managed 10%. In England during 2025, 80.5% of leasehold flats listed for sale had still not sold within six months; in London, closer to 87%. Zoopla, asked to explain the gap, names several factors, but puts uncertainty around leasehold in England among them.</p>
       <p>It would be too easy to call this a bubble bursting. A bubble implies buyers were wrong about something and are now correcting their mistake. What seems to be happening to flats is closer to the opposite: buyers, lenders and conveyancers are getting <em>better</em> at pricing something that was true all along, that a leasehold flat is not just rooms and a view, but a stream of future liabilities whose size someone else gets to determine.</p>
+      <div class="pullquote"><p>A leasehold flat is not just rooms and a view, but a stream of future liabilities whose size someone else gets to determine.</p></div>
       <h2>What exactly is being priced</h2>
       <p>Leasehold's defect isn't that someone profits from it. It's structural: the party who controls building expenditure and the party who is contractually on the hook to pay it are not the same party. That separation is what creates room for costs to be passed through with limited scrutiny, for management incentives to weaken, and for disputes over what a lease actually permits to end up expensive and slow to resolve, because that dispute, when it happens, usually has to go through the First-tier Tribunal.</p>
       <p>This isn't a fringe arrangement. England has an estimated 4.90 million leasehold dwellings, around 20% of all housing stock, rising to 39% in London. More than 98% of flats currently offered for sale are still sold leasehold, out of roughly 30,000 to 40,000 new flats completed each year across England and Wales. None of the government's reform programme has yet touched that flow in any meaningful way.</p>
@@ -120,6 +144,7 @@
       <p>Leaseholders can reasonably credit ministers who understand the problem while still judging reform by the law that actually reaches the statute book and comes into force, and right now, very little of it has.</p>
       <h2>The two-tier market government has already warned about</h2>
       <p>It would overstate the case to say existing leaseholders get nothing from the reform package; ground rent caps, the abolition of forfeiture, and service-charge transparency measures all apply to them. What they don't get is the structural fix. Conversion from leasehold to commonhold is not automatic; the Housing, Communities and Local Government Committee has said as much directly, warning that gaps in the Bill could leave existing leaseholders "trapped in a two-tier market" against newer commonhold stock. Pennycook has described leasehold as a tenure that will "wither on the vine." Fair enough, but if it's withering on the vine, someone still owns the leaves, and is trying to sell them into a market that already knows what's coming.</p>
+      <div class="pullquote"><p>If it's withering on the vine, someone still owns the leaves, and is trying to sell them into a market that already knows what's coming.</p></div>
       <p>That's arguably the sharpest version of this argument: government has correctly identified leasehold as a tenure with a use-by date, and the market, mortgage lenders, conveyancers, cautious buyers, is starting to treat pre-reform leasehold stock accordingly, years before the replacement is actually available to most of the people who'd need it.</p>
       <h2>Beyond "profit": what's actually driving the incentives</h2>
       <p>It's tempting to point at housing-association surpluses and call it profiteering. That's not quite right, and it's an easy claim to rebut: an operating surplus reinvested into new and existing stock is not a shareholder dividend, and the sector's accounts show as much, an operating surplus on social-housing lettings of roughly &pound;4.7 billion in the latest year, the overwhelming majority of it attributable to core social housing activity.</p>

@@ -76,6 +76,29 @@
     }
     footer.site p { margin: 0 0 10px; }
     footer.site a { color: var(--accent); }
+
+    /* Drop cap on the first paragraph of the article body */
+    article.post > p.lead::first-letter,
+    article.post > p.dropcap::first-letter {
+      float: left;
+      font-size: 66px;
+      line-height: 54px;
+      padding: 4px 10px 0 0;
+      font-weight: 700;
+      color: var(--accent);
+      font-family: Georgia, "Times New Roman", serif;
+    }
+    /* Pull quote */
+    .pullquote {
+      margin: 30px 0;
+      padding: 4px 0;
+      border-top: 2px solid var(--accent);
+      border-bottom: 2px solid var(--accent);
+      font: italic 600 24px/1.4 Georgia, "Times New Roman", serif;
+      color: #1a1a1a;
+      text-align: left;
+    }
+    .pullquote p { margin: 14px 0; }
   </style>
 </head>
 <body>
@@ -100,7 +123,7 @@
     <article class="post">
       <h1>The Three Closed Doors: A Stress Test of Leasehold Accountability</h1>
       <p class="byline">By David Wood &middot; Published June 2026</p>
-      <p>I became a banker in 2007.</p>
+      <p class="lead">I became a banker in 2007.</p>
       <p>The lesson I took from the financial crisis was not that banks should cease to exist. It was that systems which appear robust on paper can contain weaknesses that only become visible when the system is stressed. Safeguards should be tested rather than assumed.</p>
       <p>Looking at leasehold, I increasingly wonder whether we face a similar problem, and whether the right question is not who should own what, but whether the protections Parliament created for residents actually function.</p>
       <p>In any arrangement where one party makes decisions and another bears the consequences, the mechanisms that manage that risk matter more than the formal rights on paper. Disclosure, independent verification, accountability, the ability to exit: where those mechanisms are weak, the formal rights tend to follow.</p>
@@ -109,6 +132,7 @@
       <h2>The first door: criminal enforcement</h2>
       <p>Sections 21 and 22 of the Landlord and Tenant Act 1985 give leaseholders the right to obtain service charge information. Section 25 makes non-compliance a criminal offence. In practice, local authorities rarely prosecute. Residents seeking enforcement are often left to consider private prosecution themselves.</p>
       <p>A disclosure obligation without enforcement is not a discipline. The landlord who withholds information faces, in most cases, no meaningful consequence.</p>
+      <div class="pullquote"><p>To challenge a charge, you need evidence. To obtain the evidence, you have to challenge the charge.</p></div>
       <h2>The second door: the First-tier Tribunal</h2>
       <p>This is the most important door to examine, and the most difficult to critique, precisely because it is not obviously locked. The Tribunal exists. People use it. A critic can point at any active case and say: the door is open.</p>
       <p>But the problem is not whether the door opens. The problem is stepping through.</p>
@@ -130,6 +154,7 @@
       <p>Parliament created criminal enforcement. Parliament created tribunal oversight. Parliament created management rights. If those fragmented safeguards were intended to be used, the question is why so few residents succeed in doing so. If they were not intended to be used, the question is why they were created.</p>
       <p>Either answer is uncomfortable. Together they describe a system in which the formal rights exist, but many of the practical disciplines that make rights meaningful are weak or absent. Accountability is therefore displaced from the point at which decisions are made to the point at which residents are willing and able to challenge them. That is worth examining carefully, not as a complaint about any individual landlord or regulator, but as a question about who benefits from the current arrangement, and whether the proposed reforms genuinely change it.</p>
       <p>A system can survive considerable imperfection if accountability functions. It becomes intolerable when accountability fails, and the failure stays invisible because the people best placed to expose it are the least resourced to do so.</p>
+      <div class="pullquote"><p>Accountability fails, and the failure stays invisible because the people best placed to expose it are the least resourced to do so.</p></div>
       <p>My experience suggests we should not assume these doors are open simply because they appear on the floor plan.</p>
     </article>
 

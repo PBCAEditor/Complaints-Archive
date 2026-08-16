@@ -76,6 +76,29 @@
     }
     footer.site p { margin: 0 0 10px; }
     footer.site a { color: var(--accent); }
+
+    /* Drop cap on the first paragraph of the article body */
+    article.post > p.lead::first-letter,
+    article.post > p.dropcap::first-letter {
+      float: left;
+      font-size: 66px;
+      line-height: 54px;
+      padding: 4px 10px 0 0;
+      font-weight: 700;
+      color: var(--accent);
+      font-family: Georgia, "Times New Roman", serif;
+    }
+    /* Pull quote */
+    .pullquote {
+      margin: 30px 0;
+      padding: 4px 0;
+      border-top: 2px solid var(--accent);
+      border-bottom: 2px solid var(--accent);
+      font: italic 600 24px/1.4 Georgia, "Times New Roman", serif;
+      color: #1a1a1a;
+      text-align: left;
+    }
+    .pullquote p { margin: 14px 0; }
   </style>
 </head>
 <body>
@@ -100,12 +123,13 @@
     <article class="post">
       <h1>Missing Information and the Service Charge Maze</h1>
       <p class="byline">By David Wood &middot; Published 2 April 2026</p>
-      <p>Our residents' association was born from an accident.</p>
+      <p class="lead">Our residents' association was born from an accident.</p>
       <p>In August 2024, our Peabody building manager sent an email to all residents about the window cleaning. She CC'd instead of BCC'd. What followed was a week of residents hitting reply-all with complaints about the management, and the realisation that we were all dealing with the same problems and had been doing so alone. Within weeks we had a constitution, an elected committee, and a section 21 request in Peabody's hands.</p>
       <p>I am a humble homeowner. I bought my flat in Aldgate in 2023, and when the service charge bill arrived it was three times higher than the amount retained from the seller to cover the year's charges. I asked Peabody, my intermediate landlord, for an explanation and for the accounts. What I learned, over the next two and a half years, is that the questions themselves are not the problem. The problem is that nobody at Peabody seems able to answer them.</p>
       <h2>The numbers</h2>
       <p>Between 2021 and 2024, service charges rose by more than 120%. The average increase in London over the same period was 41%. Three times the London average, with no explanation provided.</p>
       <p>When we finally received a partial disclosure in January 2026, three years after my first request, the maths told its own story. The accounts show costs of over &pound;1 million. Adding up every invoice in the disclosure pack gives a total of approximately &pound;500,000. Half the supporting evidence for the charges demanded from residents does not exist in anything Peabody has provided. The law is clear: the ability to evidence those costs is central to assessing whether they are reasonably incurred.</p>
+      <div class="pullquote"><p>The accounts show costs of over &pound;1 million. Adding up every invoice gives around &pound;500,000.</p></div>
       <p>Our analysis of the 2025/26 demand letters made things worse. Across the 15 flats for which we have comparison data, not a single flat received the 11.73% increase that would be expected if apportionment was stable. Changes ranged from a decrease of 32.3% to an increase of 211%. One one-bedroom flat was issued a demand of &pound;700.73 per month, more than the annual charge of any three-bedroom flat in the building. Three demand letters appear to contain outright errors. The apportionment methodology, showing each flat's percentage share of costs, has never been disclosed despite repeated formal requests.</p>
       <h2>What the law says</h2>
       <p>Section 21 of the Landlord and Tenant Act 1985 gives leaseholders the right to a certified summary of their building accounts. Section 22 gives them the right to inspect the underlying invoices. These rights exist specifically to allow residents to judge the reasonableness of charges and to challenge them if necessary. Peabody is legally required to respond within 30 days.</p>
@@ -126,6 +150,7 @@
       <h2>Why this matters beyond our building</h2>
       <p>Peabody is an investment partner in the Mayor of London's Affordable Homes Programme and a signatory to the Mayor's Service Charges Charter. The Charter commits signatories to transparency on apportionment, explanations for significant cost changes, and clear challenge and redress mechanisms. Every one of those commitments has been breached at this address.</p>
       <p>What makes our case different is not the facts, those are depressingly common. What makes it different is the documentation. We have Peabody's admissions in writing, on their own headed paper. We have a recorded call with their own director. We have a review Peabody commissioned itself. Peabody cannot dispute what Peabody has already admitted.</p>
+      <div class="pullquote"><p>Peabody cannot dispute what Peabody has already admitted.</p></div>
       <p>My advice to any leaseholder in a similar position is simple. Document everything. Request everything the law entitles you to. Find others in your building. Do not stop when you are ignored, and you will be ignored. Their apparent strategy depends on you giving up.</p>
       <p>Keep the faith. And when you see neighbours looking out for each other, even in small ways, it is a reminder of what this is ultimately about.</p>
     </article>

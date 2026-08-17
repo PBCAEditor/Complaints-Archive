@@ -73,6 +73,28 @@
     section.getintouch p { margin: 0 0 12px; font-size: 17px; }
     section.getintouch p:last-child { margin-bottom: 0; }
     section.getintouch a { color: var(--accent); }
+    .search-wrap { margin: 30px 0 6px; }
+    .search-wrap input {
+      width: 100%;
+      padding: 12px 14px;
+      font: 17px/1.4 system-ui, -apple-system, Arial, sans-serif;
+      border: 1px solid var(--rule);
+      border-radius: 6px;
+      background: #fff;
+      color: var(--ink);
+    }
+    .search-wrap input:focus { outline: 2px solid var(--accent); outline-offset: 1px; border-color: var(--accent); }
+    #search-status {
+      font: 14px/1.5 system-ui, -apple-system, Arial, sans-serif;
+      color: var(--muted); margin: 8px 2px 0;
+    }
+    #search-results { list-style: none; padding: 0; margin: 6px 0 0; }
+    #search-results li { padding: 16px 0; border-bottom: 1px solid var(--rule); }
+    #search-results a { font-size: 20px; text-decoration: none; color: var(--ink); }
+    #search-results a:hover { color: var(--accent); text-decoration: underline; }
+    #search-results .r-date { font: 13px/1.4 system-ui, -apple-system, Arial, sans-serif; color: var(--muted); margin: 2px 0 6px; }
+    #search-results .r-excerpt { font-size: 16px; color: #444; margin: 0; }
+    #search-results mark { background: #fff2ba; padding: 0 1px; }
     h2.section-heading {
       font: 600 15px/1.4 system-ui, -apple-system, Arial, sans-serif;
       text-transform: uppercase; letter-spacing: 0.04em;
@@ -128,6 +150,12 @@
       <p>Peabody Trust and anyone else referred to here is welcome to reply. See <a href="./pages/corrections.html">corrections and right of reply</a>, or read more <a href="./pages/about.html">about this site</a>.</p>
     </section>
 
+    <div class="search-wrap">
+      <input type="search" id="search-box" placeholder="Search the archive…" aria-label="Search articles" autocomplete="off">
+      <div id="search-status" role="status" aria-live="polite"></div>
+      <ul id="search-results"></ul>
+    </div>
+
     <h2 class="section-heading">Latest</h2>
 
     <main>
@@ -176,6 +204,76 @@
       <p><a href="./pages/privacy.html">Privacy</a> &middot; <a href="./pages/terms.html">Terms of use</a> &middot; <a href="./pages/disclaimer.html">Legal disclaimer</a></p>
     </footer>
   </div>
+
+  <script>
+  (function () {
+    var box = document.getElementById('search-box');
+    var results = document.getElementById('search-results');
+    var status = document.getElementById('search-status');
+    var latestHeading = document.querySelector('h2.section-heading');
+    var articleList = document.querySelector('main');
+    var index = [];
+
+    // Load the search index (built from the articles).
+    fetch('search-index.json')
+      .then(function (r) { return r.json(); })
+      .then(function (data) { index = data; })
+      .catch(function () { status.textContent = ''; });
+
+    function escapeHtml(s) {
+      return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    }
+
+    function makeExcerpt(text, q) {
+      var pos = text.toLowerCase().indexOf(q);
+      var start = Math.max(0, pos - 60);
+      var snippet = text.substring(start, start + 180);
+      if (start > 0) snippet = '…' + snippet;
+      snippet = escapeHtml(snippet);
+      // highlight the query (case-insensitive)
+      var re = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&') + ')','ig');
+      return snippet.replace(re, '<mark>$1</mark>');
+    }
+
+    function showBrowse() {
+      results.innerHTML = '';
+      status.textContent = '';
+      if (latestHeading) latestHeading.style.display = '';
+      if (articleList) articleList.style.display = '';
+    }
+
+    function runSearch() {
+      var q = box.value.trim().toLowerCase();
+      if (q.length < 2) { showBrowse(); return; }
+      // hide the normal browse list while searching
+      if (latestHeading) latestHeading.style.display = 'none';
+      if (articleList) articleList.style.display = 'none';
+
+      var hits = index.filter(function (a) {
+        return a.title.toLowerCase().indexOf(q) !== -1 || a.text.indexOf(q) !== -1;
+      });
+
+      results.innerHTML = '';
+      if (hits.length === 0) {
+        status.textContent = 'No articles match “' + box.value.trim() + '”.';
+        return;
+      }
+      status.textContent = hits.length + (hits.length === 1 ? ' article' : ' articles') + ' found.';
+      hits.forEach(function (a) {
+        var li = document.createElement('li');
+        var inTitle = a.title.toLowerCase().indexOf(q) !== -1;
+        var excerpt = inTitle ? escapeHtml(a.excerpt) : makeExcerpt(a.text, q);
+        li.innerHTML =
+          '<a href="' + a.url + '">' + escapeHtml(a.title) + '</a>' +
+          '<div class="r-date">' + escapeHtml(a.date) + '</div>' +
+          '<p class="r-excerpt">' + excerpt + '…</p>';
+        results.appendChild(li);
+      });
+    }
+
+    box.addEventListener('input', runSearch);
+  })();
+  </script>
 
 </body>
 </html>

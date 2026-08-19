@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-GB">
+  <title>Peabody Complaints Archive</title>
+  <subtitle>Service charges, disclosure and accountability in social housing.</subtitle>
+  <link href="https://peabodytrust.co.uk/feed.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://peabodytrust.co.uk/" rel="alternate" type="text/html"/>
+  <id>https://peabodytrust.co.uk/</id>
+  <updated>2026-08-16T00:00:00Z</updated>
+  <author><name>David Wood</name></author>
+  <rights>This site is independent of Peabody Trust and is not affiliated with, endorsed by, or operated by Peabody Trust.</rights>
+  <entry>
+    <title>Peabody Was Convicted. It Took a Resident to Make That Happen.</title>
+    <link href="https://peabodytrust.co.uk/posts/peabody-convicted.html" rel="alternate" type="text/html"/>
+    <id>https://peabodytrust.co.uk/posts/peabody-convicted.html</id>
+    <published>2026-08-16T00:00:00Z</published>
+    <updated>2026-08-16T00:00:00Z</updated>
+    <summary type="text">Peabody Trust was convicted under section 25 of the Landlord and Tenant Act 1985 after a leaseholder's private prosecution. What it took to get there.</summary>
+  </entry>
+  <entry>
+    <title>Leasehold: The Market Is Finally Pricing In The Risk</title>
+    <link href="https://peabodytrust.co.uk/posts/leasehold-market-risk.html" rel="alternate" type="text/html"/>
+    <id>https://peabodytrust.co.uk/posts/leasehold-market-risk.html</id>
+    <published>2026-08-01T00:00:00Z</published>
+    <updated>2026-08-01T00:00:00Z</updated>
+    <summary type="text">Government, the courts and the market are converging on the same diagnosis of leasehold. The question is who pays for the slow transition.</summary>
+  </entry>
+  <entry>
+    <title>An Open Letter to the King on the 2026 Honours</title>
+    <link href="https://peabodytrust.co.uk/posts/open-letter-honours.html" rel="alternate" type="text/html"/>
+    <id>https://peabodytrust.co.uk/posts/open-letter-honours.html</id>
+    <published>2026-06-15T00:00:00Z</published>
+    <updated>2026-06-15T00:00:00Z</updated>
+    <summary type="text">An open letter objecting to a CBE awarded to Peabody Trust's CEO for services to social housing, written by a Peabody leaseholder.</summary>
+  </entry>
+  <entry>
+    <title>The Three Closed Doors: A Stress Test of Leasehold Accountability</title>
+    <link href="https://peabodytrust.co.uk/posts/three-closed-doors.html" rel="alternate" type="text/html"/>
+    <id>https://peabodytrust.co.uk/posts/three-closed-doors.html</id>
+    <published>2026-06-01T00:00:00Z</published>
+    <updated>2026-06-01T00:00:00Z</updated>
+    <summary type="text">Parliament built three safeguards for leaseholders. A former banker asks whether any of them actually function under stress.</summary>
+  </entry>
+  <entry>
+    <title>Missing Information and the Service Charge Maze</title>
+    <link href="https://peabodytrust.co.uk/posts/service-charge-maze.html" rel="alternate" type="text/html"/>
+    <id>https://peabodytrust.co.uk/posts/service-charge-maze.html</id>
+    <published>2026-04-02T00:00:00Z</published>
+    <updated>2026-04-02T00:00:00Z</updated>
+    <summary type="text">How one accidental email built a residents' association, and what two and a half years of asking Peabody for the accounts revealed.</summary>
+  </entry>
+  <entry>
+    <title>Written Evidence to Parliament on the Leasehold Reform Bill</title>
+    <link href="https://peabodytrust.co.uk/posts/hclg-written-evidence.html" rel="alternate" type="text/html"/>
+    <id>https://peabodytrust.co.uk/posts/hclg-written-evidence.html</id>
+    <published>2026-04-01T00:00:00Z</published>
+    <updated>2026-04-01T00:00:00Z</updated>
+    <summary type="text">Written evidence to the HCLG Committee on the draft Commonhold and Leasehold Reform Bill, arguing that leasehold's problem is unenforced rights.</summary>
+  </entry>
+</feed>

@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://peabodytrust.co.uk/sitemap.xml
+Feed: https://peabodytrust.co.uk/feed.xml

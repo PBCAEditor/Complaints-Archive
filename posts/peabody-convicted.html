@@ -5,6 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Peabody Was Convicted. It Took a Resident to Make That Happen. &middot; Peabody Complaints Archive</title>
   <meta name="description" content="Peabody Trust was convicted under section 25 of the Landlord and Tenant Act 1985 after a leaseholder's private prosecution. What it took to get there.">
+  <link rel="canonical" href="https://peabodytrust.co.uk/posts/peabody-convicted.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Peabody Complaints Archive">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:title" content="Peabody Was Convicted. It Took a Resident to Make That Happen.">
+  <meta property="og:description" content="Peabody Trust was convicted under section 25 of the Landlord and Tenant Act 1985 after a leaseholder's private prosecution. What it took to get there.">
+  <meta property="og:url" content="https://peabodytrust.co.uk/posts/peabody-convicted.html">
+  <meta property="og:image" content="https://peabodytrust.co.uk/images/conviction-header.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="675">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Peabody Was Convicted. It Took a Resident to Make That Happen.">
+  <meta name="twitter:description" content="Peabody Trust was convicted under section 25 of the Landlord and Tenant Act 1985 after a leaseholder's private prosecution. What it took to get there.">
+  <meta name="twitter:image" content="https://peabodytrust.co.uk/images/conviction-header.jpg">
   <style>
     :root {
       --ink: #1a1a1a;
@@ -127,6 +141,33 @@
       border-radius: 6px;
       margin: 0 0 26px;
     }
+
+    /* Share row - plain links, no third-party scripts, no cookies */
+    .share {
+      margin: 30px 0 4px;
+      padding: 18px 0 0;
+      border-top: 1px solid var(--rule);
+      font: 15px/1.6 system-ui, -apple-system, Arial, sans-serif;
+    }
+    .share .share-label {
+      display: block; margin: 0 0 10px;
+      font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase;
+      color: #666;
+    }
+    .share ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+    .share li { margin: 0; }
+    .share a, .share button {
+      display: inline-block;
+      padding: 7px 14px;
+      border: 1px solid var(--accent);
+      border-radius: 4px;
+      color: var(--accent);
+      background: transparent;
+      text-decoration: none;
+      font: inherit;
+      cursor: pointer;
+    }
+    .share a:hover, .share button:hover { background: var(--accent); color: #fff; }
   </style>
   <script data-goatcounter="https://pbcaeditor.goatcounter.com/count"
           async src="//gc.zgo.at/count.js"></script>
@@ -207,13 +248,27 @@
 
       <div class="post-update">
         <h2>Update, 18 August 2026</h2>
-        <p>Rushanara Ali responded to my request for comment after publication. Her office said that:</p>
+        <p>Rushanara Ali responded to my request for comment. Her office said that:</p>
         <blockquote>
           <p>"Rushanara has made a series of representations on your behalf, and has expressed her dissatisfaction with the issues you have raised."</p>
         </blockquote>
         <p>She did not answer the questions I put to her. In particular, no comment was provided on Peabody having given her office inaccurate information about its compliance with the law, despite Peabody's own review accepting that this had happened, and despite Peabody now having been convicted under section 25 of the same Act following a further failure to comply with a section 21 request. She also did not comment on whether she intends to take this further, or whether she views the current enforcement framework under sections 21, 22 and 25 as adequate.</p>
       </div>
     </article>
+
+
+    <div class="share">
+      <span class="share-label">Share this article</span>
+      <ul>
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fpeabodytrust.co.uk%2Fposts%2Fpeabody-convicted.html"
+               target="_blank" rel="noopener noreferrer">Facebook</a></li>
+        <li><a href="https://wa.me/?text=Peabody%20Was%20Convicted.%20It%20Took%20a%20Resident%20to%20Make%20That%20Happen.%20https%3A%2F%2Fpeabodytrust.co.uk%2Fposts%2Fpeabody-convicted.html"
+               target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fpeabodytrust.co.uk%2Fposts%2Fpeabody-convicted.html"
+               target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><button type="button" class="copy-link" data-url="https://peabodytrust.co.uk/posts/peabody-convicted.html">Copy link</button></li>
+      </ul>
+    </div>
 
     <p class="backlink"><a href="../index.html">&larr; Back to all articles</a></p>
 
@@ -224,5 +279,23 @@
     </footer>
   </div>
 
+
+  <script>
+    document.querySelectorAll('.copy-link').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var url = b.getAttribute('data-url');
+        var done = function () {
+          var t = b.textContent;
+          b.textContent = 'Link copied';
+          setTimeout(function () { b.textContent = t; }, 1800);
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(url).then(done, function () { window.prompt('Copy this link:', url); });
+        } else {
+          window.prompt('Copy this link:', url);
+        }
+      });
+    });
+  </script>
 </body>
 </html>

@@ -5,6 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Missing Information and the Service Charge Maze &middot; Peabody Complaints Archive</title>
   <meta name="description" content="How one accidental email built a residents' association, and what two and a half years of asking Peabody for the accounts revealed.">
+  <link rel="canonical" href="https://peabodytrust.co.uk/posts/service-charge-maze.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Peabody Complaints Archive">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:title" content="Missing Information and the Service Charge Maze">
+  <meta property="og:description" content="How one accidental email built a residents' association, and what two and a half years of asking Peabody for the accounts revealed.">
+  <meta property="og:url" content="https://peabodytrust.co.uk/posts/service-charge-maze.html">
+  <meta property="og:image" content="https://peabodytrust.co.uk/images/service-charge-header.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="675">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Missing Information and the Service Charge Maze">
+  <meta name="twitter:description" content="How one accidental email built a residents' association, and what two and a half years of asking Peabody for the accounts revealed.">
+  <meta name="twitter:image" content="https://peabodytrust.co.uk/images/service-charge-header.jpg">
   <style>
     :root {
       --ink: #1a1a1a;
@@ -108,6 +122,33 @@
       border-radius: 6px;
       margin: 0 0 26px;
     }
+
+    /* Share row - plain links, no third-party scripts, no cookies */
+    .share {
+      margin: 30px 0 4px;
+      padding: 18px 0 0;
+      border-top: 1px solid var(--rule);
+      font: 15px/1.6 system-ui, -apple-system, Arial, sans-serif;
+    }
+    .share .share-label {
+      display: block; margin: 0 0 10px;
+      font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase;
+      color: #666;
+    }
+    .share ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+    .share li { margin: 0; }
+    .share a, .share button {
+      display: inline-block;
+      padding: 7px 14px;
+      border: 1px solid var(--accent);
+      border-radius: 4px;
+      color: var(--accent);
+      background: transparent;
+      text-decoration: none;
+      font: inherit;
+      cursor: pointer;
+    }
+    .share a:hover, .share button:hover { background: var(--accent); color: #fff; }
   </style>
   <script data-goatcounter="https://pbcaeditor.goatcounter.com/count"
           async src="//gc.zgo.at/count.js"></script>
@@ -167,6 +208,20 @@
       <p>Keep the faith. And when you see neighbours looking out for each other, even in small ways, it is a reminder of what this is ultimately about.</p>
     </article>
 
+
+    <div class="share">
+      <span class="share-label">Share this article</span>
+      <ul>
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fpeabodytrust.co.uk%2Fposts%2Fservice-charge-maze.html"
+               target="_blank" rel="noopener noreferrer">Facebook</a></li>
+        <li><a href="https://wa.me/?text=Missing%20Information%20and%20the%20Service%20Charge%20Maze%20https%3A%2F%2Fpeabodytrust.co.uk%2Fposts%2Fservice-charge-maze.html"
+               target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fpeabodytrust.co.uk%2Fposts%2Fservice-charge-maze.html"
+               target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><button type="button" class="copy-link" data-url="https://peabodytrust.co.uk/posts/service-charge-maze.html">Copy link</button></li>
+      </ul>
+    </div>
+
     <p class="backlink"><a href="../index.html">&larr; Back to all articles</a></p>
 
     <footer class="site">
@@ -176,5 +231,23 @@
     </footer>
   </div>
 
+
+  <script>
+    document.querySelectorAll('.copy-link').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var url = b.getAttribute('data-url');
+        var done = function () {
+          var t = b.textContent;
+          b.textContent = 'Link copied';
+          setTimeout(function () { b.textContent = t; }, 1800);
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(url).then(done, function () { window.prompt('Copy this link:', url); });
+        } else {
+          window.prompt('Copy this link:', url);
+        }
+      });
+    });
+  </script>
 </body>
 </html>

@@ -5,6 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>An Open Letter to the King on the 2026 Honours &middot; Peabody Complaints Archive</title>
   <meta name="description" content="An open letter objecting to a CBE awarded to Peabody Trust's CEO for services to social housing, written by a Peabody leaseholder.">
+  <link rel="canonical" href="https://peabodytrust.co.uk/posts/open-letter-honours.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Peabody Complaints Archive">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:title" content="An Open Letter to the King on the 2026 Honours">
+  <meta property="og:description" content="An open letter objecting to a CBE awarded to Peabody Trust's CEO for services to social housing, written by a Peabody leaseholder.">
+  <meta property="og:url" content="https://peabodytrust.co.uk/posts/open-letter-honours.html">
+  <meta property="og:image" content="https://peabodytrust.co.uk/images/share-default.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="An Open Letter to the King on the 2026 Honours">
+  <meta name="twitter:description" content="An open letter objecting to a CBE awarded to Peabody Trust's CEO for services to social housing, written by a Peabody leaseholder.">
+  <meta name="twitter:image" content="https://peabodytrust.co.uk/images/share-default.jpg">
   <style>
     :root {
       --ink: #1a1a1a; --muted: #5c5c5c; --rule: #e2e2e2; --accent: #0b6b6f;
@@ -69,6 +83,33 @@
       text-align: left;
     }
     .pullquote p { margin: 14px 0; }
+
+    /* Share row - plain links, no third-party scripts, no cookies */
+    .share {
+      margin: 30px 0 4px;
+      padding: 18px 0 0;
+      border-top: 1px solid var(--rule);
+      font: 15px/1.6 system-ui, -apple-system, Arial, sans-serif;
+    }
+    .share .share-label {
+      display: block; margin: 0 0 10px;
+      font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase;
+      color: #666;
+    }
+    .share ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+    .share li { margin: 0; }
+    .share a, .share button {
+      display: inline-block;
+      padding: 7px 14px;
+      border: 1px solid var(--accent);
+      border-radius: 4px;
+      color: var(--accent);
+      background: transparent;
+      text-decoration: none;
+      font: inherit;
+      cursor: pointer;
+    }
+    .share a:hover, .share button:hover { background: var(--accent); color: #fff; }
   </style>
   <script data-goatcounter="https://pbcaeditor.goatcounter.com/count"
           async src="//gc.zgo.at/count.js"></script>
@@ -110,6 +151,20 @@
       <p>I have the honour to be, Sir, Your Majesty's obedient servant,</p>
       <p><strong>David Wood</strong><br>Peabody resident and leaseholder<br>Chair, a recognised Residents' Association</p>
     </article>
+
+    <div class="share">
+      <span class="share-label">Share this article</span>
+      <ul>
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fpeabodytrust.co.uk%2Fposts%2Fopen-letter-honours.html"
+               target="_blank" rel="noopener noreferrer">Facebook</a></li>
+        <li><a href="https://wa.me/?text=An%20Open%20Letter%20to%20the%20King%20on%20the%202026%20Honours%20https%3A%2F%2Fpeabodytrust.co.uk%2Fposts%2Fopen-letter-honours.html"
+               target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fpeabodytrust.co.uk%2Fposts%2Fopen-letter-honours.html"
+               target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><button type="button" class="copy-link" data-url="https://peabodytrust.co.uk/posts/open-letter-honours.html">Copy link</button></li>
+      </ul>
+    </div>
+
     <p class="backlink"><a href="../index.html">&larr; Back to all articles</a></p>
     <footer class="site">
       <p>This site is written and run by leaseholders and residents, including members of the Residents' Association. It is independent of Peabody Trust and is not operated by or on behalf of Peabody Trust.</p>
@@ -117,5 +172,23 @@
       <p><a href="../pages/privacy.html">Privacy</a> &middot; <a href="../pages/terms.html">Terms of use</a> &middot; <a href="../pages/disclaimer.html">Legal disclaimer</a></p>
     </footer>
   </div>
+
+  <script>
+    document.querySelectorAll('.copy-link').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var url = b.getAttribute('data-url');
+        var done = function () {
+          var t = b.textContent;
+          b.textContent = 'Link copied';
+          setTimeout(function () { b.textContent = t; }, 1800);
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(url).then(done, function () { window.prompt('Copy this link:', url); });
+        } else {
+          window.prompt('Copy this link:', url);
+        }
+      });
+    });
+  </script>
 </body>
 </html>

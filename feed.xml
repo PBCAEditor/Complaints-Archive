@@ -5,9 +5,17 @@
   <link href="https://peabodytrust.co.uk/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://peabodytrust.co.uk/" rel="alternate" type="text/html"/>
   <id>https://peabodytrust.co.uk/</id>
-  <updated>2026-08-16T00:00:00Z</updated>
+  <updated>2026-08-20T00:00:00Z</updated>
   <author><name>David Wood</name></author>
   <rights>This site is independent of Peabody Trust and is not affiliated with, endorsed by, or operated by Peabody Trust.</rights>
+  <entry>
+    <title>The Staircase That Goes Nowhere: You Own 30%. You Pay 100%.</title>
+    <link href="https://peabodytrust.co.uk/posts/staircase-goes-nowhere.html" rel="alternate" type="text/html"/>
+    <id>https://peabodytrust.co.uk/posts/staircase-goes-nowhere.html</id>
+    <published>2026-08-20T00:00:00Z</published>
+    <updated>2026-08-20T00:00:00Z</updated>
+    <summary type="text">Shared owners hold a fraction of the equity but the whole service-charge liability. What the data does and does not show about staircasing, cost and control.</summary>
+  </entry>
   <entry>
     <title>Peabody Was Convicted. It Took a Resident to Make That Happen.</title>
     <link href="https://peabodytrust.co.uk/posts/peabody-convicted.html" rel="alternate" type="text/html"/>

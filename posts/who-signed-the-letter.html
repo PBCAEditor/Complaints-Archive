@@ -189,6 +189,21 @@
     }
     details.transcript .t-sigs li { break-inside: avoid; margin-bottom: 4px; }
 
+    /* Further reading */
+    .further { margin: 34px 0 4px; padding: 20px 0 0; border-top: 2px solid var(--accent); }
+    article.post .further h2 { font: 600 14px/1.3 system-ui, -apple-system, Arial, sans-serif !important;
+      letter-spacing: 0.07em; text-transform: uppercase; color: var(--accent); margin: 0 0 16px !important; }
+    .further ul { list-style: none; margin: 0; padding: 0; }
+    .further li { margin: 0 0 16px; }
+    .further .fr-item { display: flex; gap: 14px; align-items: flex-start; text-decoration: none; }
+    .further .fr-item img { width: 120px; height: 68px; object-fit: cover; flex: 0 0 auto; border: 1px solid var(--rule); }
+    .further .fr-title { display: block; font-family: Georgia, 'Times New Roman', serif;
+      font-size: 18px; line-height: 1.3; color: var(--ink); margin: 0 0 3px; }
+    .further .fr-item:hover .fr-title { color: var(--accent); text-decoration: underline; }
+    .further .fr-meta { display: block; font: 13px/1.4 system-ui, -apple-system, Arial, sans-serif; color: var(--muted); }
+    .further .fr-noimg { padding-top: 2px; }
+    @media (max-width: 460px) { .further .fr-item img { width: 84px; height: 48px; } }
+
     /* Skip link and visible focus */
     .skip-link {
       position: absolute; left: -9999px; top: 0;
@@ -219,6 +234,8 @@
       footer.site { border-top: 1pt solid #000; font-size: 9pt; color: #000; }
       a { color: #000; text-decoration: underline; }
       article.post a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 8.5pt; }
+      .further { border-top: 1pt solid #000; }
+      .further .fr-item img { display: none; }
       img.post-header-image { display: none; }
       .pullquote { border-color: #000; }
       h1, h2, h3 { page-break-after: avoid; }
@@ -441,6 +458,19 @@
       <p>More significant than the party labels may be the range of experience behind the signatures. The list includes two former Shadow Secretaries of State for Communities and Local Government, a former shadow housing minister, a former Green housing spokesperson, former and current members of the Commons housing committee, the chair and a vice-chair of the APPG on Council and Social Housing, a former housing-association board member, a former social-housing tenancy enforcement officer, solicitors and barristers, a chartered accountant and a professor of accounting. Seventeen of the 29 are members of Parliament's social-housing APPG.</p>
       <p>None of that determines whether the proposals in the letter are right or wrong. But it does answer a simpler question. When 29 parliamentarians put their names to a call for greater accountability of housing associations, who exactly were they?</p>
       <p>Not simply a collection of names at the bottom of a letter. A substantial proportion already have identifiable experience of housing, local government, law, regulation, accounting or the parliamentary scrutiny of social landlords. Whatever the Government does with the letter, it cannot reasonably dismiss it as uninformed.</p>
+      <nav class="further" aria-label="Further reading">
+        <h2>Further reading</h2>
+        <ul>
+          <li><a class="fr-item fr-noimg" href="https://shaction.org/2026/08/20/we-can-end-the-conspiracy-of-silence-join-mps-call-for-action/" target="_blank" rel="noopener noreferrer">
+            <span><span class="fr-title">We Can End the Conspiracy of Silence: Join MPs&rsquo; Call for Action</span>
+            <span class="fr-meta">External &middot; Social Housing Action Campaign, 20 August 2026 &middot; SHAC&rsquo;s response to the letter, with the full text as a PDF and two suggested actions for readers (opens in a new tab)</span></span></a></li>
+          <li><a class="fr-item" href="./peabody-convicted.html">
+            <img src="../images/conviction-header.jpg" alt="">
+            <span><span class="fr-title">Peabody Was Convicted. It Took a Resident to Make That Happen.</span>
+            <span class="fr-meta">On this site &middot; The letter asks for prosecution where service failures repeat. This is what happened when a resident brought one</span></span></a></li>
+        </ul>
+      </nav>
+
     </article>
 
 

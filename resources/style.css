@@ -298,3 +298,31 @@ footer.site a{color:var(--ink-faint)}
   footer.site{border-top:1pt solid #000;color:#000}
   a{color:#000}
 }
+
+/* ---------- two-route grid: prompts left, instructions right ---------- */
+.route-grid{
+  display:grid;grid-template-columns:minmax(0,1fr);gap:1.6rem 2.4rem;
+  margin-top:1.6rem;
+}
+@media(min-width:64rem){
+  .route-grid{grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);align-items:start}
+}
+.route-grid > div{min-width:0}
+.route-prompt .btn-row{margin:.5rem 0 .9rem}
+.route-prompt .promptbox{margin:0}
+.route-steps .steps{margin-top:.7rem}
+.route-lede{
+  font-family:var(--sans);font-size:.95rem;color:var(--ink-soft);
+  margin:.5rem 0 0;max-width:var(--measure);
+}
+.route-note{
+  font-family:var(--sans);font-size:.9rem;color:var(--ink-faint);
+  margin:1rem 0 0;max-width:var(--measure);
+}
+/* second row sits clear of the first on wide screens */
+@media(min-width:64rem){
+  .route-grid > div:nth-child(3),
+  .route-grid > div:nth-child(4){
+    margin-top:1.4rem;padding-top:1.6rem;border-top:1px solid var(--rule);
+  }
+}

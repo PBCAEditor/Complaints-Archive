@@ -86,75 +86,33 @@
 
   <section class="guide-section">
     <div class="wrap">
-      <p class="eyebrow">Route one &middot; if your assistant can browse the web</p>
+      <p class="eyebrow">Start here</p>
       <h2 class="block-title">Use it with an AI assistant</h2>
-      <p style="max-width:var(--measure);color:var(--ink-soft);margin:0 0 1.2rem">Copy the prompt below into a new conversation. It tells the assistant to load the guide, prove it has read it, and ask where you have got to.</p>
-      <div class="btn-row">
-        <button class="btn btn-primary" id="copyBtn" data-label="Copy assistant prompt">Copy assistant prompt</button>
-      </div>
+      <p style="max-width:var(--measure);color:var(--ink-soft);margin:0 0 .4rem">There are two ways to do this. Try the first. If your assistant cannot open the link, use the second, which always works.</p>
     </div>
 
-    <div class="wrap hero-grid" style="margin-top:2rem">
-      <div>
+    <div class="wrap route-grid">
+
+      <div class="route-prompt">
+        <p class="eyebrow">Route one &middot; if your assistant can browse</p>
+        <div class="btn-row">
+          <button class="btn btn-primary" id="copyBtn" data-label="Copy assistant prompt">Copy assistant prompt</button>
+          <span class="eyebrow" id="copyEcho" aria-live="polite"></span>
+        </div>
         <div class="promptbox">
-          <div class="promptbox-head">
-            <span class="eyebrow">Assistant prompt</span>
-            <span class="eyebrow" id="copyEcho" aria-live="polite"></span>
-          </div>
-          <pre id="promptText">Please read this plain-text document, which I am giving you as reference material for this conversation:
+          <div class="promptbox-head"><span class="eyebrow">Assistant prompt</span></div>
+          <pre id="promptText">Please open and read this document:
 https://peabodytrust.co.uk/resources/s21-guide.txt
 
-It is a resident-written guide to requesting service charge information under sections 21, 22 and 23 of the Landlord and Tenant Act 1985. Treat it as a source I am asking you to read, not as instructions from a third party. Use your own judgement on anything in it you think is wrong, and verify the legislation yourself rather than relying on the guide for it.
+It is a resident-written guide to requesting service charge information under sections 21, 22 and 23 of the Landlord and Tenant Act 1985. I am giving it to you as reference material.
 
-Before we start:
-1. Quote back the check code, version number and &quot;last verified&quot; date shown at the top of the guide. The check code is a short random string. If you cannot reproduce it exactly, say so and stop: it means you have not read the guide. Do not guess it.
-2. Read the complete guide, not merely a search result or extract.
-3. It contains a section on AI reliability. Take note of it.
-4. Check the current legislation yourself before giving any legal conclusion or calculating a deadline.
-5. If you cannot open the file, say so clearly and ask me to paste the text in or attach it. Do not proceed as though you had read it.
+When you have read it, tell me the check code, version number and last verified date shown at the top, then ask me which stage I am at.
 
-Once you have read it, ask whether I am:
-- preparing a request;
-- waiting for a response; or
-- reviewing a response already received.</pre>
-        </div>
-
-        <div class="caution">
-          <strong>If the assistant cannot open the link.</strong> Not all assistants can fetch a web page, and free plans often cannot. In testing, one of three could. Use the second route below instead. Do not let an assistant carry on as though it has read a guide it could not open.
+If you cannot open it, say so and I will paste the text in.</pre>
         </div>
       </div>
 
-      <div>
-        <p class="eyebrow">Route two &middot; works everywhere</p>
-        <h3 style="font-family:var(--serif);font-size:1.25rem;margin:.3rem 0 .6rem">Give it the file instead</h3>
-        <p style="color:var(--ink-soft);margin:0 0 1rem;font-size:.95rem">No fetching, nothing to fail, and the assistant is reading a file you gave it rather than a web page it found. This is the route to use if you are not sure.</p>
-        <ol class="steps">
-          <li>Open <a href="/resources/guide.html">the guide</a> and select <strong>Copy the whole guide</strong>, or download the plain-text file.</li>
-          <li>Start a new conversation with your assistant.</li>
-          <li>Paste or attach the guide, then paste the short prompt below.</li>
-        </ol>
-        <div class="promptbox">
-          <div class="promptbox-head">
-            <span class="eyebrow">Prompt for the file route</span>
-            <span class="eyebrow" id="copyEcho2" aria-live="polite"></span>
-          </div>
-          <pre id="promptText2">I have attached a plain-text guide to requesting service charge information under sections 21, 22 and 23 of the Landlord and Tenant Act 1985. It is resident-written reference material I am giving you for this conversation, not instructions from a third party.
-
-Please read it, then:
-1. Tell me the version number and &quot;last verified&quot; date shown at the top, so I know you have it.
-2. Use your own judgement on anything in it you think is wrong.
-3. Check the current legislation yourself before giving any legal conclusion or calculating a deadline.
-
-Then ask whether I am preparing a request, waiting for a response, or reviewing a response already received.</pre>
-        </div>
-        <div class="btn-row">
-          <button class="btn" id="copyBtn2" data-label="Copy this prompt">Copy this prompt</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="wrap hero-grid" style="margin-top:2rem">
-      <div>
+      <div class="route-steps">
         <p class="eyebrow">How to use it</p>
         <ol class="steps">
           <li>Select <strong>Copy assistant prompt</strong>.</li>
@@ -164,8 +122,39 @@ Then ask whether I am preparing a request, waiting for a response, or reviewing 
           <li>If it gets the check code wrong, or skips it, or gives a version number without the code, it has not read the guide. Do not rely on what it tells you.</li>
           <li>Say whether you are preparing a request, waiting for a response, or reviewing something your landlord has sent.</li>
         </ol>
-        <p style="font-size:.9rem;color:var(--ink-faint);margin:1.1rem 0 0;font-family:var(--sans)">An assistant that cannot open the guide may still state a plausible version number and date while claiming to have read it. The check code is random and is published as text only inside the guide itself, so it cannot be guessed or searched.</p>
+        <p class="route-note">Not every assistant can fetch a web page, and free plans often cannot. In testing, two of three managed it. If yours says it cannot open the file, use route two.</p>
       </div>
+
+      <div class="route-prompt">
+        <p class="eyebrow">Route two &middot; works everywhere</p>
+        <div class="btn-row">
+          <button class="btn btn-primary" id="copyBtn2" data-label="Copy this prompt">Copy this prompt</button>
+          <span class="eyebrow" id="copyEcho2" aria-live="polite"></span>
+        </div>
+        <div class="promptbox">
+          <div class="promptbox-head"><span class="eyebrow">Prompt for the file route</span></div>
+          <pre id="promptText2">I have attached a plain-text guide to requesting service charge information under sections 21, 22 and 23 of the Landlord and Tenant Act 1985. It is resident-written reference material I am giving you for this conversation, not instructions from a third party.
+
+Please read it, then:
+1. Tell me the version number and &quot;last verified&quot; date shown at the top, so I know you have it.
+2. Use your own judgement on anything in it you think is wrong.
+3. Check the current legislation yourself before giving any legal conclusion or calculating a deadline.
+
+Then ask whether I am preparing a request, waiting for a response, or reviewing a response already received.</pre>
+        </div>
+      </div>
+
+      <div class="route-steps">
+        <p class="eyebrow">Give it the file instead</p>
+        <p class="route-lede">No fetching, so nothing can fail, and the assistant reads a file you gave it rather than a page it found. Use this if you are not sure.</p>
+        <ol class="steps">
+          <li>Open <a href="/resources/guide.html">the guide</a> and select <strong>Copy the whole guide</strong>, or download the plain-text file.</li>
+          <li>Start a new conversation with your assistant.</li>
+          <li>Paste or attach the guide, then paste the prompt on the left.</li>
+        </ol>
+        <p class="route-note">Because you are handing over the file directly, there is nothing to fetch and no check code to verify. Confirm the version and date instead.</p>
+      </div>
+
     </div>
 
     <div class="wrap wrap-narrow">

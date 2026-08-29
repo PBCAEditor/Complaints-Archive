@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The guide: requesting service charge information | Peabody Complaints Archive</title>
+<meta name="description" content="Full text of the guide to requesting service charge information under sections 21, 22 and 23 of the Landlord and Tenant Act 1985.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <a class="brand" href="index.html">&larr; Peabody Complaints Archive <span>/ Resources</span></a>
+    <span class="vchip">v0.1 beta &middot; verified 29 Aug 2026</span>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Full text</p>
+    <h1 style="max-width:22ch">Requesting service charge information</h1>
+    <p class="standfirst">
+      The complete guide. If you would rather have an AI assistant work through it with
+      you, <a href="index.html">start on the instructions page</a> instead.
+    </p>
+    <div class="btn-row">
+      <a class="btn" href="index.html">Assistant prompt and instructions</a>
+      <a class="btn" href="s21-guide.md" download>Download Markdown <small>47 KB</small></a>
+    </div>
+  </div>
+</section>
+
+<section class="guide-section">
+  <div class="wrap guide-layout">
+    <nav class="toc" id="toc" aria-label="Guide contents">
+      <h3>Contents</h3>
+      <ol id="tocList"></ol>
+    </nav>
+    <article class="doc" id="doc">
+      <div class="doc-status" id="docStatus">
+        Loading the guide&hellip;
+        <noscript>This page renders the guide with JavaScript. Read it directly at
+        <a href="s21-guide.md">s21-guide.md</a>.</noscript>
+      </div>
+    </article>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <p class="eyebrow">About this guide</p>
+    <p>
+      Published by the Peabody Complaints Archive, which is independent and resident-run.
+      It is not operated by, affiliated with or endorsed by Peabody Trust.
+    </p>
+    <p>
+      Based on the SHAC guide &ldquo;Requesting Your Service Charge Information&rdquo; (2026).
+      Statutory text is Crown copyright, reproduced from legislation.gov.uk under the
+      <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3" rel="noopener">Open Government Licence v3.0</a>.
+    </p>
+    <p>
+      Beta, and not legal advice. The law changes: check the verification date before
+      relying on anything here.
+    </p>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js"></script>
+<script>
+(function(){
+  "use strict";
+  var doc=document.getElementById('doc'),
+      status=document.getElementById('docStatus'),
+      tocList=document.getElementById('tocList');
+
+  function fail(){
+    status.innerHTML='The guide could not be loaded on this page. '+
+      'Read it directly at <a href="s21-guide.md">s21-guide.md</a>.';
+  }
+  function slug(s){
+    return s.toLowerCase().replace(/[^\w\s-]/g,'').trim().replace(/\s+/g,'-').slice(0,60);
+  }
+  function stripFrontMatter(md){
+    if(md.indexOf('---')!==0) return md;
+    var end=md.indexOf('\n---',3);
+    return end===-1?md:md.slice(end+4);
+  }
+
+  if(typeof marked==='undefined'){fail();return;}
+
+  fetch('s21-guide.md',{cache:'no-cache'})
+    .then(function(r){ if(!r.ok) throw new Error(r.status); return r.text(); })
+    .then(function(md){
+      marked.setOptions({gfm:true,breaks:false,headerIds:false,mangle:false});
+      doc.innerHTML=marked.parse(stripFrontMatter(md));
+
+      var heads=doc.querySelectorAll('h2'),used={};
+      Array.prototype.forEach.call(heads,function(h){
+        var id=slug(h.textContent);
+        if(used[id]){used[id]++;id=id+'-'+used[id];}else{used[id]=1;}
+        h.id=id;
+        var li=document.createElement('li'),a=document.createElement('a');
+        a.href='#'+id;
+        a.textContent=h.textContent.replace(/^Appendix\s+/,'App. ');
+        li.appendChild(a);
+        tocList.appendChild(li);
+      });
+      if(!heads.length){document.getElementById('toc').style.display='none';}
+    })
+    .catch(fail);
+})();
+</script>
+</body>
+</html>

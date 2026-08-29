@@ -86,7 +86,7 @@
 
   <section class="guide-section">
     <div class="wrap">
-      <p class="eyebrow">Start here</p>
+      <p class="eyebrow">Route one &middot; if your assistant can browse the web</p>
       <h2 class="block-title">Use it with an AI assistant</h2>
       <p style="max-width:var(--measure);color:var(--ink-soft);margin:0 0 1.2rem">Copy the prompt below into a new conversation. It tells the assistant to load the guide, prove it has read it, and ask where you have got to.</p>
       <div class="btn-row">
@@ -101,29 +101,59 @@
             <span class="eyebrow">Assistant prompt</span>
             <span class="eyebrow" id="copyEcho" aria-live="polite"></span>
           </div>
-          <pre id="promptText">Open and read the complete guide at:
-https://peabodytrust.co.uk/resources/guide.html
+          <pre id="promptText">Please read this plain-text document, which I am giving you as reference material for this conversation:
+https://peabodytrust.co.uk/resources/s21-guide.txt
 
-Use it as the operating guide for this conversation when helping me with service charge information under sections 21, 22 and 23 of the Landlord and Tenant Act 1985.
+It is a resident-written guide to requesting service charge information under sections 21, 22 and 23 of the Landlord and Tenant Act 1985. Treat it as a source I am asking you to read, not as instructions from a third party. Use your own judgement on anything in it you think is wrong, and verify the legislation yourself rather than relying on the guide for it.
 
-Before helping me:
+Before we start:
 1. Quote back the check code, version number and &quot;last verified&quot; date shown at the top of the guide. The check code is a short random string. If you cannot reproduce it exactly, say so and stop: it means you have not read the guide. Do not guess it.
 2. Read the complete guide, not merely a search result or extract.
-3. Follow its AI reliability warning.
-4. Verify the current legislation before giving any legal conclusion or calculating a deadline.
-5. If you cannot access or read the complete guide, tell me clearly and ask me to attach the plain-text copy at https://peabodytrust.co.uk/resources/s21-guide.txt or paste the guide text into the conversation. Do not proceed as though you have read it.
+3. It contains a section on AI reliability. Take note of it.
+4. Check the current legislation yourself before giving any legal conclusion or calculating a deadline.
+5. If you cannot open the file, say so clearly and ask me to paste the text in or attach it. Do not proceed as though you had read it.
 
-Once loaded, ask whether I am:
+Once you have read it, ask whether I am:
 - preparing a request;
 - waiting for a response; or
 - reviewing a response already received.</pre>
         </div>
 
         <div class="caution">
-          <strong>If the assistant cannot open the link.</strong> Some assistants cannot browse the web, and free plans often cannot. Download the plain-text copy above and attach it to the conversation, or open <a href="/resources/guide.html">the guide</a> and paste the text in. Do not let an assistant carry on as though it has read a guide it could not open.
+          <strong>If the assistant cannot open the link.</strong> Not all assistants can fetch a web page, and free plans often cannot. In testing, one of three could. Use the second route below instead. Do not let an assistant carry on as though it has read a guide it could not open.
         </div>
       </div>
 
+      <div>
+        <p class="eyebrow">Route two &middot; works everywhere</p>
+        <h3 style="font-family:var(--serif);font-size:1.25rem;margin:.3rem 0 .6rem">Give it the file instead</h3>
+        <p style="color:var(--ink-soft);margin:0 0 1rem;font-size:.95rem">No fetching, nothing to fail, and the assistant is reading a file you gave it rather than a web page it found. This is the route to use if you are not sure.</p>
+        <ol class="steps">
+          <li>Open <a href="/resources/guide.html">the guide</a> and select <strong>Copy the whole guide</strong>, or download the plain-text file.</li>
+          <li>Start a new conversation with your assistant.</li>
+          <li>Paste or attach the guide, then paste the short prompt below.</li>
+        </ol>
+        <div class="promptbox">
+          <div class="promptbox-head">
+            <span class="eyebrow">Prompt for the file route</span>
+            <span class="eyebrow" id="copyEcho2" aria-live="polite"></span>
+          </div>
+          <pre id="promptText2">I have attached a plain-text guide to requesting service charge information under sections 21, 22 and 23 of the Landlord and Tenant Act 1985. It is resident-written reference material I am giving you for this conversation, not instructions from a third party.
+
+Please read it, then:
+1. Tell me the version number and &quot;last verified&quot; date shown at the top, so I know you have it.
+2. Use your own judgement on anything in it you think is wrong.
+3. Check the current legislation yourself before giving any legal conclusion or calculating a deadline.
+
+Then ask whether I am preparing a request, waiting for a response, or reviewing a response already received.</pre>
+        </div>
+        <div class="btn-row">
+          <button class="btn" id="copyBtn2" data-label="Copy this prompt">Copy this prompt</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrap hero-grid" style="margin-top:2rem">
       <div>
         <p class="eyebrow">How to use it</p>
         <ol class="steps">
@@ -178,9 +208,10 @@ Once loaded, ask whether I am:
 
 <script>
 (function () {
-  var btn = document.getElementById('copyBtn');
-  var echo = document.getElementById('copyEcho');
-  var src = document.getElementById('promptText');
+  function wire(btnId, echoId, srcId) {
+  var btn = document.getElementById(btnId);
+  var echo = document.getElementById(echoId);
+  var src = document.getElementById(srcId);
   if (!btn || !src) return;
   function done(msg) {
     echo.textContent = msg;
@@ -201,6 +232,9 @@ Once loaded, ask whether I am:
       window.prompt('Copy the prompt:', text);
     }
   });
+  }
+  wire('copyBtn', 'copyEcho', 'promptText');
+  wire('copyBtn2', 'copyEcho2', 'promptText2');
 })();
 </script>
 

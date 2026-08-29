@@ -257,11 +257,11 @@ footer.site a{color:var(--ink-faint)}
 .skip-link:focus{left:0}
 
 /* verification image sits in the stamp card */
-.stamp-img{display:block;width:100%;height:auto;border:1px solid var(--rule);margin:.2rem 0 .9rem}
+.stamp-img{display:block;width:100%;max-width:22rem;height:auto;border:1px solid var(--rule);margin:.2rem 0 .9rem}
 
 /* ---------- closing warning ---------- */
 .final-warning{
-  margin:3rem 0 0;padding:1.4rem 1.5rem;
+  margin:3rem 0 1rem;padding:1.4rem 1.5rem;
   border:2px solid var(--caution);background:var(--caution-wash);
   font-family:var(--sans);font-size:1rem;line-height:1.62;
 }

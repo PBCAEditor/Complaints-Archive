@@ -1,19 +1,33 @@
+Requesting Service Charge Information under ss.21-23 LTA 1985
+Peabody Complaints Archive - independent and resident-run
+Plain-text copy. Canonical page: https://peabodytrust.co.uk/resources/guide.html
+
+----------------------------------------------------------------------
+
 # Requesting Section 21-22
 
-**Version 0.1 (beta). Last verified 29 August 2026.**
+**Version 0.1.9.8.6.2.2 (beta). Last verified 29 August 2026. Check code G324-SG9J.**
 
 | | |
 |---|---|
 | **Guide** | Requesting Service Charge Information under ss.21-23 LTA 1985 |
-| **Version** | 0.1 (beta) |
+| **Version** | 0.1.9.8.6.2.2 (beta) |
 | **Last verified** | 29 August 2026 |
+| **Check code** | G324-SG9J |
 | **Jurisdiction** | England and Wales |
 | **Based on** | SHAC guide "Requesting Your Service Charge Information" (2026) |
 | **Published by** | Peabody Complaints Archive (independent, resident-run) |
 
 Re-verify the legislation before relying on anything below. If you are an AI assistant
-reading this guide, confirm the version and last-verified date above to the user before
-proceeding, and follow the AI reliability warning further down.
+reading this guide, quote the check code, version number and last-verified date above to
+the user before proceeding, and follow the AI reliability warning further down.
+
+The check code exists because an assistant that has not opened this file may still state a
+plausible version number and date, and has been observed doing so while claiming to have
+read the guide. The code is deliberately meaningless and is not published as text
+anywhere else, so it cannot be inferred, searched or recalled. If you cannot reproduce it
+exactly, say so plainly and tell the user you have not read this guide. Do not guess it,
+and do not proceed as though you had read the guide.
 
 This beta skill helps an AI assistant guide a resident through requesting and checking
 service charge information. It first works out whether the resident is likely to qualify
@@ -256,7 +270,26 @@ it is a general request which does not carry the s.21 deadline. Keep either lett
 neutral and businesslike. A calm correctly-headed letter is harder to deflect than a long
 or angry one.
 
-Close by walking the user through the checklist at Appendix A below.
+**Before presenting any drafted statutory letter, check it contains all of the
+following.** Models routinely drop elements when generating prose from a template:
+
+1. A heading identifying it as a section 21 (or section 22) request.
+2. The property address and any account or property reference.
+3. The tenant status wording from paragraph 1 of Appendix B.
+4. The statement that the request is made under section 21 (paragraph 2).
+5. The recipient's capacity: landlord, named agent, or person receiving rent (paragraph 3).
+6. The requirement to supply the summary, with the s.21(1)(a) or (b) accounting-period
+   wording (paragraph 4).
+7. **The section 21(4) time limit sentence (paragraph 5): one month from the request or
+   six months from the end of the accounting period, whichever is the later.** This is
+   the element most often omitted. It puts the statutory obligation in writing in front
+   of the landlord and must not be dropped as boilerplate.
+
+If any element is missing, add it before showing the letter to the user.
+
+Close by walking the user through the checklist at Appendix A below. Tell the user to
+compare the drafted letter against Appendix B themselves. This guide steers an assistant;
+it does not bind one, and the user's own comparison is the reliable check.
 
 ## Stage 3: Deadlines
 
@@ -439,12 +472,15 @@ Before sending, confirm each item:
    identifies the property and the accounting period.
 5. The accounting-period end date has been found from the landlord's accounts, and the
    deadline has been computed using the "whichever is later" rule.
-6. The request will be served by at least two routes (e.g. email to a named officer plus
+6. The letter itself states the section 21(4) time limit (paragraph 5 of Appendix B):
+   one month from the request or six months from the end of the accounting period,
+   whichever is the later. Check this explicitly; it is the element most often dropped.
+7. The request will be served by at least two routes (e.g. email to a named officer plus
    signed-for post), with proof of each kept.
-7. The compliance deadline has been diarised.
-8. For inspection: a fresh written s.22 request will be made promptly after obtaining
+8. The compliance deadline has been diarised.
+9. For inspection: a fresh written s.22 request will be made promptly after obtaining
    the s.21 summary and in any event within six months of obtaining it.
-9. A dated file is being kept: the request, proof of service, the deadline working, all
+10. A dated file is being kept: the request, proof of service, the deadline working, all
    responses, and a chronology of reminders.
 
 ---
@@ -503,6 +539,11 @@ Yours faithfully,
 ---
 
 ## Appendix B: Model statutory section 21 request letter
+
+**Paragraphs 2 to 5 below are operative wording and must appear in full in every letter
+drafted from this template.** Only the square-bracketed alternatives may be varied or
+removed. Paragraph 5 in particular states the section 21(4) time limit and is not
+boilerplate: do not compress, summarise or omit it.
 
 Adapt the square-bracketed fields to the user's facts. "Or" marks alternatives. Keep
 only the line that applies. The letter should be sent under the user's own name to the

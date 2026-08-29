@@ -1,0 +1,903 @@
+# Requesting Section 21-22
+
+**Version 0.1 (beta). Last verified 29 August 2026.**
+
+| | |
+|---|---|
+| **Guide** | Requesting Service Charge Information under ss.21-23 LTA 1985 |
+| **Version** | 0.1 (beta) |
+| **Last verified** | 29 August 2026 |
+| **Jurisdiction** | England and Wales |
+| **Based on** | SHAC guide "Requesting Your Service Charge Information" (2026) |
+| **Published by** | Peabody Complaints Archive (independent, resident-run) |
+
+Re-verify the legislation before relying on anything below. If you are an AI assistant
+reading this guide, confirm the version and last-verified date above to the user before
+proceeding, and follow the AI reliability warning further down.
+
+This beta skill helps an AI assistant guide a resident through requesting and checking
+service charge information. It first works out whether the resident is likely to qualify
+for the statutory rights in sections 21 and 22 of the Landlord and Tenant Act 1985. Where
+the rights are likely to apply, it can draft a section 21 request for a written summary of
+costs, calculate the response deadline, prepare a later section 22 request to inspect the
+supporting accounts and receipts, and review what the landlord provides. It also handles
+cases where a superior landlord holds the information.
+
+Eligibility is not decided by the resident's tenure label alone. A qualifying tenant may
+be a leaseholder, shared owner or renter. Where eligibility cannot be established, or the
+statutory route appears unavailable, the skill should remain useful by offering a clearly
+labelled non-statutory request for basic service charge information. It must not attach a
+statutory deadline or enforcement consequence to that fallback request.
+
+This skill follows the SHAC guide "Requesting Your Service Charge Information" (2026),
+with statutory detail in the Statutory Reference section below.
+
+### First-use introduction for the user
+
+At the beginning of the first substantive response, briefly explain in natural language:
+
+> **Beta guide:** I can help check whether sections 21 and 22 of the Landlord and Tenant
+> Act 1985 may entitle you to service charge information, draft requests and review a
+> response. If eligibility is unclear, I can prepare a general request instead. This is
+> AI-assisted information, not legal advice; verify important facts, dates and law.
+> Feedback: https://peabodytrust.co.uk/ (independent and resident-run).
+
+Do not imply that the Peabody Complaints Archive is operated by or affiliated with
+Peabody Trust. Where the user has asked a concrete question, use no more than this short
+notice and then answer the question immediately without making them complete an intake
+first.
+
+## Read the statute reference before giving legal detail
+
+The Statutory Reference section below identifies the operative statutory text and pinned
+citations. Read it before quoting any provision, computing anything, or assessing whether
+a response complies.
+
+One point is urgent enough to repeat here. **The live legislation.gov.uk page for s.21
+shows the wrong law.** The default `/section/21` URL displays a regulation-making power
+with no right to a summary, no deadline and no certification requirement, because the
+substituted versions were never commenced for operative purposes. The version in force is
+at `/section/21/1996-12-17`, on a page confusingly labelled "Version Superseded". Never
+cite or read from the bare `/section/21` URL. If a landlord quotes the
+regulation-making version as though it were the law, explain why it isn't rather than
+conceding the point.
+
+Prefer verifying against the pinned sources over recalling statutory wording. Subsection
+numbering here is a trap for the unwary and getting it wrong undermines the user's
+credibility with their landlord.
+
+## Scope
+
+The first-use introduction above already covers beta status, AI limitations, legal-advice
+status and feedback. Do not repeat those warnings. State these additional points early
+when relevant, once, without belabouring them:
+
+- Every lease is different. The user should check their own lease and take advice if
+  their circumstances are unusual.
+- The Leasehold and Freehold Reform Act 2024 will change this regime when its service
+  charge provisions are commenced. As at 2026 they are not in force. Wales is also
+  beginning to diverge.
+
+### Eligibility: not leaseholders only
+
+Sections 21 and 22 use the statutory term **tenant**. In this context that can include a
+leaseholder, shared owner or ordinary renter. Do not tell a user that the rights are
+leaseholder-only, and do not assume that every renter qualifies.
+
+Check all three elements before presenting a request as valid:
+
+1. **Tenant.** The person is a tenant of a dwelling, or the secretary of a recognised
+   tenants' association acting with that tenant's consent. A leaseholder is a tenant for
+   this purpose.
+2. **Qualifying variable service charge.** Under s.18, the amount must be payable as part
+   of or in addition to rent for services, repairs, maintenance, improvements, insurance
+   or management, and must vary or be capable of varying according to the relevant costs.
+   A genuinely fixed service charge does not qualify merely because the landlord calls it
+   a service charge.
+3. **No applicable exclusion.** Check ss.26 and 27. In particular, an ordinary local
+   authority tenant is generally outside ss.18-25, while a local-authority long
+   leaseholder retains ss.18-24 but not the s.25 criminal sanction. Section 26 also names
+   National Park authorities and new town corporations. Section 27 covers a narrower
+   registered-rent exception.
+
+A private or housing-association renter may therefore qualify if their tenancy requires a
+variable service charge and no exclusion applies. Determine eligibility progressively:
+start with the short initial screen below, then ask for the minimum document needed to
+resolve any uncertainty. Do not ask for the complete tenancy agreement at the outset.
+If eligibility cannot be established, explain the uncertainty and do not represent the
+model statutory request as definitely valid. Offer the non-statutory information request
+in Appendix B0 instead. If the user is clearly outside ss.21-22, describe them as not
+eligible **under this statutory route on the facts available**, rather than implying that
+they have no contractual or other route to ask for information.
+
+For renters, distinguish this service-charge right under s.21 LTA 1985 from any provision
+concerning a "section 21" possession or eviction notice. They are different legal regimes.
+
+### Important AI reliability warning
+
+This guide is intended to improve an AI assistant's accuracy, not guarantee it. An AI can
+misread the user's facts, calculate a date incorrectly, confuse statutory versions, omit
+an exception, or state an unsupported interpretation with undue confidence.
+
+Before the user sends correspondence or relies on any conclusion about entitlement,
+deadlines, compliance or enforcement:
+
+- Open the pinned legislation and verify that the cited provision remains in force for
+  the relevant jurisdiction and date. Do not rely on this guide or model memory alone.
+- Check every material fact and date against the lease, demands, accounts, request,
+  proof of service and landlord's response.
+- Clearly identify any assumption, disputed interpretation or point that has not been
+  verified. Never say that a source was checked unless it was actually checked.
+- Where the legislation is unclear, the facts are unusual, or the consequences are
+  significant, recommend advice from the Leasehold Advisory Service or a suitably
+  qualified legal adviser before action is taken.
+
+**Enforcement is out of scope.** If a deadline passes without compliance, signpost the
+routes in "If the landlord does not comply" below and stop there. Do not advise on
+prosecution, tribunal applications or litigation strategy. A user who wants to go that way
+needs advice on their own facts, not a generic workflow.
+
+## Stage 1: Work out where the user has got to
+
+Three stages, and the user's own words usually reveal which:
+
+1. **Pre-request.** Nothing sent yet. Go to Stage 2.
+2. **Awaiting response.** Request sent, waiting or chasing. Go to Stage 3.
+3. **Reviewing a response.** Something has come back. Go to Stage 4.
+
+### Initial eligibility screen
+
+If it is not already known, confirm first that the property is in England or Wales. Before
+asking the user to upload documents, establish three further facts with short questions:
+
+1. **Housing arrangement.** Ask: "Which best describes your housing arrangement:
+   leaseholder, shared owner, housing-association tenant, council tenant, private renter,
+   or something else?"
+2. **Landlord type.** Ask whether the landlord is a council, housing association, private
+   landlord or another body, allowing "not sure" as an answer.
+3. **Charge type.** Ask: "Does your service charge change according to the landlord's
+   actual costs, or is it a fixed amount? If you are unsure, say not sure."
+
+If the user describes both fixed and variable amounts, ask one focused follow-up: are
+they parts of one composite service charge, or separately itemised charges? Do not assume
+that a separately itemised fixed charge becomes variable merely because another charge
+varies.
+
+Treat the answers as a preliminary screen, not conclusive proof. Users may describe their
+tenure or charges inaccurately. Apply these working indications:
+
+- A leaseholder or shared owner paying a variable service charge is likely eligible,
+  subject to the statutory exclusions.
+- A private or housing-association renter paying a variable service charge may be
+  eligible, subject to the statutory exclusions.
+- A council long leaseholder paying a variable service charge is generally eligible for
+  the ss.21-22 information rights, although the s.25 criminal sanction is excluded.
+- An ordinary council tenant is generally excluded by s.26.
+- A genuinely fixed service charge falls outside the s.18 definition.
+- A composite service charge may qualify where the whole or part of that amount varies
+  according to relevant costs. Where fixed and variable charges are separately itemised,
+  assess each amount separately and limit the statutory request to the qualifying
+  variable charge or charges. Offer a separate non-statutory request if the user also
+  wants information about a fixed component.
+- If the tenure, landlord type or charging basis is unclear, obtain documentary evidence
+  before reaching a firm conclusion.
+
+Use a proportionate document sequence. First ask for a recent service charge demand or
+annual statement, which may show whether the charge varies with actual costs. If that is
+inconclusive, ask for the relevant service-charge clause from the tenancy agreement or
+lease. Request the complete agreement only if the user cannot identify the relevant page
+or the surrounding provisions are needed to interpret the clause. Tell the user they may
+redact unrelated personal or financial information.
+
+If the user does not have the documents needed to classify them, do not keep asking for
+unavailable uploads and do not treat possession of documents as an additional legal
+eligibility condition. Explain that eligibility remains unresolved and offer the
+non-statutory request in Appendix B0. That request should ask the landlord to identify the
+legal landlord, provide the relevant occupancy or charging terms, explain whether the
+charge is fixed or reconciled against estimated or actual costs, and provide any recent
+breakdown or annual statement. If the response establishes a qualifying variable service
+charge, reassess eligibility and, where appropriate, prepare a separate statutory s.21
+request.
+
+If the stage is genuinely unclear, or facts are missing, use an available structured-input
+tool with short tappable options. If none is available, ask concise questions in prose.
+Keep it to one question where possible and no more than three questions at one time. A
+short follow-up round is permitted where the first answers expose a genuine uncertainty.
+Prioritise jurisdiction and the initial eligibility screen above, then establish the
+stage they are at and whether they already have a s.21 summary. Do not ask for documents
+until the user's answers show that a document is needed.
+
+Do not interrogate before helping. If someone asks a concrete question, answer it, then
+gather what you still need. If they want the letter before they have chased down the
+accounting period end date, draft it with clearly marked placeholders such as
+`[ACCOUNTING PERIOD END - check your annual service charge statement]` and tell them what
+to fill in before sending. A letter in hand with three gaps is more use than an interview.
+
+Where an association is coordinating, the simplest and most robust route is usually a
+request made and signed by an eligible individual tenant in their own name. That
+sidesteps any argument about whether the association is formally recognised or whether
+consents are in place. The association can organise everything behind the scenes. The
+statute requires the tenant's consent for the association-secretary route but does not
+expressly require the consent itself to be written. Recommend retaining written or
+electronic confirmation as evidence; do not describe that evidential precaution as an
+express statutory formality.
+
+## Stage 2: Preparing and drafting the request
+
+Gather:
+
+1. **Who the landlord is.** The entity that is the landlord under the lease, which may not
+   be the managing agent and may not be the freeholder. Check the lease and the demands.
+   If a superior landlord holds the information, apply the distinct s.23 procedure for
+   the type of request; do not describe every s.23 case as simply passing the request up.
+2. **The property address.**
+3. **The accounting period.** Get the end date from the landlord's own service charge
+   accounts or annual statement. Tell the user this reaches **one period only**, the last
+   accounting period ending not later than the date of the request. It does not allow the
+   tenant to nominate an arbitrary earlier year, and several requests made now will
+   ordinarily identify the same period. Someone hoping to open up three years of history
+   needs to know that before sending the request.
+4. **Whether a s.21 summary has already been obtained.** Section 22 applies where the
+   tenant has obtained a s.21 summary. Do not present a s.22 request made before that
+   event as a valid statutory request which will automatically take effect later. A
+   pre-summary letter may ask the landlord voluntarily to arrange later access, but the
+   safest statutory workflow is a fresh written s.22 request immediately after the
+   summary is obtained.
+5. **How it will be served.** Recommend at least two routes: signed-for post to the s.48
+   address for service or the registered office, plus email to the landlord, agent or a
+   named service charge officer, plus the online portal if one exists. Each is an
+   independent record. Email alone can be valid but leaves room for a landlord to say it
+   never reached the right department.
+
+If statutory eligibility is sufficiently established, draft the letter from the model
+wording in Appendix B below, adapted to the user's facts. If eligibility is unresolved or
+the user appears outside the statutory route, offer Appendix B0 instead and explain that
+it is a general request which does not carry the s.21 deadline. Keep either letter short,
+neutral and businesslike. A calm correctly-headed letter is harder to deflect than a long
+or angry one.
+
+Close by walking the user through the checklist at Appendix A below.
+
+## Stage 3: Deadlines
+
+### Section 21
+
+The landlord must comply within **one month of the request**, or within **six months of
+the end of the accounting period**, whichever is **later**. For practical calculation,
+use the earliest date on which the evidence shows the request was validly served on the
+landlord or an authorised recipient. Do not automatically treat the date it was posted as
+the request date. If the service date is uncertain, state the assumption and calculate
+both plausible dates.
+
+Work it through explicitly rather than asserting a date:
+
+1. Accounting period end date.
+2. Date of the request.
+3. One month from the request.
+4. Six months from the period end.
+5. The deadline is the later of 3 and 4.
+
+*Worked example A.* Period ended 31 March, request served 10 April. One month from request
+is 10 May; six months from period end is 30 September. Deadline is 30 September. Asking
+early does not shorten the landlord's time while the six-month limb still has time to run.
+
+*Worked example B.* Period ended 31 March, request served 10 December. Six months from
+period end (30 September) has passed, so the one-month limb governs. Deadline is 10
+January.
+
+The "whichever is later" wording is the part people get wrong in both directions. Show the
+arithmetic so the user can check it.
+
+### Section 22
+
+The inspection request must be made **within six months of obtaining the summary**. The
+landlord must then make facilities available **within one month** of that request, and
+keep them available for **two months**.
+
+Do not assume that a s.22 paragraph included in an earlier s.21 request became effective
+when the summary arrived. Unless verified legal authority establishes otherwise on the
+user's facts, make and serve a fresh written s.22 request after obtaining the summary.
+
+Tell the user to write the calculation down, note where the period end date came from, and
+diarise it.
+
+## Stage 4: Reviewing the landlord's response
+
+### Start the s.22 clock
+
+If the user has now received a summary, **say so immediately and prominently**: a
+six-month window to request inspection is running from the moment they obtained it. This
+comes before any analysis of quality, because it is the one thing in this skill where
+delay costs the user a right outright. Even if an earlier letter purported to combine
+s.21 and s.22, recommend serving a fresh written s.22 request now and calculate the
+landlord's one-month period from that fresh request.
+
+### Checking a s.21 summary
+
+Read the s.21(5) breakdown in the Statutory Reference section below before assessing. The
+statute is considerably more demanding than most landlords assume, and a vague "this
+looks thin" is much weaker than naming the limb that has been missed.
+
+Work through:
+
+- Is it in writing, and does it cover the right accounting period?
+- Does it set out the costs **showing how they have been or will be reflected in demands
+  for service charges**? Bare totals do not.
+- Does it separately summarise costs where no demand for payment was received by the
+  landlord; costs demanded but not paid by the landlord; and costs demanded and paid?
+  These are three distinct limbs and most summaries collapse them into one.
+- Does it specify the **aggregate still standing to the credit of the tenants** at the
+  period end? This is a single figure that is either there or absent, and it is very
+  frequently absent. Often the cleanest deficiency to point to.
+- Does it state whether costs relate to grant-aided works or a group repair scheme, where
+  relevant?
+- Where the charges are payable by the tenants of more than four dwellings, is it
+  **certified by a qualified accountant** as a fair summary complying with s.21(5) and
+  sufficiently supported by accounts, receipts and other documents produced to them? If
+  the certifier looks connected to the landlord, check the s.28 definition.
+
+Other things that often go wrong: the response is a complaint acknowledgment or a holding
+letter rather than the summary; the period covered is unstated; categories on the demand
+have no counterpart in the summary.
+
+Where the summary falls short, offer to draft a short factual follow-up naming the
+specific limbs missed and restating the obligation. Precision beats indignation.
+
+### Checking a s.22 inspection
+
+Inspection must be **free**. The landlord may make a **reasonable charge for copies**.
+
+Expect to see invoices and receipts, contracts and agreements, accounts and financial
+records, worksheets or schedules used to calculate the charges, and supporting paperwork
+and correspondence.
+
+On whether facilities are "reasonable", the statute gives no test and neither does this
+skill. Do not invent thresholds, mileage limits or pence-per-page figures. Help the user
+weigh the factors instead, and let them judge:
+
+- Distance from the property and from the user, and whether the landlord has a nearer
+  office or the documents could be made available locally or digitally.
+- The offered time window, and whether it falls inside the two-month availability period.
+- Whether the offer is a genuine facility to inspect and copy, or a supervised viewing
+  with copying obstructed.
+- For copy charges, whether the rate reflects the cost of copying or is set at a level
+  that discourages copying. Compare against ordinary commercial reprographic rates.
+- Whether the landlord has offered any alternative when the user raised a difficulty.
+
+An offer that is technically available but practically unusable is worth raising in
+writing, with the specific obstacle named, before treating it as a refusal.
+
+Also watch for partial disclosure, for instance the agent's own schedule offered in place
+of the underlying invoices, and for a landlord saying the documents sit elsewhere without
+engaging s.23.
+
+### Section 47 and 48 checks
+
+While reviewing, check the user's demands. s.47 LTA 1987 requires every demand to state
+the landlord's name and address. s.48 requires an address in England and Wales for service
+of notices. Until a valid s.48 address has been given, service charges and rent are not
+treated as due. If the demands lack one, flag it, because it is a substantial point in its
+own right.
+
+## If the landlord does not comply
+
+Signpost, then stop:
+
+- Raise it through the **landlord's own complaints process** first. Most escalation routes
+  require this to be exhausted.
+- If that does not resolve it, the **Housing Ombudsman** for social landlords, or the
+  relevant redress scheme.
+- Note that **s.25 LTA 1985** makes failure without reasonable excuse to perform a duty
+  under s.21, s.22 or s.23 a summary offence, punishable by a fine not exceeding level 4.
+  Never mention s.25 without the exemptions that go with it: s.25(3) and s.26 both carve
+  out categories of landlord, and council leaseholders in particular keep the information
+  rights but lose the criminal sanction. See the Statutory Reference section below, and
+  do not tell a user whether their specific landlord is exempt.
+
+Whatever route the user takes, the foundation is the same: a valid request, properly
+served, with a clear record of the deadline and of the failure to meet it. Say that, point
+them to advice, and leave the enforcement decision to them.
+
+## Record-keeping
+
+Encourage from day one: the request itself and proof of how and when it was sent; the
+written deadline calculation with the period end date and its source; every response,
+especially anything acknowledging the request or accepting that something is late; and a
+dated chronology of reminders. Keep chasing in writing rather than by phone. None of this
+is onerous done as you go, and it is very hard to reconstruct months later, which is
+exactly when it is needed.
+
+## Tone
+
+Practical and calm. The user is exercising a routine statutory right, not picking a fight.
+Use plain English for the explanation and precise statutory references in anything the
+user will send, so their correspondence is hard to brush off. Resist the pull toward
+advocacy: the value here is accuracy.
+
+### References
+
+# Law and Templates Reference
+
+Source: SHAC Guide, "Requesting Your Service Charge Information" (2026).
+Covers sections 21, 22 and 23 of the Landlord and Tenant Act 1985 and sections 47 and
+48 of the Landlord and Tenant Act 1987 (England and Wales).
+
+---
+
+## Appendix A: Request checklist
+
+Before sending, confirm each item:
+
+1. The user is a tenant of a dwelling, including a leaseholder, shared owner or eligible
+   renter (or the secretary of a recognised tenants' association acting with the tenant's
+   consent).
+2. The charge satisfies the s.18 definition because it varies or may vary according to
+   the relevant costs, and no exclusion in ss.26 or 27 applies.
+3. The correct landlord has been identified from the lease and demands, including
+   whether a superior landlord or agent holds the documents (s.23).
+4. The request is in writing, headed as a section 21 (or section 22) request, and
+   identifies the property and the accounting period.
+5. The accounting-period end date has been found from the landlord's accounts, and the
+   deadline has been computed using the "whichever is later" rule.
+6. The request will be served by at least two routes (e.g. email to a named officer plus
+   signed-for post), with proof of each kept.
+7. The compliance deadline has been diarised.
+8. For inspection: a fresh written s.22 request will be made promptly after obtaining
+   the s.21 summary and in any event within six months of obtaining it.
+9. A dated file is being kept: the request, proof of service, the deadline working, all
+   responses, and a chronology of reminders.
+
+---
+
+## Appendix B0: General request where statutory eligibility is unresolved
+
+Use this where the available facts or documents do not establish that ss.21-22 apply, or
+where the user appears outside that statutory route but still wants service charge
+information. Clearly tell the user that this is a general, non-statutory request. It does
+not create the s.21 response deadline, and the landlord may decline or provide only part
+of the information. Do not add a statutory heading, deadline, offence allegation or
+enforcement warning.
+
+Adapt the list so it asks only for information genuinely needed. If the landlord's reply
+establishes that the user is a tenant paying a qualifying variable service charge and no
+exclusion applies, reassess the position and offer a separate statutory s.21 request.
+
+---
+
+To: [name of landlord, housing provider or managing agent]
+
+Property address: [address of flat or house]
+
+[Date]
+
+Dear Sir/Madam,
+
+**Request for information about my service charge**
+
+I occupy the above property and pay an amount described as, or understood to include, a
+service charge. I do not currently have enough information to understand how that charge
+is calculated.
+
+Please provide:
+
+1. The name and address of my legal landlord.
+2. A copy of, or the relevant extract from, the occupancy, tenancy or lease terms dealing
+   with the service charge.
+3. A breakdown of the services covered by the charge and the amount allocated to each.
+4. Confirmation of whether the charge is fixed, estimated, or adjusted according to
+   actual costs.
+5. If it is estimated or adjusted, the accounting period used and any recent annual
+   statement, reconciliation, balancing credit or balancing demand.
+
+This is a general request for information. It is not presently made as a statutory
+request under section 21 of the Landlord and Tenant Act 1985.
+
+Please let me know if you require any further information to identify my account or the
+property.
+
+Yours faithfully,
+
+[Signature]
+[Printed name]
+
+---
+
+## Appendix B: Model statutory section 21 request letter
+
+Adapt the square-bracketed fields to the user's facts. "Or" marks alternatives. Keep
+only the line that applies. The letter should be sent under the user's own name to the
+landlord (or to the agent or person who receives the rent). Where one composite charge is
+partly variable, use the "whole or part" wording. Where fixed and variable charges are
+separately itemised, identify only the variable component or components in the optional
+sentence below. Do not imply that a separately fixed component qualifies; use a separate
+Appendix B0 request if information about that component is also wanted.
+
+---
+
+To: [name of landlord, or the agent, or the person who receives rent]
+
+Property address: [address of flat or house]
+
+[Date]
+
+Dear Sir/Madam,
+
+1. I am the leaseholder of the above property.
+   [OR: We are the leaseholders of the above property.]
+   [OR: I am the tenant of the above property under a [TYPE OF TENANCY] and pay a service
+   charge, the whole or part of which varies or may vary according to the relevant costs
+   within the meaning of section 18 of the Landlord and Tenant Act 1985.]
+   [OR: We are the tenants of the above property under a [TYPE OF TENANCY] and pay a
+   service charge, the whole or part of which varies or may vary according to the relevant
+   costs within the meaning of section 18 of the Landlord and Tenant Act 1985.]
+   [OR: I am the secretary of [name of recognised tenants' association], which is a
+   recognised tenants' association for [name of the building]; the tenant(s) of the above
+   property within the building has/have consented to this request.]
+
+   [WHERE FIXED AND VARIABLE CHARGES ARE SEPARATELY ITEMISED: The variable service charge
+   component(s) relevant to this request is/are described as [NAME EACH VARIABLE
+   COMPONENT].]
+
+2. I/We make this request of the landlord in accordance with section 21 of the Landlord
+   and Tenant Act 1985.
+
+3. As the landlord of the property you are required to comply with the requirements of
+   paragraphs 4 and 5 below.
+   [OR: As the agent of the landlord named as such in the rent book or similar
+   document, you are obliged by section 21(3) of the Landlord and Tenant Act 1985 to
+   forward this request to the landlord as soon as may be.]
+   [OR: As the person who receives the rent on behalf of the landlord, you are obliged
+   by section 21(3) of the Landlord and Tenant Act 1985 to forward this request to the
+   landlord as soon as may be.]
+
+4. I/We require you to provide me/us with a written summary of the relevant costs
+   incurred in respect of the above property and relevant to the qualifying variable
+   service charge(s) identified above:
+   (a) if the relevant accounts are made up for periods of twelve months, in the last
+       such period ending not later than the date of this request; or
+   (b) if the accounts are not so made up, in the period of twelve months ending with
+       the date of this request.
+
+5. You are required to supply me/us with the written summary within one month from the
+   date of this request, or within six months from the end of the period referred to in
+   paragraph 4 above, whichever is the later.
+
+Yours faithfully,
+
+[Signature]
+[Printed name]
+
+---
+
+## Appendix B2: Model section 22 inspection request
+
+Use this only after the tenant or association secretary has obtained the s.21 summary.
+Serve it promptly and no later than six months after the date the summary was obtained.
+
+---
+
+To: [name of landlord]
+
+Property address: [address of flat or house]
+
+[Date]
+
+Dear Sir/Madam,
+
+**Section 22 Landlord and Tenant Act 1985: request to inspect supporting documents**
+
+On [DATE OBTAINED], I/we obtained the written summary of relevant costs for the period
+[ACCOUNTING PERIOD] referred to in section 21(1) of the Landlord and Tenant Act 1985.
+
+In accordance with section 22(2), I/we require you to afford me/us reasonable facilities
+for inspecting the accounts, receipts and other documents supporting that summary, and
+for taking copies or extracts from them.
+
+Please confirm the arrangements. Under section 22(4), the facilities must be made
+available for a period of two months beginning not later than one month after this
+request. I/We understand that a reasonable charge may be made for copies or extracts.
+
+Yours faithfully,
+
+[Signature]
+[Printed name]
+
+---
+
+## Appendix C: Statutory provisions
+
+The Statutory Reference section below carries the operative text with pinned point-in-time
+citations, the s.21(5) content requirements used for sufficiency checks, and the s.25 and
+s.26 exemptions. Read that section before giving legal detail.
+
+Note in particular that the live legislation.gov.uk page for s.21 shows a version that is
+not in force. See the citation-trap section near the beginning of this guide.
+
+---
+
+## Who can make a request
+
+- The tenant, including a leaseholder, shared owner or renter who pays a qualifying
+  variable service charge and is not caught by an applicable statutory exclusion.
+- The secretary of a recognised tenants' association, with the consent of the tenant
+  whose charges are in question. Recommend keeping written or electronic confirmation as
+  evidence, without describing that as an express statutory formality.
+
+The simplest and most robust position is usually a request made and signed by an
+eligible individual tenant in their own name. This avoids arguments about whether the
+association is formally recognised or whether the necessary consents are in place. For a
+renter, verify the variable nature of the charge and the ss.26-27 exclusions first.
+
+## Finding the right recipient
+
+Make the request to the entity that is the landlord under the lease. Check the lease and
+the service charge demands. In many blocks there is an intermediate landlord and a
+separate managing agent. Identify the right recipient before writing.
+
+The s.48 address on the demands is the safe address for service. If demands do not carry
+a valid s.48 address, service charges and rent are not treated as due, and that is worth
+raising in its own right.
+
+## Service method
+
+Serve by at least two routes:
+- Signed-for post to the s.48 address for service (or registered office).
+- Email to the landlord, managing agent, or a named service charge officer.
+- Portal submission if available.
+
+Each channel is an independent record. Email alone can be valid but leaves room for the
+landlord to claim it did not reach the right department.
+
+# Statutory reference (pinned citations)
+
+Statutory text on this page is Crown copyright, reproduced from legislation.gov.uk under
+the Open Government Licence v3.0.
+
+**Last verified: 29 August 2026.** Re-verify before relying on any provision below.
+Legislation changes, and one provision here is actively misleading on the live site.
+
+---
+
+## READ THIS FIRST: the section 21 citation trap
+
+The default legislation.gov.uk page for section 21 shows the **wrong law**.
+
+`https://www.legislation.gov.uk/ukpga/1985/70/section/21` displays a section headed
+"Service charge information", which is nothing more than a power for the appropriate
+national authority to make regulations. It contains no right to a summary, no deadline
+and no certification requirement. It was substituted in by CLRA 2002 s.152 and again by
+the Housing and Regeneration Act 2008. Both substitutions were commenced only so far as
+they confer power to make regulations, and that power has never been exercised.
+
+The operative right is the version dated 17 December 1996:
+
+**https://www.legislation.gov.uk/ukpga/1985/70/section/21/1996-12-17**
+
+legislation.gov.uk labels that page "Version Superseded". It is nonetheless the version
+in force, because the substitutions that superseded it were never commenced for
+operative purposes. The editorial note on the default page says so explicitly.
+
+Never cite, link to, or read from the bare `/section/21` URL. If a user, a landlord or a
+landlord's solicitor quotes the regulation-making version at you as though it were the
+law, this is the reason, and it is worth explaining rather than conceding.
+
+---
+
+## Pinned URLs
+
+| Provision | Use this URL |
+|---|---|
+| LTA 1985 s.18 (meaning of service charge) | https://www.legislation.gov.uk/ukpga/1985/70/section/18 |
+| LTA 1985 s.21 (request for summary) | https://www.legislation.gov.uk/ukpga/1985/70/section/21/1996-12-17 |
+| LTA 1985 s.22 (inspection) | https://www.legislation.gov.uk/ukpga/1985/70/section/22 |
+| LTA 1985 s.23 (superior landlords) | https://www.legislation.gov.uk/ukpga/1985/70/section/23 |
+| LTA 1985 s.25 (offence) | https://www.legislation.gov.uk/ukpga/1985/70/section/25 |
+| LTA 1985 s.26 (exclusions) | https://www.legislation.gov.uk/ukpga/1985/70/section/26 |
+| LTA 1985 s.27 (registered-rent exception) | https://www.legislation.gov.uk/ukpga/1985/70/section/27 |
+| LTA 1985 s.28 (qualified accountant) | https://www.legislation.gov.uk/ukpga/1985/70/section/28 |
+| LTA 1987 s.47 (name and address on demands) | https://www.legislation.gov.uk/ukpga/1987/31/section/47 |
+| LTA 1987 s.48 (address for service) | https://www.legislation.gov.uk/ukpga/1987/31/section/48 |
+
+Only s.21 has a known point-in-time trap. For the others the current version is the
+operative one as at the verification date above, but check the "Changes to Legislation"
+banner when precision matters.
+
+---
+
+## Section 18: qualifying service charges
+
+The label attached to the occupier or charge does not decide eligibility. Section 18
+defines a service charge as an amount payable by a tenant of a dwelling as part of or in
+addition to rent for services, repairs, maintenance, improvements, insurance, management
+or prescribed matters, where the whole or part of the amount varies or may vary according
+to the relevant costs.
+
+This means that a leaseholder is a tenant, but leasehold status is not required. A renter
+can fall within the definition, while a person paying a genuinely fixed charge falls
+outside it. Always read this definition with the exclusions in ss.26 and 27.
+
+---
+
+## Section 21 (as in force): the operative requirements
+
+Source: LTA 1985 s.21, version dated 17 December 1996.
+
+### s.21(1): the right
+
+A tenant may require the landlord **in writing** to supply a written summary of the costs
+incurred:
+
+- (a) if the relevant accounts are made up for periods of twelve months, in the last such
+  period ending not later than the date of the request, or
+- (b) if the accounts are not so made up, in the period of twelve months ending with the
+  date of the request,
+
+and which are relevant costs in relation to the service charges payable or demanded as
+payable in that or any other period.
+
+**One period determined by the request date.** The right reaches the last accounting
+period ending not later than the request date, not a run of past years and not an earlier
+period chosen by the tenant. Several requests made at the same time will ordinarily
+identify the same period. Requests made over time may capture successive periods as each
+becomes the latest completed period, but do not suggest that repeated present-day
+requests retrieve arbitrary historical years. Older records may have to be sought under
+the lease, by voluntary disclosure, through a complaint or under another applicable
+right. Do not promise that any of those routes applies without checking it.
+
+### s.21(2): recognised tenants' associations
+
+Where the tenant is represented by a recognised tenants' association and consents, the
+request may be made by the association's secretary instead of by the tenant, and may be
+for supply of the summary to the secretary.
+
+### s.21(3): service
+
+A request is duly served if served on an agent of the landlord named as such in the rent
+book or similar document, or on the person who receives the rent on behalf of the
+landlord. A person so served must forward it to the landlord as soon as may be.
+
+### s.21(4): the deadline
+
+The landlord must comply within one month of the request, or within six months of the end
+of the period referred to in subsection (1)(a) or (b), **whichever is the later**.
+
+### s.21(5): what the summary must actually contain
+
+This subsection is the backbone of any sufficiency check. The summary must:
+
+1. State whether any of the costs relate to works for which a grant has been or is to be
+   paid under s.523 Housing Act 1985 or Part I of the Housing Grants, Construction and
+   Regeneration Act 1996 (or a corresponding earlier enactment).
+2. Set out the costs in a way showing **how they have been or will be reflected in
+   demands for service charges**.
+3. In addition, summarise each of these separately:
+   - (a) costs for which **no demand for payment was received by the landlord** within
+     the period;
+   - (b) costs for which a demand was received **but no payment was made by the landlord**
+     within the period;
+   - (c) costs for which a demand was received **and payment was made by the landlord**
+     within the period.
+4. Specify the **aggregate of any amounts received by the landlord** down to the end of
+   the period on account of service charges in respect of relevant dwellings, and **still
+   standing to the credit of the tenants** of those dwellings at the end of that period.
+
+Item 4 is a single figure the landlord either states or does not. Most summaries omit it.
+It is often the cleanest and least arguable deficiency available.
+
+s.21(5A) defines "relevant dwelling" as a dwelling whose tenant is either the person by or
+with whose consent the request was made, or a person whose lease obligations as regards
+contributing to relevant costs relate to the same costs.
+
+s.21(5B) requires the summary to state whether any costs relate to works included in the
+external works specified in a group repair scheme in which the landlord participated as
+an assisted participant.
+
+### s.21(6): certification
+
+Where the service charges are payable **by the tenants of more than four dwellings**, the
+summary must be certified by a qualified accountant as (a) in his opinion a fair summary
+complying with the requirements of subsection (5), and (b) being sufficiently supported
+by accounts, receipts and other documents produced to him.
+
+Note the test: it is about the number of dwellings whose tenants contribute to the same
+costs, not the size of the block as such. In practice almost any block of flats clears it,
+but say "the tenants of more than four dwellings" rather than "more than four flats".
+
+"Qualified accountant" is defined by s.28. Check it if a landlord's certifier looks
+irregular, for instance where the certificate is signed by someone connected with the
+landlord.
+
+---
+
+## Section 22: inspection
+
+After obtaining the s.21 summary, the tenant may require the landlord in writing to afford
+reasonable facilities for inspecting the accounts, receipts and other documents supporting
+the summary, and for taking copies or extracts. Use a fresh post-summary request rather
+than relying on a s.22 paragraph sent before the summary existed.
+
+- The inspection request must be made **within six months of obtaining the summary**.
+- Facilities must be made available **within one month** of the request.
+- Facilities must remain available for a period of **two months**.
+- **Inspection itself is free.** The landlord may make a reasonable charge for copies.
+
+---
+
+## Section 23: superior landlords
+
+Section 23 uses different machinery for s.21 and s.22. Do not collapse them into a single
+"pass it up the chain" rule.
+
+- For a s.21 request concerning costs incurred by or on behalf of a superior landlord,
+  where the immediate landlord lacks the relevant information, the immediate landlord
+  must request it in writing from its landlord, continuing up the chain if necessary. The
+  superior landlord must comply within a reasonable time. The immediate landlord then
+  complies within the ordinary s.21 period or any further time that is reasonable in the
+  circumstances.
+- For a s.22 request concerning a summary of costs incurred by or on behalf of a superior
+  landlord, the immediate landlord must forthwith tell the tenant or association secretary
+  that fact and give the superior landlord's name and address. Section 22 then applies to
+  the superior landlord as it applies to the immediate landlord.
+
+An immediate landlord cannot dispose of either duty merely by saying that somebody else
+holds the information or documents.
+
+---
+
+## Section 25: the offence (signposting only)
+
+It is a summary offence for a person to fail, without reasonable excuse, to perform a duty
+imposed by section 21, 22 or 23. A person committing the offence is liable on conviction
+to a fine not exceeding level 4 on the standard scale.
+
+**Two exemptions must always travel with this. Never mention s.25 without them.**
+
+**s.25(3)**, inserted by the Housing (Wales) Act 2014, disapplies subsection (1) where the
+person is (a) a local authority for an area in Wales, or (b) a registered social landlord.
+
+The scope of limb (b) is genuinely unsettled and this skill does not resolve it. The
+provision arrived via a Welsh statute and "registered social landlord" is the Welsh term
+of art, English housing associations being private registered providers of social housing
+instead. Limb (a) carries an express geographic qualifier and limb (b) does not. Flag the
+point to the user as something to check on their own facts and take advice on. Do not tell
+a user their housing association is or is not exempt.
+
+**s.26** excludes service charges payable by tenants of a local authority, a National Park
+authority or a new town corporation from ss.18 to 25, unless the tenancy is a long
+tenancy, in which case ss.18 to 24 apply **but s.25 does not**. Council leaseholders
+therefore keep the s.21 and s.22 rights and lose the criminal sanction entirely.
+
+**s.27** excludes a narrower category where the dwelling's rent is registered under Part
+IV of the Rent Act 1977 and the service charge is not entered as a variable amount in the
+rent register. Do not assume this applies merely because the user is an ordinary renter;
+check the statutory conditions and the tenancy documents.
+
+This skill signposts the existence of s.25 and stops there. Enforcement is out of scope:
+see the scope limits in SKILL.md.
+
+---
+
+## LTA 1987 ss.47 and 48
+
+- **s.47** requires every service charge demand to state the landlord's name and address.
+- **s.48** requires the landlord to give an address in England and Wales at which notices
+  may be served. Until a valid s.48 address has been given, service charges and rent are
+  not treated as due.
+
+The s.48 address is the safe address for serving a s.21 or s.22 request.
+
+---
+
+## Coming changes
+
+Not in force as at the verification date, but they will reshape this regime:
+
+- **Leasehold and Freehold Reform Act 2024 (2024 c. 22)**: s.55(2)(a) omits s.21
+  altogether; s.55(3) inserts s.21C; ss.56 and 57 insert ss.21D to 21H; s.58(3) inserts a
+  new s.25A; s.56(3)(d) amends s.28.
+- **A 2026 Act of Senedd Cymru (2026 asc 5)** inserts further provisions into this Part
+  for Wales.
+
+The practical consequence is that the England and Wales position is beginning to diverge.
+When a user is in Wales, check whether the Welsh provisions have been commenced before
+advising, and check the s.25(3)(a) exemption which is already Wales-specific.

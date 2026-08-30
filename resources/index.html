@@ -73,13 +73,13 @@
           <strong>Version check</strong>
           <span class="stamp-beta">Beta</span>
         </div>
-        <img class="stamp-img" src="/images/guide-verification.png" alt="Version check. The version number and legal verification date are shown as an image so they cannot be copied from this page's text. Both values appear as text on the first screen of the guide itself.">
+        <img class="stamp-img" src="/images/guide-verification.png" alt="Version check. Version numbers and check codes for both the full guide and the short version, shown as an image so they cannot be copied from this page's text. The full guide is version 0.2.5.4.3.7L, the short version 0.2.5.4.3.7S; each carries its own check code at the end of the document. Legal sources last verified 29 August 2026.">
         <dl>
           <dt>Jurisdiction</dt><dd>England &amp; Wales</dd>
           <dt>Based on</dt><dd>SHAC guide, 2026</dd>
           <dt>Publisher</dt><dd>Peabody Complaints Archive, resident-run</dd>
         </dl>
-        <p class="stamp-note">The version and date are an image on purpose. The version number is deliberately long and arbitrary, so it cannot be guessed or rounded off. An assistant that has genuinely opened the guide can reproduce it exactly; one that has only seen this page in a search result cannot. Using a screen reader? Both values are in the first lines of <a href="/resources/guide.html">the guide</a>.</p>
+        <p class="stamp-note">The versions, codes and date are an image on purpose. The version number is deliberately long and arbitrary, so it cannot be guessed or rounded off. An assistant that has genuinely opened the guide can reproduce it exactly; one that has only seen this page in a search result cannot. Using a screen reader? Both values are in the first lines of <a href="/resources/guide.html">the guide</a>.</p>
       </aside>
     </div>
   </section>
@@ -99,7 +99,7 @@
           <span class="eyebrow" id="copyEcho" aria-live="polite"></span>
         </div>
         <div class="promptbox">
-          <div class="promptbox-head"><span class="eyebrow">Assistant prompt</span><span class="eyebrow">short guide appended on copy</span></div>
+          <div class="promptbox-head"><span class="eyebrow">Assistant prompt</span><span class="eyebrow">short version appended on copy</span></div>
           <pre id="promptText">Please open and read this document:
 https://peabodytrust.co.uk/resources/s21-guide.txt
 
@@ -113,7 +113,7 @@ Below this message is a shorter version of the same guide. (If I have attached i
         </div>
         <script type="text/plain" id="guideSource"># Requesting Service Charge Information (LTA 1985 ss.21-23)
 
-**Version 0.2.5.4.3.7 (beta). Legal sources last verified 29 August 2026. Jurisdiction: England and Wales.**
+**Version 0.2.5.4.3.7S (beta, short version). Legal sources last verified 29 August 2026. Jurisdiction: England and Wales.**
 
 Resident-written reference material, published by the Peabody Complaints Archive
 (independent and resident-run, not affiliated with Peabody Trust). Based on the SHAC guide
@@ -129,11 +129,21 @@ where it disagrees, and verify the law independently. Where this document confli
 current legislation or with verified facts, those take precedence over anything stated
 here.
 
+This is the short version of the guide. It is abridged: the full guide covers superior
+landlords, the statutory exclusions, certification and several other points in more detail.
+When working from this short version, tell the user once, early on, that you are using the
+abridged version and that the full guide is at
+https://peabodytrust.co.uk/resources/guide.html . Recommend they check it if their
+situation is unusual, their landlord is a council or a superior landlord holds the
+documents.
+
 Two verification markers are included. The version number above is deliberately arbitrary,
 because a plausible short version number can be produced by a reader who never opened the
 file. The check code at the very end detects a document that arrived incomplete, which the
 version number alone cannot. A reader unable to reproduce both does not have this document
-in full and should say so rather than proceeding.
+in full and should say so rather than proceeding. The markers differ between the two
+versions of this guide: the short version ends in S and the full guide in L, so quoting
+them also tells the user which document you are working from.
 
 ## An AI assistant using this document should
 
@@ -576,7 +586,7 @@ Yours faithfully,
 
 ---
 
-END OF GUIDE. Check code: MRFDIL. Version 0.2.5.4.3.7.
+END OF SHORT VERSION. Check code: SMRFDI. Version 0.2.5.4.3.7S.
 
 A reader who cannot quote both the version number at the top and the check code above did
 not receive this document in full, and should say so before relying on it.
@@ -589,11 +599,12 @@ not receive this document in full, and should say so before relying on it.
           <li>Select <strong>Copy the prompt</strong>. A short version of the guide is copied with it, so it works whether or not your assistant can open web pages.</li>
           <li>Open your AI assistant and start a new conversation.</li>
           <li>Paste and send. It is a long message, which is expected.</li>
-          <li>Check that it quotes back the <strong>version number</strong> and the <strong>check code</strong> shown above. Compare both character by character.</li>
-          <li>If either is wrong, shortened or missing, it has not read the guide properly. Do not rely on what it tells you.</li>
+          <li>Check that it quotes back a <strong>version number</strong> and a <strong>check code</strong> from the block above. Compare both character by character.</li>
+          <li>Either pair is a pass. Codes ending in <strong>L</strong> mean it opened the full guide. Codes for the <strong>short version</strong> mean it is working from the abridged copy pasted with your prompt, so check the full guide yourself if your situation is unusual.</li>
+          <li>If neither pair comes back, or a code is shortened or altered, it has not read the guide properly. Do not rely on what it tells you.</li>
           <li>Say whether you are preparing a request, waiting for a response, or reviewing something your landlord has sent.</li>
         </ol>
-        <p class="route-note">The version number sits at the top of the guide and the check code at the very end, so quoting both shows the assistant received the whole document rather than the first part of it. Prefer a file? <a href="/resources/s21-guide.txt" download="s21-guide.txt">Download the plain text</a> and attach it instead.</p>
+        <p class="route-note">The version number sits at the top of each guide and the check code at the very end, so quoting both shows the assistant received the whole document rather than the first part of it. The two documents carry different markers, which is how you can tell which one it read. Prefer a file? <a href="/resources/s21-guide.txt" download="s21-guide.txt">Download the full guide as plain text</a> and attach it instead.</p>
       </div>
 
     </div>

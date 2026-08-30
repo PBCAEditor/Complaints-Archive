@@ -6,12 +6,13 @@ Plain-text copy. Human-readable page: https://peabodytrust.co.uk/resources/guide
 
 # Requesting Service Charge Information (LTA 1985 ss.21-23)
 
-**Version 0.1.9.8.6.2.4 (beta). Legal sources last verified 29 August 2026.**
+**Version 0.2.5.4.3.7 (beta). Legal sources last verified 29 August 2026. Check code MRFDIL.**
 
 | | |
 |---|---|
 | **Guide** | Requesting Service Charge Information under ss.21-23 LTA 1985 |
-| **Version** | 0.1.9.8.6.2.4 (beta) |
+| **Version** | 0.2.5.4.3.7 (beta) |
+| **Check code** | MRFDIL |
 | **Legal sources last verified** | 29 August 2026 |
 | **Guide revised** | 30 August 2026 |
 | **Jurisdiction** | England and Wales |
@@ -1076,3 +1077,10 @@ Not in force as at the verification date, but they will reshape this regime:
 The practical consequence is that the England and Wales position is beginning to diverge.
 When a user is in Wales, check whether the Welsh provisions have been commenced before
 advising, and check the s.25(3)(a) exemption which is already Wales-specific.
+
+---
+
+END OF GUIDE. Check code: MRFDIL. Version 0.2.5.4.3.7.
+
+A reader who cannot quote both the version number at the top and the check code above did not
+receive this document in full, and should say so before relying on it.

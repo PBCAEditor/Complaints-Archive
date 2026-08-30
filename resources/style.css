@@ -326,3 +326,6 @@ footer.site a{color:var(--ink-faint)}
     margin-top:1.4rem;padding-top:1.6rem;border-top:1px solid var(--rule);
   }
 }
+
+/* prompt boxes keep a fixed height and scroll rather than growing */
+.route-prompt .promptbox pre{max-height:22rem;overflow:auto}

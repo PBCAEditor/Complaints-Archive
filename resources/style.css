@@ -1,7 +1,7 @@
 :root{
   --ink:#15181b;
   --ink-soft:#4d545b;
-  --ink-faint:#767d84;
+  --ink-faint:#575e65;
   --paper:#f1f3ef;
   --raised:#fbfbf9;
   --rule:#d3d7cf;
@@ -164,7 +164,7 @@ h2.block-title{
 @media(min-width:64rem){
   .toc{position:sticky;top:4.6rem;max-height:calc(100vh - 6.5rem);overflow-y:auto}
 }
-.toc h3{
+.toc h2.toc-title{
   font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;
   color:var(--ink-faint);margin:0 0 .6rem;font-weight:500;
 }

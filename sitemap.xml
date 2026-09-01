@@ -76,6 +76,11 @@
     <priority>0.4</priority>
   </url>
   <url>
+    <loc>https://peabodytrust.co.uk/pages/corrections-log.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
     <loc>https://peabodytrust.co.uk/pages/contact.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>

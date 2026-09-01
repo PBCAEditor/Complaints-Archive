@@ -125,6 +125,16 @@
     }
     .pullquote p { margin: 14px 0; }
 
+    article.post p.updated {
+      font: 14px/1.5 system-ui, -apple-system, Arial, sans-serif;
+      color: var(--muted); margin: -10px 0 22px;
+      padding-left: 10px; border-left: 2px solid var(--accent);
+    }
+    .notes { margin: 34px 0 0; padding: 18px 0 0; border-top: 1px solid var(--rule); }
+    article.post .notes h2 { font-size: 17px !important; margin: 0 0 12px !important; }
+    .notes ul { padding-left: 20px; margin: 0 0 16px; }
+    .notes li { margin-bottom: 10px; }
+    .notes, .notes p { font-size: 16px; color: #444; }
     /* Article header image */
     img.post-header-image {
       display: block;
@@ -191,6 +201,7 @@
       footer.site { border-top: 1pt solid #000; font-size: 9pt; color: #000; }
       a { color: #000; text-decoration: underline; }
       article.post a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 8.5pt; }
+      .notes { border-top: 1pt solid #000; font-size: 9pt; }
       img.post-header-image { display: none; }
       .pullquote { border-color: #000; }
       h1, h2, h3 { page-break-after: avoid; }
@@ -251,40 +262,69 @@
     <article class="post" id="content">
       <h1>The Three Closed Doors: A Stress Test of Leasehold Accountability</h1>
       <p class="byline">By David Wood &middot; <time datetime="2026-06">Published June 2026</time></p>
+      <p class="updated">Substantively updated <time datetime="2026-09-01">1 September 2026</time>: new closing section on the scale and timescale of leasehold reform, and a revised conclusion.</p>
       <img src="../images/three-doors-header.jpg" alt="Leasehold accountability and enforcement" class="post-header-image">
-      <p class="lead">I became a banker in 2007.</p>
-      <p>The lesson I took from the financial crisis was not that banks should cease to exist. It was that systems which appear robust on paper can contain weaknesses that only become visible when the system is stressed. Safeguards should be tested rather than assumed.</p>
+      <p class="lead">I became a banker in 2007. The lesson I took from the financial crisis was not that banks should cease to exist. It was that systems which appear robust on paper can contain weaknesses that only become visible when the system is stressed. Safeguards should be tested rather than assumed.</p>
       <p>Looking at leasehold, I increasingly wonder whether we face a similar problem, and whether the right question is not who should own what, but whether the protections Parliament created for residents actually function.</p>
       <p>In any arrangement where one party makes decisions and another bears the consequences, the mechanisms that manage that risk matter more than the formal rights on paper. Disclosure, independent verification, accountability, the ability to exit: where those mechanisms are weak, the formal rights tend to follow.</p>
-      <p>Leasehold service charges are unusual because many of these disciplines are absent simultaneously. Residents bear the economic consequences of spending decisions they did not make, on services from suppliers they did not choose, at prices they cannot easily verify, from organisations they cannot readily replace.</p>
-      <p>The mechanisms that would normally discipline that arrangement are largely absent. Parliament has created three mechanisms through which leaseholders are supposed to protect themselves.</p>
-      <h2>The first door: criminal enforcement</h2>
-      <p>Sections 21 and 22 of the Landlord and Tenant Act 1985 give leaseholders the right to obtain service charge information. Section 25 makes non-compliance a criminal offence. In practice, local authorities rarely prosecute. Residents seeking enforcement are often left to consider private prosecution themselves.</p>
-      <p>A disclosure obligation without enforcement is not a discipline. The landlord who withholds information faces, in most cases, no meaningful consequence.</p>
-      <div class="pullquote"><p>To challenge a charge, you need evidence. To obtain the evidence, you have to challenge the charge.</p></div>
-      <h2>The second door: the First-tier Tribunal</h2>
-      <p>This is the most important door to examine, and the most difficult to critique, precisely because it is not obviously locked. The Tribunal exists. People use it. A critic can point at any active case and say: the door is open.</p>
-      <p>But the problem is not whether the door opens. The problem is stepping through.</p>
-      <p>Effective accountability operates before decisions are made. The Tribunal operates after, requiring residents to challenge spending decisions in a quasi-judicial forum, carrying the full burden of investigation themselves, against organisations that engage with these processes professionally. A landlord arrives with invoices, contracts, procurement records and specialist lawyers. A resident arrives with a demand notice and whatever information they have managed to extract. To challenge a charge, you need evidence. To obtain the evidence, you have to challenge the charge.</p>
+      <p>Leasehold service charges are unusual because many of these disciplines are absent simultaneously. Residents bear the economic consequences of spending decisions they did not make, on services from suppliers they did not choose, at prices they cannot easily verify, from organisations they cannot readily replace. The mechanisms that would normally discipline that arrangement are largely absent.</p>
+      <p>Parliament has created three mechanisms through which leaseholders are supposed to protect themselves.</p>
+
+      <h2>First door: criminal enforcement</h2>
+      <p>Sections 21 and 22 of the Landlord and Tenant Act 1985 give leaseholders the right to obtain service charge information. Section 25 makes non-compliance a criminal offence. In practice, local authorities rarely prosecute. Residents seeking enforcement are often left to consider private prosecution themselves. A disclosure obligation without enforcement is not a discipline. The landlord who withholds information faces, in most cases, no meaningful consequence.</p>
+
+      <h2>Second door: the First-tier Tribunal</h2>
+      <p>This is the most important door to examine, and the most difficult to critique, precisely because it is not obviously locked. The Tribunal exists. People use it. A critic can point at any active case and say: the door is open. But the problem is not whether the door opens. The problem is stepping through.</p>
+      <p>Effective accountability operates before decisions are made. The Tribunal operates after, requiring residents to challenge spending decisions in a quasi-judicial forum, carrying the full burden of investigation themselves, against organisations that engage with these processes professionally.</p>
+      <p>A landlord arrives with invoices, contracts, procurement records and specialist lawyers. A resident arrives with a demand notice and whatever information they have managed to extract. To challenge a charge, you need evidence. To obtain the evidence, you have to challenge the charge.</p>
+
+      <div class="pullquote">
+        <p>To challenge a charge, you need evidence. To obtain the evidence, you have to challenge the charge.</p>
+      </div>
+
       <p>Residents are not housing lawyers, and shouldn't need to be. Many instruct lawyers, because the alternative is navigating this process alone against a professional counterparty, and those costs are personal and substantial. Those who proceed without legal support face an acute asymmetry. Those who do instruct lawyers face a different kind of attrition.</p>
       <p>And the system depends heavily on unusually persistent individuals to function at all. Many disputes affect entire buildings, but the Tribunal model treats claims through individual applicants. In practice, those individuals end up acting as unpaid organisers, evidence gatherers and quasi-case managers for their neighbours. A system that requires that to work is not working.</p>
       <p>In functioning markets, litigation is typically a remedy of last resort. Leasehold often treats litigation as a primary accountability mechanism.</p>
-      <h2>The third door: Right to Manage</h2>
+
+      <h2>Third door: the Right to Manage</h2>
       <p>For many residents in mixed-tenure developments, this route is unavailable or impractical. Commonhold campaigners go further: they argue that the existence of an escape route from someone else's control is itself evidence of a structural problem, and that the answer is to give residents formal ownership from the outset.</p>
       <p>I have some sympathy with that argument. But I am also a sceptic.</p>
       <p>Commonhold makes the assumption that residents can operate as quasi-housing-professionals, setting long-term budgets, procuring contractors, managing reserves and running governance. These are not trivial skills. They are the skills that professional managing agents exist to provide.</p>
-      <p>Which raises an uncomfortable question about where the reform leads. Residents are handed formal control. They discover that running a building competently is genuinely difficult. The path of least resistance is to contract it out, to the same large managing agents currently operating the leasehold structure. Unlike leasehold, residents would at least possess the power to appoint and dismiss those agents. Yet the underlying asymmetry of expertise would remain, and the effectiveness of that power would depend upon residents having the confidence, information and organisation necessary to exercise it.</p>
+      <p>Which raises an uncomfortable question about where the reform leads. Residents are handed formal control. They discover that running a building competently is genuinely difficult. The path of least resistance is to contract it out, to the same large managing agents currently operating the leasehold structure.</p>
+      <p>Unlike leasehold, residents would at least possess the power to appoint and dismiss those agents. Yet the underlying asymmetry of expertise would remain, and the effectiveness of that power would depend upon residents having the confidence, information and organisation necessary to exercise it.</p>
       <p>Formal control without practical capability may simply relocate the problem. If the reforms do not address the underlying asymmetry, the third door may turn out to be an entrance as much as an exit.</p>
-      <h2>The regulator asks a different question</h2>
+
+      <h2>The metrics that matter</h2>
       <p>The accountability question is sharpest when examining regulation. The social housing regulatory framework focuses on viability, governance, lender confidence and development capacity. These are the metrics that matter to the organisations that lend to and invest in housing associations. They are legitimate. But they are not the same as protecting residents.</p>
       <p>A housing association can be financially strong, well-governed and highly rated by its regulator while residents simultaneously struggle to obtain basic information about their service charges. These are not contradictory outcomes. They reflect the fact that the regulatory framework was designed to answer a different question from the one the residents are asking. The regulator asks: is the provider viable? The resident asks: can I enforce my rights? It is therefore entirely possible for the regulatory system to conclude that a provider is succeeding while residents conclude that the accountability framework is failing.</p>
       <p>Financial strength and resident accountability are not mutually exclusive objectives. But neither are they the same objective. A framework designed primarily to assess institutional resilience will not necessarily reveal weaknesses in the mechanisms through which residents exercise their rights.</p>
-      <h2>Three doors, and who is left to open them</h2>
+
+      <h2>Displaced accountability</h2>
       <p>Parliament created criminal enforcement. Parliament created tribunal oversight. Parliament created management rights. If those fragmented safeguards were intended to be used, the question is why so few residents succeed in doing so. If they were not intended to be used, the question is why they were created.</p>
       <p>Either answer is uncomfortable. Together they describe a system in which the formal rights exist, but many of the practical disciplines that make rights meaningful are weak or absent. Accountability is therefore displaced from the point at which decisions are made to the point at which residents are willing and able to challenge them. That is worth examining carefully, not as a complaint about any individual landlord or regulator, but as a question about who benefits from the current arrangement, and whether the proposed reforms genuinely change it.</p>
+
+      <div class="pullquote">
+        <p>Accountability fails, and the failure stays invisible because the people best placed to expose it are the least resourced to do so.</p>
+      </div>
+
       <p>A system can survive considerable imperfection if accountability functions. It becomes intolerable when accountability fails, and the failure stays invisible because the people best placed to expose it are the least resourced to do so.</p>
-      <div class="pullquote"><p>Accountability fails, and the failure stays invisible because the people best placed to expose it are the least resourced to do so.</p></div>
-      <p>My experience suggests we should not assume these doors are open simply because they appear on the floor plan.</p>
+
+      <h2>The doors are here to stay</h2>
+      <p>There is also a question of scale and time. Even if commonhold ultimately proves to be a superior model, the transition will be measured in decades rather than years. Around one in five homes in England is leasehold. Annual housing supply in England amounted to 208,600 net additional dwellings in 2024-25, against a stock of roughly 25 million: under one per cent a year. Even a complete prohibition on new leasehold, which is not what the current proposals contain, would leave millions of existing leaseholders within the current system for the rest of their lives. New commonhold developments may shape the future of housing. They do nothing for the accountability problems experienced by residents today.</p>
+      <p>The three doors described in this essay are not being abolished. They will remain the primary mechanisms through which existing leaseholders seek information, challenge costs and exercise control for the foreseeable future. Whatever one thinks about commonhold, the question of whether those mechanisms function effectively cannot be deferred to a future generation.</p>
+      <p><strong>The residents living behind those doors are already here.</strong></p>
+
+      <section class="notes" id="sources">
+        <h2>Sources</h2>
+        <p><strong>Open sources.</strong></p>
+        <ul>
+          <li>Landlord and Tenant Act 1985, sections 21, 22 and 25. The operative version of section 21 is the one dated 17 December 1996; the default page on legislation.gov.uk shows a regulation-making power that was never commenced for operative purposes.</li>
+          <li>Commonhold and Leasehold Reform Act 2002, Part 2, Chapter 1 (Right to Manage).</li>
+          <li>Ministry of Housing, Communities and Local Government, <em>Housing supply: net additional dwellings, England: 2024 to 2025</em>, published 20 November 2025. Annual housing supply in England amounted to 208,600 net additional dwellings in 2024-25, a 6% decrease on 2023-24. Accessed 1 September 2026.</li>
+          <li>Ministry of Housing, Communities and Local Government leasehold dwellings estimates for England, for the proportion of homes held on a leasehold basis.</li>
+        </ul>
+        <p><strong>First-hand account.</strong> The author's own experience of the tribunal and disclosure routes described, as a leaseholder and residents' association chair. This article is analysis rather than reporting: the argument is the author's, drawn from the documented position of the statutory framework.</p>
+      </section>
     </article>
 
 

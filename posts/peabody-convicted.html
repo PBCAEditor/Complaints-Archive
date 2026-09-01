@@ -58,6 +58,11 @@
       text-transform: uppercase; letter-spacing: 0.05em;
     }
     header.site .brand a { color: var(--muted); text-decoration: none; }
+    header.site .independent {
+      display: block; margin: 4px 0 0;
+      font: 11px/1.4 system-ui, -apple-system, Arial, sans-serif;
+      letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent);
+    }
     header.site .brand a:hover { color: var(--accent); }
     nav.site {
       font: 15px/1.5 system-ui, -apple-system, Arial, sans-serif;
@@ -116,6 +121,11 @@
     .pullquote p { margin: 14px 0; }
 
     /* Post update block */
+    article.post p.updated {
+      font: 14px/1.5 system-ui, -apple-system, Arial, sans-serif;
+      color: var(--muted); margin: -10px 0 22px;
+      padding-left: 10px; border-left: 2px solid var(--accent);
+    }
     article.post .post-update {
       margin: 36px 0 8px;
       padding: 20px 0 0;
@@ -250,6 +260,7 @@
   <div class="wrap">
     <header class="site">
       <div class="brand"><a href="../index.html">Peabody Complaints Archive</a></div>
+      <span class="independent">Independent resident archive</span>
     </header>
 
     <nav class="site">
@@ -264,6 +275,7 @@
     <article class="post" id="content">
       <h1>Peabody Was Convicted. It Took a Resident to Make That Happen.</h1>
       <p class="byline">By David Wood &middot; <time datetime="2026-08-16">Published 16 August 2026</time></p>
+      <p class="updated">Substantively updated <time datetime="2026-08-18">18 August 2026</time>: response received from Rushanara Ali MP, added at the foot of the article.</p>
       <img src="../images/conviction-header.jpg" alt="Peabody Complaints Archive: report on Peabody's section 25 conviction" class="post-header-image">
       <p class="lead">On 11 August 2026, a representative of the Peabody Trust stood in Thames Magistrates' Court and pleaded guilty to a criminal offence: failing, without reasonable excuse, to provide a leaseholder with a written summary of service charge costs. The court fined Peabody &pound;1,000, reduced from &pound;1,500 for the guilty plea, plus &pound;400 in costs.</p>
       <p>No council brought this case. No regulator brought it. A leaseholder at a mixed-tenure development in Aldgate, east London did, as a private prosecution, because every other route had already been tried and had not produced compliance.</p>

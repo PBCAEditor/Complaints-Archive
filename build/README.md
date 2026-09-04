@@ -206,7 +206,36 @@ four categories:
 
 ---
 
-## 9. Rules that must not be broken
+## 9. Byline and authorship convention
+
+Adopted September 2026, applied as articles are revised rather than retrospectively.
+Older articles keep their existing byline until a correction or change is warranted.
+
+**Analysis.** Bylined to the Peabody Complaints Archive, not to an individual. The
+initialism **PCA** may be used. Structured, evidence-led pieces resting on documents
+and data.
+
+**Opinion.** Bylined to the author by name, written in the first person.
+
+**Guest authors.** Always named, whichever category the piece falls into.
+
+The initialism is defined once, in the "What this site is" section on the homepage:
+"The Peabody Complaints Archive (PCA) is written and run by leaseholders and
+residents". `check-site.py` flags any page other than the homepage that uses PCA
+without expanding it on first use. That is a CHECK rather than a BLOCK, because on
+an analysis piece the byline itself carries the full name.
+
+In the page markup, an institutional byline also changes the JSON-LD `author` field
+from `Person` to `Organization`. Copy an existing article of the same category rather
+than editing this by hand.
+
+A note on the edge case: a piece can be structurally analysis and still turn to the
+first person where the argument needs it. That tension is an editorial choice for the
+editor, not a rule to be resolved here.
+
+---
+
+## 10. Rules that must not be broken
 
 1. The not-affiliated banner appears on **every** page.
 2. No building name, street address or postcode anywhere. The convention is

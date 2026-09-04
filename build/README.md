@@ -225,8 +225,11 @@ residents". `check-site.py` flags any page other than the homepage that uses PCA
 without expanding it on first use. That is a CHECK rather than a BLOCK, because on
 an analysis piece the byline itself carries the full name.
 
-**Presentation.** Analysis pieces carry no drop cap and no pull quotes. The type is
-plain; the tables and the methodology do the work. Opinion pieces may use both. The two
+**Presentation.** Analysis pieces carry no pull quotes: the type is plain and the tables
+and methodology do the work. A drop cap is permitted on the standfirst where it reads
+well, but not on the opening body paragraph, which on a data-led piece often begins with
+a figure or an initialism and looks awkward. Opinion pieces may use both drop caps and
+pull quotes. The two
 reproduced-document pages (the honours letter and the HCLG evidence) carry no drop cap,
 pull quotes or header image, because they read as documents rather than articles.
 

@@ -104,6 +104,7 @@
 
     /* Drop cap on the first paragraph of the article body */
     article.post > p.lead::first-letter,
+    article.post > p.standfirst.dropcap::first-letter,
     article.post > p.dropcap::first-letter {
       float: left;
       font-size: 66px;
@@ -191,7 +192,9 @@
     table.data th, table.data td { text-align: left; vertical-align: top;
       padding: 8px 12px 8px 0; border-bottom: 1px solid var(--rule); }
     table.data thead th { font-weight: 600; color: #333; border-bottom: 2px solid var(--accent); }
-    table.data .num { text-align: right; padding-right: 0; white-space: nowrap; }
+    table.data .num { text-align: right; white-space: nowrap; }
+    table.data th:last-child, table.data td:last-child { padding-right: 0; }
+    table.data .rank { text-align: left; width: 1%; white-space: nowrap; color: var(--muted); }
     table.data tbody tr:last-child td { border-bottom: 2px solid var(--rule); }
 
     /* Footnotes */
@@ -319,7 +322,7 @@
     <article class="post" id="content">
       <h1>Who is the worst housing association?</h1>
       <p class="byline">Peabody Complaints Archive &middot; <time datetime="2026-09-04">Published 4 September 2026</time></p>
-      <p class="standfirst">We counted Housing Ombudsman reports, adjusted the figures for landlord size and checked the regulator's lowest grade. The three tests produced different answers. But one name appeared every time.</p>
+      <p class="standfirst dropcap">We counted Housing Ombudsman reports, adjusted the figures for landlord size and checked the regulator's lowest grade. The three tests produced different answers. But one name appeared every time.</p>
 
       <p>PCA identified 1,186 published decision reports with unique case references, returned by the Housing Ombudsman's decisions archive for dates from 1 January to 4 September 2026. These covered 151 housing-association names.</p>
       <p>A raw count of published reports appears to offer a simple answer. London &amp; Quadrant tops the table with 121, followed by Clarion with 81, Notting Hill Genesis with 78, Peabody with 60 and Southern Housing with 52.</p>
@@ -332,14 +335,14 @@
         <table class="data">
           <caption>Published Housing Ombudsman decision reports, 1 January to 4 September 2026</caption>
           <thead>
-            <tr><th scope="col" class="num">Rank</th><th scope="col">Housing association</th><th scope="col" class="num">Decision reports</th></tr>
+            <tr><th scope="col" class="rank">Rank</th><th scope="col">Housing association</th><th scope="col" class="num">Decision reports</th></tr>
           </thead>
           <tbody>
-            <tr><td class="num">1</td><td>London &amp; Quadrant</td><td class="num">121</td></tr>
-            <tr><td class="num">2</td><td>Clarion</td><td class="num">81</td></tr>
-            <tr><td class="num">3</td><td>Notting Hill Genesis</td><td class="num">78</td></tr>
-            <tr><td class="num">4</td><td>Peabody</td><td class="num">60</td></tr>
-            <tr><td class="num">5</td><td>Southern Housing</td><td class="num">52</td></tr>
+            <tr><td class="rank">1</td><td>London &amp; Quadrant</td><td class="num">121</td></tr>
+            <tr><td class="rank">2</td><td>Clarion</td><td class="num">81</td></tr>
+            <tr><td class="rank">3</td><td>Notting Hill Genesis</td><td class="num">78</td></tr>
+            <tr><td class="rank">4</td><td>Peabody</td><td class="num">60</td></tr>
+            <tr><td class="rank">5</td><td>Southern Housing</td><td class="num">52</td></tr>
           </tbody>
         </table>
       </div>
@@ -355,14 +358,14 @@
         <table class="data">
           <caption>Decision reports per 10,000 homes, providers with at least five reports</caption>
           <thead>
-            <tr><th scope="col" class="num">Rank</th><th scope="col">Housing association</th><th scope="col" class="num">Reports</th><th scope="col" class="num">Homes</th><th scope="col" class="num">Per 10,000</th></tr>
+            <tr><th scope="col" class="rank">Rank</th><th scope="col">Housing association</th><th scope="col" class="num">Reports</th><th scope="col" class="num">Homes</th><th scope="col" class="num">Per 10,000</th></tr>
           </thead>
           <tbody>
-            <tr><td class="num">1</td><td>Octavia Housing</td><td class="num">9</td><td class="num">5,437</td><td class="num">16.55</td></tr>
-            <tr><td class="num">2</td><td>Hexagon Housing</td><td class="num">7</td><td class="num">4,409</td><td class="num">15.88</td></tr>
-            <tr><td class="num">3</td><td>Notting Hill Genesis</td><td class="num">78</td><td class="num">63,584</td><td class="num">12.27</td></tr>
-            <tr><td class="num">4</td><td>London &amp; Quadrant</td><td class="num">121</td><td class="num">102,972</td><td class="num">11.75</td></tr>
-            <tr><td class="num">5</td><td>Newlon Housing Trust</td><td class="num">9</td><td class="num">7,996</td><td class="num">11.26</td></tr>
+            <tr><td class="rank">1</td><td>Octavia Housing</td><td class="num">9</td><td class="num">5,437</td><td class="num">16.55</td></tr>
+            <tr><td class="rank">2</td><td>Hexagon Housing</td><td class="num">7</td><td class="num">4,409</td><td class="num">15.88</td></tr>
+            <tr><td class="rank">3</td><td>Notting Hill Genesis</td><td class="num">78</td><td class="num">63,584</td><td class="num">12.27</td></tr>
+            <tr><td class="rank">4</td><td>London &amp; Quadrant</td><td class="num">121</td><td class="num">102,972</td><td class="num">11.75</td></tr>
+            <tr><td class="rank">5</td><td>Newlon Housing Trust</td><td class="num">9</td><td class="num">7,996</td><td class="num">11.26</td></tr>
           </tbody>
         </table>
       </div>

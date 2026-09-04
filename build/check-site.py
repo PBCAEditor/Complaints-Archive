@@ -55,17 +55,41 @@ DRAFT_RULES = [
 ]
 
 
+# Internal shorthand that must not appear in published copy without explanation.
+# This is a watchlist, not a general abbreviation checker: a generic rule flagged
+# 31 false positives across the site (CEO, CBE, UNISON, template placeholders,
+# capitalised headings) and would have trained everyone to ignore the output.
+#
+# PCA is deliberately absent. It is the publisher's own name, and the masthead
+# and byline carry it in full on every page.
+#
+# Add a term here when internal shorthand starts leaking into drafts.
+INTERNAL_SHORTHAND = {
+    # "XYZ": "what it stands for",
+}
+
+
+def unexpanded_initialisms(text, lines):
+    """Flag internal shorthand used without being expanded on first use."""
+    out = []
+    for word in sorted(INTERNAL_SHORTHAND):
+        if not re.search(rf"(?<![A-Za-z]){re.escape(word)}(?![A-Za-z])", text):
+            continue
+        if f"({word})" in text:
+            continue
+        ln = next((i for i, l in enumerate(lines, 1) if word in l), 1)
+        out.append(("CHECK", f"'{word}' used without being expanded on first use",
+                    ln, word, lines[ln - 1].strip()[:110] if ln <= len(lines) else ""))
+    return out
+
+
 def check_draft(path):
     text = Path(path).read_text(encoding="utf-8", errors="replace")
     lines = text.splitlines()
     findings = []
 
-    # PCA is house style on analysis pieces, but must be introduced before use.
-    # The homepage carries the definition; anywhere else, expand it on first use.
-    if re.search(r"\bPCA\b", text) and "Peabody Complaints Archive (PCA)" not in text:
-        first = next(i for i, l in enumerate(lines, 1) if re.search(r"\bPCA\b", l))
-        findings.append(("CHECK", "PCA used without being expanded on first use",
-                         first, "PCA", lines[first - 1].strip()[:110]))
+    for sev, label, ln, hit, ctx in unexpanded_initialisms(text, lines):
+        findings.append((sev, label, ln, hit, ctx))
     for label, pattern, sev, flags in DRAFT_RULES:
         for i, line in enumerate(lines, 1):
             for m in re.finditer(pattern, line, flags):
@@ -120,9 +144,9 @@ def check_site(root: Path):
             bad("BLOCK", rel, f"{len(h1s)} <h1> elements: " +
                 ", ".join(h.get_text(strip=True)[:40] for h in h1s))
 
-        if re.search(r"\bPCA\b", raw) and "Peabody Complaints Archive (PCA)" not in raw \
-                and rel != "index.html":
-            bad("CHECK", rel, "PCA used without being expanded on first use")
+        page_text = soup.get_text(" ")
+        for _, label, _, _, _ in unexpanded_initialisms(page_text, page_text.splitlines()):
+            bad("CHECK", rel, label)
         if "not affiliated" not in raw.lower():
             bad("BLOCK", rel, "disclaimer banner missing (S9 rule 1)")
         if "goatcounter" not in raw:

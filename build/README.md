@@ -225,6 +225,17 @@ residents". `check-site.py` flags any page other than the homepage that uses PCA
 without expanding it on first use. That is a CHECK rather than a BLOCK, because on
 an analysis piece the byline itself carries the full name.
 
+**Presentation.** Analysis pieces carry no drop cap and no pull quotes. The type is
+plain; the tables and the methodology do the work. Opinion pieces may use both. The two
+reproduced-document pages (the honours letter and the HCLG evidence) carry no drop cap,
+pull quotes or header image, because they read as documents rather than articles.
+
+**Methodology and sources.** Where an analysis piece rests on a dataset, the methodology,
+limitations, sensitivity checks, any downloadable data and the source list go in a
+visually separate appendix at the foot of the article (`<section class="appendix">`),
+introduced by an "End of article" rule. Reference material should be reachable but
+clearly not part of the argument.
+
 In the page markup, an institutional byline also changes the JSON-LD `author` field
 from `Person` to `Organization`. Copy an existing article of the same category rather
 than editing this by hand.

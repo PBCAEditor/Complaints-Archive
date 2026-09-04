@@ -50,7 +50,6 @@ DRAFT_RULES = [
     ("Monetisation (S9.4)", r"\b(?:advertise here|sponsored|buy now|donate|for sale|purchase this domain)\b", "CHECK", re.I),
     ("Browser storage (S9.6)", r"localStorage|sessionStorage|document\.cookie|indexedDB", "BLOCK", 0),
     ("'No response' claim (S9.7)", r"no response (?:has been )?(?:was )?received|had not responded|did not respond|declined to comment", "CHECK", re.I),
-    ("Internal abbreviation", r"\bPCA\b", "CHECK", 0),
     ("Unexpanded placeholder", r"\b(?:TBC|TODO|TK|XXX|\[insert|\[name\]|check tenure)", "CHECK", re.I),
     ("Local file path", r"(?:/Users/|C:\\\\|/home/)", "CHECK", 0),
 ]
@@ -60,6 +59,13 @@ def check_draft(path):
     text = Path(path).read_text(encoding="utf-8", errors="replace")
     lines = text.splitlines()
     findings = []
+
+    # PCA is house style on analysis pieces, but must be introduced before use.
+    # The homepage carries the definition; anywhere else, expand it on first use.
+    if re.search(r"\bPCA\b", text) and "Peabody Complaints Archive (PCA)" not in text:
+        first = next(i for i, l in enumerate(lines, 1) if re.search(r"\bPCA\b", l))
+        findings.append(("CHECK", "PCA used without being expanded on first use",
+                         first, "PCA", lines[first - 1].strip()[:110]))
     for label, pattern, sev, flags in DRAFT_RULES:
         for i, line in enumerate(lines, 1):
             for m in re.finditer(pattern, line, flags):
@@ -114,6 +120,9 @@ def check_site(root: Path):
             bad("BLOCK", rel, f"{len(h1s)} <h1> elements: " +
                 ", ".join(h.get_text(strip=True)[:40] for h in h1s))
 
+        if re.search(r"\bPCA\b", raw) and "Peabody Complaints Archive (PCA)" not in raw \
+                and rel != "index.html":
+            bad("CHECK", rel, "PCA used without being expanded on first use")
         if "not affiliated" not in raw.lower():
             bad("BLOCK", rel, "disclaimer banner missing (S9 rule 1)")
         if "goatcounter" not in raw:

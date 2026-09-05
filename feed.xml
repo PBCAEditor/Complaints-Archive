@@ -5,9 +5,17 @@
   <link href="https://peabodytrust.co.uk/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://peabodytrust.co.uk/" rel="alternate" type="text/html"/>
   <id>https://peabodytrust.co.uk/</id>
-  <updated>2026-09-04T00:00:00Z</updated>
+  <updated>2026-09-05T00:00:00Z</updated>
   <author><name>David Wood</name></author>
   <rights>This site is independent of Peabody Trust and is not affiliated with, endorsed by, or operated by Peabody Trust.</rights>
+  <entry>
+    <title>What does Peabody have to hide?</title>
+    <link href="https://peabodytrust.co.uk/posts/what-does-peabody-have-to-hide.html" rel="alternate" type="text/html"/>
+    <id>https://peabodytrust.co.uk/posts/what-does-peabody-have-to-hide.html</id>
+    <published>2026-09-05T00:00:00Z</published>
+    <updated>2026-09-05T00:00:00Z</updated>
+    <summary type="text">Nearly two years of correspondence about one question: what are residents being charged for? Lost requests, contradictory complaint responses, an internal review, missed deadlines and a conviction.</summary>
+  </entry>
   <entry>
     <title>Who is the worst housing association?</title>
     <link href="https://peabodytrust.co.uk/posts/worst-housing-association.html" rel="alternate" type="text/html"/>

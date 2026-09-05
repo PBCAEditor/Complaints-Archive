@@ -1,0 +1,3 @@
+# Local-only: contains the building name and staff-name watchlist.
+# This repository is public. Never commit this file.
+build/check-rules.local.json

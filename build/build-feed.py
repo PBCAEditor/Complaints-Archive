@@ -24,6 +24,7 @@ AUTHOR = "David Wood"
 
 # ISO date per article; YYYY-MM means month-precision on the page itself.
 POST_DATES = {
+    "what-does-peabody-have-to-hide.html": "2026-09-05",
     "worst-housing-association.html": "2026-09-04",
     "shared-ownership-incentives.html": "2026-08-25",
     "who-signed-the-letter.html": "2026-08-20",

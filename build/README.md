@@ -239,6 +239,30 @@ visually separate appendix at the foot of the article (`<section class="appendix
 introduced by an "End of article" rule. Reference material should be reachable but
 clearly not part of the argument.
 
+**Headlines and framing.** Provocative framing is a legitimate technique but a
+conditional one. Use it only where all three of these hold:
+
+- The piece rests on original data or documents nobody else has published.
+- The headline asks a question the article actually answers, rather than deferring or
+  dodging it.
+- The methodology, limitations and, where possible, the underlying data are published
+  alongside.
+
+Where the payoff is proportionate to the promise, the framing is earned. Where it is not,
+it costs the credibility that the About, corrections and editorial policy pages exist to
+establish, and that is much harder to rebuild than traffic is to gain.
+
+**Keep it rare.** One provocative headline on a site of sober analysis reads as a
+deliberate choice. Several in succession reads as the site's register, and the sobriety
+elsewhere stops being believed. The default remains plain, descriptive headlines:
+reporting, opinion and document-led analysis carry their own weight and do not need a
+hook.
+
+**Reach is not the only measure.** The article that travels furthest in resident groups
+and the article that changes something are often not the same piece. Written evidence to
+a select committee, an open letter, or a piece read by an APPG secretariat may draw a
+fraction of the traffic and do considerably more. Judge pieces against what they were for.
+
 In the page markup, an institutional byline also changes the JSON-LD `author` field
 from `Person` to `Organization`. Copy an existing article of the same category rather
 than editing this by hand.

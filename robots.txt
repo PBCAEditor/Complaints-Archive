@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /build/
 
 Sitemap: https://peabodytrust.co.uk/sitemap.xml
 Feed: https://peabodytrust.co.uk/feed.xml

@@ -40,19 +40,48 @@ SITE = "https://peabodytrust.co.uk"
 # ---------------------------------------------------------------- draft rules
 
 DRAFT_RULES = [
-    ("Building name (S9.2)", r"goldpence", "BLOCK", 0),
     ("Postcode (S9.2)", r"\b[A-Z]{1,2}[0-9][0-9A-Z]?\s?[0-9][A-Z]{2}\b", "BLOCK", 0),
     ("Postcode district (S9.2)", r"\b(?:London\s+)?E1\b(?!\d)", "BLOCK", 0),
     ("Uncensored tribunal ref (S9.2)", r"LON/00[A-Z]{2}/[A-Z]{3}/\d{4}/\d{4}", "BLOCK", 0),
     ("Flat/apartment number (S9.2)", r"\b(?:flat|apartment|apt)\s*\.?\s*\d{3}\b", "BLOCK", re.I),
     ("Street address (S9.2)", r"\b\d+[a-z]?\s+[A-Z][a-z]+\s+(?:Street|St|Road|Rd|Lane|Avenue|Ave|Way|Court|Close|Place|Row|Gardens)\b", "BLOCK", 0),
-    ("Peabody staff name (S9.3)", r"\b(?:Alex Costello|Nicole St John|Sandra Williams|Russell Plenge|Katie Bond|Ben Siegert|Aisha Saleem|Amy Leveridge|Fola Lawal|Fiona Pickering|Tracy Packer|Katherine Egbuka|Paula Speller|Rohan Gordon|Uche Ibeabueke|Vatel Ntankeu|Sameeullah|Matt Ashton|Gemma Valentine|Scott Lawrence|Victoria Gray|Tamara Fisch|Mei Wang|Martin Watson|Igor Karpov|Emmanuel Adu-Baah)\b", "CHECK", re.I),
     ("Monetisation (S9.4)", r"\b(?:advertise here|sponsored|buy now|donate|for sale|purchase this domain)\b", "CHECK", re.I),
     ("Browser storage (S9.6)", r"localStorage|sessionStorage|document\.cookie|indexedDB", "BLOCK", 0),
     ("'No response' claim (S9.7)", r"no response (?:has been )?(?:was )?received|had not responded|did not respond|declined to comment", "CHECK", re.I),
     ("Unexpanded placeholder", r"\b(?:TBC|TODO|TK|XXX|\[insert|\[name\]|check tenure)", "CHECK", re.I),
     ("Local file path", r"(?:/Users/|C:\\\\|/home/)", "CHECK", 0),
 ]
+
+
+# ---------------------------------------------------------- local-only rules
+#
+# Some patterns cannot live in this file: the building name and the staff-name
+# watchlist are exactly what the anonymisation rules exist to keep off the web,
+# and this repository is public. They are loaded from an untracked file instead.
+#
+# Create check-rules.local.json NEXT TO THIS SCRIPT, and add it to .gitignore:
+#
+#   {
+#     "Building name (S9.2)":     {"pattern": "...", "severity": "BLOCK"},
+#     "Peabody staff name (S9.3)": {"pattern": "...", "severity": "CHECK"}
+#   }
+#
+# If the file is absent the script says so and continues without those rules.
+
+LOCAL_RULES_FILE = Path(__file__).with_name("check-rules.local.json")
+
+
+def load_local_rules():
+    if not LOCAL_RULES_FILE.exists():
+        print(f"NOTE: {LOCAL_RULES_FILE.name} not found. The building-name and "
+              f"staff-name checks are NOT running.\n")
+        return []
+    data = json.loads(LOCAL_RULES_FILE.read_text(encoding="utf-8"))
+    out = []
+    for label, cfg in data.items():
+        out.append((label, cfg["pattern"], cfg.get("severity", "BLOCK"),
+                    re.I if cfg.get("ignore_case") else 0))
+    return out
 
 
 # Internal shorthand that must not appear in published copy without explanation.
@@ -90,7 +119,7 @@ def check_draft(path):
 
     for sev, label, ln, hit, ctx in unexpanded_initialisms(text, lines):
         findings.append((sev, label, ln, hit, ctx))
-    for label, pattern, sev, flags in DRAFT_RULES:
+    for label, pattern, sev, flags in DRAFT_RULES + load_local_rules():
         for i, line in enumerate(lines, 1):
             for m in re.finditer(pattern, line, flags):
                 findings.append((sev, label, i, m.group(0), line.strip()[:110]))
@@ -208,6 +237,28 @@ def check_site(root: Path):
             bad("BLOCK", "feed.xml", f"article missing: {name}")
         if name not in idx:
             bad("BLOCK", "search-index.json", f"article missing: {name}")
+
+    # ---- forbidden strings in ANY served file, not just HTML.
+    # /build/ is served by GitHub Pages like everything else.
+    local = load_local_rules()
+    if local:
+        for f in root.rglob("*"):
+            if not f.is_file() or ".git" in f.parts:
+                continue
+            try:
+                content = f.read_text(encoding="utf-8", errors="ignore")
+            except Exception:
+                continue
+            for label, pattern, sev, flags in local:
+                if re.search(pattern, content, flags):
+                    bad("BLOCK", f.relative_to(root).as_posix(),
+                        f"{label} appears in a file served from the site")
+
+    # ---- scripts and sources should not be served at all
+    for f in (root / "build").glob("*"):
+        if f.is_file() and f.name != "README.md":
+            bad("CHECK", f.relative_to(root).as_posix(),
+                "served publicly; GitHub Pages serves everything in the repository")
 
     # ---- stray generated data in the wrong folder
     for stray in (root / "images").glob("*.json"):

@@ -1,5 +1,8 @@
 # Peabody Complaints Archive — build and maintenance
 
+*This is the canonical manual. Do not keep a second copy at the repository root;
+they drift apart within days.*
+
 Live site: **https://peabodytrust.co.uk**
 Test address: https://pbcaeditor.github.io/Complaints-Archive/
 
@@ -43,7 +46,8 @@ free and maintenance near zero.
   CNAME                        holds peabodytrust.co.uk — NEVER DELETE
   google*.html                 Search Console verification — NEVER DELETE
   .nojekyll                    stops GitHub processing files — NEVER DELETE
-  README.md
+  README.md                    the only manual; there is no second copy at the
+                               repository root
 
   /images/                     header artwork, share card, verification block
   /pages/                      about, contact, corrections, corrections-log,
@@ -108,7 +112,8 @@ search, the feed and the sitemap silently go stale.
 ## 4. The scripts
 
 Run from the repository root, e.g. `python3 build/build-feed.py .`
-They need Python 3 and, for some, `pip install beautifulsoup4 markdown`.
+They need Python 3 and the packages in `requirements.txt`:
+`pip install -r build/requirements.txt`
 
 | Script | What it does | When to run |
 |---|---|---|
@@ -155,7 +160,9 @@ Three files hold the guide, and they must move together:
 
 - `s21-guide.md` — the full guide. The source of `guide.html` and `s21-guide.txt`.
 - `s21-guide-compact.md` — the short version, embedded in the landing page and
-  copied by the button. Never served at its own URL.
+  copied by the button. It is not linked from anywhere, but GitHub Pages serves
+  every file in the repository, so it IS reachable at its own URL. That is not a
+  problem (the guide is meant to be public) but nothing should claim otherwise.
 - generated: `guide.html`, `s21-guide.txt`, `resources/index.html`.
 
 Each carries a version number at the top and a check code at the very end. The

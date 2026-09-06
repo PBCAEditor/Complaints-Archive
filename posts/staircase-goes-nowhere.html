@@ -191,6 +191,7 @@
       header.site h1, header.site h1 a { color: #000 !important; font-size: 13pt; }
       footer.site { border-top: 1pt solid #000; font-size: 9pt; color: #000; }
       a { color: #000; text-decoration: underline; }
+      article.post nav.contents { display: none; }
       article.post a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 8.5pt; }
       img.post-header-image { display: none; }
       .pullquote { border-color: #000; }
@@ -198,6 +199,22 @@
       p, blockquote, li { orphans: 3; widows: 3; }
       article.post { page-break-before: avoid; }
     }
+    article.post nav.contents {
+      margin: 26px 0 30px; padding: 16px 0;
+      border-top: 2px solid var(--accent); border-bottom: 1px solid var(--rule);
+    }
+    article.post nav.contents h2 {
+      font: 600 13px/1.3 system-ui, -apple-system, Arial, sans-serif !important;
+      letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent);
+      margin: 0 0 10px !important;
+    }
+    article.post nav.contents ol {
+      margin: 0; padding-left: 20px;
+      font: 16px/1.7 system-ui, -apple-system, Arial, sans-serif;
+    }
+    article.post nav.contents li { margin-bottom: 2px; }
+    article.post nav.contents a { text-decoration: none; }
+    article.post nav.contents a:hover { text-decoration: underline; }
   </style>
   <script data-goatcounter="https://pbcaeditor.goatcounter.com/count"
           async src="//gc.zgo.at/count.js"></script>
@@ -252,6 +269,20 @@
     <article class="post" id="content">
       <h1>The Staircase That Goes Nowhere: You Own 30%. You Pay 100%.</h1>
       <p class="byline">By David Wood &middot; <time datetime="2026-08-20">Published 20 August 2026</time></p>
+      <nav class="contents" aria-label="In this article">
+        <h2>In this article</h2>
+        <ol>
+          <li><a href="#the-missing-step">The missing step</a></li>
+          <li><a href="#you-own-30-you-pay-100">You own 30%. You pay 100%.</a></li>
+          <li><a href="#insurance">Insurance</a></li>
+          <li><a href="#the-feedback-loop">The feedback loop</a></li>
+          <li><a href="#pay-like-an-owner-control-like-a-leaseholder">Pay like an owner, control like a leaseholder</a></li>
+          <li><a href="#what-is-at-the-top-of-the-staircase-another-lease">What is at the top of the staircase? Another lease.</a></li>
+          <li><a href="#the-commonhold-contradiction">The commonhold contradiction</a></li>
+          <li><a href="#the-staircase">The staircase</a></li>
+        </ol>
+      </nav>
+
       <img src="../images/staircase-header.jpg" alt="Figures climbing an impossible staircase amid scattered documents" class="post-header-image">
       <p class="lead">He owns 30% of his flat. He pays the building-insurance premium through his service charge. After a leak from a housing-association-owned flat above, he says he paid a &pound;2,500 excess. The housing association owns the other 70% of his home.</p>
       <p>So which part of the risk, exactly, is being shared?</p>
@@ -259,7 +290,7 @@
       <p>The product is sold with a metaphor: shared ownership is a staircase. You start with a share you can afford, typically between 10% and 75%. You pay a mortgage on that share, rent to the housing provider on the remainder, and service charges on the dwelling. Over time, you buy more. Eventually, if things go well, you reach 100%. A staircase has a top. The metaphor implies you will reach it.</p>
       <p>After decades of promoting this product, government still cannot tell us how likely a buyer is to get there. And the evidence that does exist suggests that equity is the only thing being shared cleanly. Cost, risk and control each follow different rules.</p>
 
-      <h2>The missing step</h2>
+      <h2 id="the-missing-step">The missing step</h2>
       <p>The most significant finding in recent official scrutiny of shared ownership is not that few people staircase, it is that the data to answer the question properly do not exist. The National Audit Office concluded in March 2026 that the Ministry of Housing, Communities and Local Government cannot currently determine the rate at which shared owners increase their equity or the likelihood that they will do so. This is an extraordinary evidence gap for a tenure whose entire consumer proposition is built around progression.</p>
       <p>The gap is structural. The department's historic data system, CORE, recorded first-tranche sales and final staircasing events but did not adequately record partial staircasing, the intermediate purchases that would show whether a household was climbing at all. New questions were introduced from 2023-24, but poor response rates and data-quality problems mean the information is not yet robust enough to answer the central longitudinal question: of the people who enter shared ownership, how many progress, how quickly, and how many remain permanently at their original share?</p>
       <p>What we do know is that final staircasing is numerically modest. In 2024-25, 4,781 sales reached 100% equity. Set against the English Housing Survey's estimate of 252,000 shared-owner households, that is a crude annual flow of about 1.9% of current stock. But that figure is emphatically not an eventual staircasing rate; the people reaching 100% in any given year may have bought years or decades earlier. The stock estimate includes many recent purchasers who have had little opportunity to staircase. A journalistically attractive claim such as "only 2% staircase" would be wrong. Any honest account of the data must resist turning a flow-to-stock ratio into a success rate. Annual final staircasing has fluctuated between roughly 3,500 and 6,000 in recent years, falling sharply when interest rates rose.</p>
@@ -267,7 +298,7 @@
       <p>There is a reasonable argument behind that. Someone who permanently owns 30% may still have accumulated an asset, gained exposure to some property appreciation, and obtained a more secure home than they could find in the private rented sector. But it creates an important problem of political language. Shared ownership should not simultaneously be defended as a staircase when attracting purchasers and defended as successful without staircasing when evaluating outcomes, unless both objectives are explicitly measured. The staircase has not formally disappeared. What has changed is the government's willingness to say that arriving at the top is not the only measure of whether the journey was worthwhile.</p>
       <p>The precise numbers remain unavailable. But the broad picture is not seriously in doubt. With roughly 252,000 shared-owner households and annual final staircasing running between 3,500 and 6,000 even in good years, the vast majority of shared owners do not reach 100%. Government's own shift, from defending the staircase to defending permanent partial ownership, implicitly concedes this. The more important question is why.</p>
 
-      <h2>You own 30%. You pay 100%.</h2>
+      <h2 id="you-own-30-you-pay-100">You own 30%. You pay 100%.</h2>
       <p>Shared ownership genuinely does share some risks. If a &pound;400,000 property falls to &pound;300,000, the 30% owner has not absorbed the full &pound;100,000 reduction in gross asset value. The provider's retained 70% has also depreciated. Capital-value risk is shared.</p>
       <p>What is striking is how selectively.</p>
       <p>The government's own 2020 consultation on the new shared-ownership model stated directly that shared owners would remain 100% responsible for service charges. The National Audit Office's 2026 report says the same. Current public guidance makes the point in plainer language: shared owners pay for repairs and maintenance no matter what share they own. A 30% owner pays the full service-charge allocation for their dwelling, not 30% of it. Equity is divided by the advertised percentage. Cost is not.</p>
@@ -284,7 +315,7 @@
       <p>That logic is internally coherent. But compare it with any other form of property ownership. A private landlord who retains a rental property bears the maintenance costs from rental income. They may recover those costs through the rent they charge, but they do not send the tenant a separate bill for the roof. They accept that maintaining the asset is a consequence of owning it. Housing associations retain 70% of the equity in a shared-ownership flat and receive rent on that retained share. Yet the resident, not the provider, pays the full dwelling service-charge allocation. Shared ownership therefore produces an unusual result: the provider retains most of the equity and receives rent on it, while the resident assumes the whole dwelling-level service-charge liability.</p>
       <p>The question is therefore not whether the arrangement is contractually intelligible. It is whether calling it "shared ownership" accurately communicates the bargain to the consumer.</p>
 
-      <h2>Insurance</h2>
+      <h2 id="insurance">Insurance</h2>
       <p>Building insurance illustrates the cost-incidence problem in concentrated form. Insuring a block as a whole makes practical and economic sense. A single policy covering the structure is simpler, cheaper and more reliable than attempting to separate liability for one flat from the building it shares walls, roof and services with. The resident's four walls are covered under the building insurance; their boiler and wiring under their own contents or leaseholder's policy. That division is standard leasehold practice and not a problem peculiar to shared ownership.</p>
 
       <div class="pullquote">
@@ -293,7 +324,7 @@
 
       <p>But the cost allocation raises the same equity question as the roof. The building insurance protects the value of the whole property, including the provider's retained 70%. The apportioned premium is paid entirely by the party with the smaller stake. When a claim arises, the resident may bear the excess. The insurance protects an asset most of which, by value, belongs to someone else. That is not an argument against block insurance. It is a further instance of the same structural pattern: the resident funds the protection of an asset whose value accrues disproportionately to the provider.</p>
 
-      <h2>The feedback loop</h2>
+      <h2 id="the-feedback-loop">The feedback loop</h2>
       <p>Service charges interact directly with the supposed staircase. The National Audit Office identifies service charges as reducing the disposable income available for purchasing further equity. Standard staircasing itself costs between roughly &pound;800 and &pound;2,568 before the price of the additional share. House-price changes and mortgage affordability then determine how expensive the next share is.</p>
       <p>The tenure contains a plausible feedback mechanism. Mortgage plus rent plus rising service charges reduce spare income. Lower spare income reduces capacity to staircase. Inability to staircase preserves the rent liability on the unsold share.</p>
       <p>There is an especially revealing contradiction in official affordability policy. In 2024 the government defended five-year stress testing of shared-ownership rent but declined to stress-test future service charges because they are not formula-driven and therefore cannot be forecast with sufficient accuracy. Yet those unpredictable costs form part of the resident's unavoidable housing expenditure. The government's position was, in effect: the cost is too unpredictable to forecast accurately, but the buyer remains responsible for paying it.</p>
@@ -311,14 +342,14 @@
       <p>Including service charges would necessarily raise the shared-owner housing-cost ratio and reduce the apparent affordability advantage shown by the headline comparison. Whether the omission reflects an inherited methodology or a conscious policy choice, its effect is the same: the statistic gives an incomplete picture of the unavoidable housing costs faced by shared owners.</p>
       <p>The headline statistic cannot answer the broader question: what proportion of income does the household actually spend on unavoidable housing costs? A figure presented to demonstrate that the product works omits the cost most often cited as the reason it does not.</p>
 
-      <h2>Pay like an owner, control like a leaseholder</h2>
+      <h2 id="pay-like-an-owner-control-like-a-leaseholder">Pay like an owner, control like a leaseholder</h2>
       <p>Shared owners acquire a long lease, not 30% of a freehold title. The provider's retained equity and landlord role are mediated through that lease. For ordinary decoration, the resident behaves much like an owner. But the lease restricts subletting, requires permissions for structural alterations, and manages resale through provider procedures and nomination arrangements. Those restrictions have legitimate policy rationales: shared ownership contains public subsidy and is intended to meet housing need. The criticism should focus not on the existence of every restriction but on the cumulative asymmetry between owner-like liabilities and landlord-mediated decision-making.</p>
 
-      <h2>What is at the top of the staircase? Another lease.</h2>
+      <h2 id="what-is-at-the-top-of-the-staircase-another-lease">What is at the top of the staircase? Another lease.</h2>
       <p>When a participant reaches 100% in a flat, the National Audit Office notes, the property normally becomes an ordinary leasehold interest. The Regulator of Social Housing's technical definitions expressly recognise this: fully staircased flats can remain leasehold units where the registered provider retains its own freehold or superior leasehold interest and continues responsibility for common areas and services, recovering the associated costs under the lease.</p>
       <p>For a flat, 100% staircasing ends the shared-ownership relationship. It does not end the leasehold relationship.</p>
 
-      <h2>The commonhold contradiction</h2>
+      <h2 id="the-commonhold-contradiction">The commonhold contradiction</h2>
       <p>The argument might seem academic if shared ownership were simply another form of leasehold destined to disappear with leasehold itself. But the government's proposed replacement, commonhold, exposes the same unresolved question: when equity, payment and legal ownership belong to different people, who gets the vote?</p>
       <p>Government's objective for commonhold is to reunite homeownership with participation in building governance. Shared ownership does not fit neatly. The January 2026 draft legislation creates permitted shared-ownership leases inside commonhold. Government says shared owners should obtain core participation rights, but the provider remains the commonhold unit owner.</p>
       <p>The ten-year initial repair period then creates a philosophical problem. During that period, the provider bears certain structural and external repair costs. Government argues that a party required to fund those liabilities should have a say in decisions generating them. That is a rational principle: those who pay should have a vote.</p>
@@ -326,7 +357,7 @@
       <p>The Commons Housing Committee spotted the same problem. Its May 2026 report warned that residents could be shut out of decisions directly affecting them for years. It recommended that the final Bill allow the resident and provider to share the unit's vote.</p>
       <p>As of August 2026, this remains unresolved. The department has missed its response deadline. Commonhold is supposed to solve a fundamental leasehold defect by making the person who pays for a building part of the body that controls it. Shared ownership is forcing government to decide which half of "shared owner" should possess that control.</p>
 
-      <h2>The staircase</h2>
+      <h2 id="the-staircase">The staircase</h2>
       <p>Shared ownership is not fraudulent ownership, nor is it simply renting with a mortgage attached. It is something stranger: a deliberately hybrid tenure in which different incidents of ownership have been separated and allocated to different parties. The resident acquires part of the equity, most of the day-to-day financial liability, and limited control over the machinery generating some of those costs. The provider retains capital in the property, receives rent on the unsold share, and remains landlord.</p>
       <p>That bargain may still be worthwhile. For thousands of households, it unquestionably provides access to a home they could not otherwise buy. A smaller deposit, a manageable mortgage, a more secure tenancy than private renting can offer. Partial equity is still equity.</p>
       <p>But if the state is going to subsidise and promote that bargain as a staircase into ownership, it should be able to answer two very simple questions.</p>
@@ -358,7 +389,7 @@
     <footer class="site">
       <p>This site is written and run by leaseholders and residents, including members of the Residents' Association. It is independent of Peabody Trust and is not operated by or on behalf of Peabody Trust.</p>
       <p>Peabody Trust and anyone else referred to here is welcome to reply. See the <a href="../pages/corrections.html">right of reply</a>.</p>
-      <p><a href="../pages/privacy.html">Privacy</a> &middot; <a href="../pages/terms.html">Terms of use</a> &middot; <a href="../pages/disclaimer.html">Legal disclaimer</a></p>
+      <p><a href="../feed.xml">Subscribe to new articles</a> &middot; <a href="../pages/privacy.html">Privacy</a> &middot; <a href="../pages/terms.html">Terms of use</a> &middot; <a href="../pages/disclaimer.html">Legal disclaimer</a></p>
     </footer>
   </div>
 

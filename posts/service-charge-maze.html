@@ -191,6 +191,7 @@
       header.site h1, header.site h1 a { color: #000 !important; font-size: 13pt; }
       footer.site { border-top: 1pt solid #000; font-size: 9pt; color: #000; }
       a { color: #000; text-decoration: underline; }
+      article.post nav.contents { display: none; }
       article.post a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 8.5pt; }
       img.post-header-image { display: none; }
       .pullquote { border-color: #000; }
@@ -198,6 +199,22 @@
       p, blockquote, li { orphans: 3; widows: 3; }
       article.post { page-break-before: avoid; }
     }
+    article.post nav.contents {
+      margin: 26px 0 30px; padding: 16px 0;
+      border-top: 2px solid var(--accent); border-bottom: 1px solid var(--rule);
+    }
+    article.post nav.contents h2 {
+      font: 600 13px/1.3 system-ui, -apple-system, Arial, sans-serif !important;
+      letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent);
+      margin: 0 0 10px !important;
+    }
+    article.post nav.contents ol {
+      margin: 0; padding-left: 20px;
+      font: 16px/1.7 system-ui, -apple-system, Arial, sans-serif;
+    }
+    article.post nav.contents li { margin-bottom: 2px; }
+    article.post nav.contents a { text-decoration: none; }
+    article.post nav.contents a:hover { text-decoration: underline; }
   </style>
   <script data-goatcounter="https://pbcaeditor.goatcounter.com/count"
           async src="//gc.zgo.at/count.js"></script>
@@ -252,32 +269,44 @@
     <article class="post" id="content">
       <h1>Missing Information and the Service Charge Maze</h1>
       <p class="byline">By David Wood &middot; <time datetime="2026-04-02">Published 2 April 2026</time></p>
+      <nav class="contents" aria-label="In this article">
+        <h2>In this article</h2>
+        <ol>
+          <li><a href="#the-numbers">The numbers</a></li>
+          <li><a href="#what-the-law-says">What the law says</a></li>
+          <li><a href="#what-peabodys-own-people-told-us">What Peabody's own people told us</a></li>
+          <li><a href="#the-complaints-process">The complaints process</a></li>
+          <li><a href="#what-i-would-say-to-peabody">What I would say to Peabody</a></li>
+          <li><a href="#why-this-matters-beyond-our-building">Why this matters beyond our building</a></li>
+        </ol>
+      </nav>
+
       <img src="../images/service-charge-header.jpg" alt="Service charge transparency and disclosure" class="post-header-image">
       <p class="lead">Our residents' association was born from an accident.</p>
       <p>In August 2024, our Peabody building manager sent an email to all residents about the window cleaning. She CC'd instead of BCC'd. What followed was a week of residents hitting reply-all with complaints about the management, and the realisation that we were all dealing with the same problems and had been doing so alone. Within weeks we had a constitution, an elected committee, and a section 21 request in Peabody's hands.</p>
       <p>I am a humble homeowner. I bought my flat in Aldgate in 2023, and when the service charge bill arrived it was three times higher than the amount retained from the seller to cover the year's charges. I asked Peabody, my intermediate landlord, for an explanation and for the accounts. What I learned, over the next two and a half years, is that the questions themselves are not the problem. The problem is that nobody at Peabody seems able to answer them.</p>
-      <h2>The numbers</h2>
+      <h2 id="the-numbers">The numbers</h2>
       <p>Between 2021 and 2024, service charges rose by more than 120%. The average increase in London over the same period was 41%. Three times the London average, with no explanation provided.</p>
       <p>When we finally received a partial disclosure in January 2026, three years after my first request, the maths told its own story. The accounts show costs of over &pound;1 million. Adding up every invoice in the disclosure pack gives a total of approximately &pound;500,000. Half the supporting evidence for the charges demanded from residents does not exist in anything Peabody has provided. The law is clear: the ability to evidence those costs is central to assessing whether they are reasonably incurred.</p>
       <div class="pullquote"><p>The accounts show costs of over &pound;1 million. Adding up every invoice gives around &pound;500,000.</p></div>
       <p>Our analysis of the 2025/26 demand letters made things worse. Across the 15 flats for which we have comparison data, not a single flat received the 11.73% increase that would be expected if apportionment was stable. Changes ranged from a decrease of 32.3% to an increase of 211%. One one-bedroom flat was issued a demand of &pound;700.73 per month, more than the annual charge of any three-bedroom flat in the building. Three demand letters appear to contain outright errors. The apportionment methodology, showing each flat's percentage share of costs, has never been disclosed despite repeated formal requests.</p>
-      <h2>What the law says</h2>
+      <h2 id="what-the-law-says">What the law says</h2>
       <p>Section 21 of the Landlord and Tenant Act 1985 gives leaseholders the right to a certified summary of their building accounts. Section 22 gives them the right to inspect the underlying invoices. These rights exist specifically to allow residents to judge the reasonableness of charges and to challenge them if necessary. Peabody is legally required to respond within 30 days.</p>
       <p>My first section 21 request was made in November 2023. A second coordinated request, made by 13 leaseholders, followed in December 2024. Peabody admits the deadline was missed. Neither request has ever been answered in full, or on time.</p>
-      <h2>What Peabody's own people told us</h2>
+      <h2 id="what-peabodys-own-people-told-us">What Peabody's own people told us</h2>
       <p>The most powerful evidence in our case does not come from us. It comes from Peabody.</p>
       <p>In November 2025, following escalation to executive level, Peabody's Chief Operating Officer commissioned a review. The reviewer, a Peabody employee, formally concluded, on Peabody-headed paper, that Peabody had not fulfilled its section 21 and 22 obligations; that disclosure was out of time and uncertified; and that inaccurate statements had been made to the Housing Ombudsman, to our MP, and to residents. In plain language: Peabody made inaccurate statements to the Ombudsman and a Member of Parliament, albeit "in good faith". It has never fully corrected that narrative.</p>
       <p>The review committed to a full response by 15 December 2025. It has still not arrived.</p>
       <p>In February 2026, Peabody's outgoing Assistant Director of Service Charges called me to apologise. He confirmed three consecutive years of statutory failure, admitted the January 2026 disclosure had been presented as complete when it was not, and could not tell me whether a 120% increase in charges had ever been subject to a reasonableness check. He made ten specific commitments. None were honoured.</p>
       <p>In March 2026, Peabody's Managing Director of NE London told me that she had no power to require the service charge team to respond to residents. A managing director, with no power over her own service charge team.</p>
-      <h2>The complaints process</h2>
+      <h2 id="the-complaints-process">The complaints process</h2>
       <p>I have been through Peabody's complaints process three times for the same issue. The process is not a way to resolve grievances or right wrongs. It seems to prioritise closing complaints over resolution. Little actual investigation happens.</p>
       <p>Following multiple broken commitments, a new complaint was logged against my wishes. The response walked back many of the commitments made in the review. We are essentially back at square one.</p>
       <p>Peabody's complaints process follows a predictable pattern. Log a complaint, receive a response that does not address the issue, wait two years for the Housing Ombudsman. By then the resident has given up. Whether by design or apathy, the system protects housing associations from the consequences of their failures. They are allowed to judge themselves and find no maladministration.</p>
-      <h2>What I would say to Peabody</h2>
+      <h2 id="what-i-would-say-to-peabody">What I would say to Peabody</h2>
       <p>In trying to deal with this, I have sent hundreds of emails, attended half a dozen meetings, reviewed four complaint responses, and escalated to the First-tier Tribunal and the Ombudsman. I believe I have a good case and will prevail.</p>
       <p>What I would say to Peabody is that none of this was necessary. If you had organised one meeting with a relevant member of staff who could answer my questions, you would have saved hundreds of hours dealing with my persistence. All this wasted time for the sake of a one-hour phone call. Nobody at Peabody expected to be asked. That was their mistake.</p>
-      <h2>Why this matters beyond our building</h2>
+      <h2 id="why-this-matters-beyond-our-building">Why this matters beyond our building</h2>
       <p>Peabody is an investment partner in the Mayor of London's Affordable Homes Programme and a signatory to the Mayor's Service Charges Charter. The Charter commits signatories to transparency on apportionment, explanations for significant cost changes, and clear challenge and redress mechanisms. Every one of those commitments has been breached at this address.</p>
       <p>What makes our case different is not the facts, those are depressingly common. What makes it different is the documentation. We have Peabody's admissions in writing, on their own headed paper. We have a recorded call with their own director. We have a review Peabody commissioned itself. Peabody cannot dispute what Peabody has already admitted.</p>
       <div class="pullquote"><p>Peabody cannot dispute what Peabody has already admitted.</p></div>
@@ -304,7 +333,7 @@
     <footer class="site">
       <p>This site is written and run by leaseholders and residents, including members of the Residents' Association. It is independent of Peabody Trust and is not operated by or on behalf of Peabody Trust.</p>
       <p>Peabody Trust and anyone else referred to here is welcome to reply. See the <a href="../pages/corrections.html">right of reply</a>.</p>
-      <p><a href="../pages/privacy.html">Privacy</a> &middot; <a href="../pages/terms.html">Terms of use</a> &middot; <a href="../pages/disclaimer.html">Legal disclaimer</a></p>
+      <p><a href="../feed.xml">Subscribe to new articles</a> &middot; <a href="../pages/privacy.html">Privacy</a> &middot; <a href="../pages/terms.html">Terms of use</a> &middot; <a href="../pages/disclaimer.html">Legal disclaimer</a></p>
     </footer>
   </div>
 

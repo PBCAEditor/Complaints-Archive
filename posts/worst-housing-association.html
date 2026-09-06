@@ -252,6 +252,7 @@
       header.site h1, header.site h1 a { color: #000 !important; font-size: 13pt; }
       footer.site { border-top: 1pt solid #000; font-size: 9pt; color: #000; }
       a { color: #000; text-decoration: underline; }
+      article.post nav.contents { display: none; }
       article.post a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 8.5pt; }
       article.post .appendix { background: none; border: 1pt solid #000; font-size: 9pt; page-break-before: auto; }
       .table-scroll { overflow: visible; }
@@ -269,6 +270,22 @@
       p, blockquote, li { orphans: 3; widows: 3; }
       article.post { page-break-before: avoid; }
     }
+    article.post nav.contents {
+      margin: 26px 0 30px; padding: 16px 0;
+      border-top: 2px solid var(--accent); border-bottom: 1px solid var(--rule);
+    }
+    article.post nav.contents h2 {
+      font: 600 13px/1.3 system-ui, -apple-system, Arial, sans-serif !important;
+      letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent);
+      margin: 0 0 10px !important;
+    }
+    article.post nav.contents ol {
+      margin: 0; padding-left: 20px;
+      font: 16px/1.7 system-ui, -apple-system, Arial, sans-serif;
+    }
+    article.post nav.contents li { margin-bottom: 2px; }
+    article.post nav.contents a { text-decoration: none; }
+    article.post nav.contents a:hover { text-decoration: underline; }
   </style>
   <script data-goatcounter="https://pbcaeditor.goatcounter.com/count"
           async src="//gc.zgo.at/count.js"></script>
@@ -323,6 +340,21 @@
     <article class="post" id="content">
       <h1>Who is the worst housing association?</h1>
       <p class="byline">Peabody Complaints Archive &middot; <time datetime="2026-09-04">Published 4 September 2026</time></p>
+      <nav class="contents" aria-label="In this article">
+        <h2>In this article</h2>
+        <ol>
+          <li><a href="#the-raw-ombudsman-count">The raw Ombudsman count</a></li>
+          <li><a href="#count-the-homes">Count the homes</a></li>
+          <li><a href="#ask-the-regulator">Ask the regulator</a></li>
+          <li><a href="#where-the-results-converge">Where the results converge</a></li>
+          <li><a href="#notting-hill-genesis">Notting Hill Genesis</a></li>
+          <li><a href="#octavia-housing">Octavia Housing</a></li>
+          <li><a href="#peabody">Peabody</a></li>
+          <li><a href="#three-c3-providers-not-identified-by-the-ombudsman-top-fives">Three C3 providers not identified by the Ombudsman top fives</a></li>
+          <li><a href="#so-which-is-englands-worst-housing-association">So, which is England's worst housing association?</a></li>
+        </ol>
+      </nav>
+
       <p class="standfirst dropcap">We counted Housing Ombudsman reports, adjusted the figures for landlord size and checked the regulator's lowest grade. The three tests produced different answers. But one name appeared every time.</p>
 
       <p>PCA identified 1,186 published decision reports with unique case references, returned by the Housing Ombudsman's decisions archive for dates from 1 January to 4 September 2026. These covered 151 housing-association names.</p>
@@ -330,7 +362,7 @@
       <p>But there is an obvious problem. These are also some of England's largest housing associations. Before accepting the table, we need to know whether it identifies the worst performers or simply the biggest landlords.</p>
       <p>We looked at the Ombudsman data two ways, then checked the results against a separate regulatory assessment.</p>
 
-      <h2>The raw Ombudsman count</h2>
+      <h2 id="the-raw-ombudsman-count">The raw Ombudsman count</h2>
       <p>The most straightforward measure is a straight count of published decision reports. These are cases considered by the Housing Ombudsman and published in its decisions archive. A published report does not necessarily represent a finding of maladministration: the count includes all outcomes.</p>
       <div class="table-scroll">
         <table class="data">
@@ -351,7 +383,7 @@
       <p>The problem is obvious. A landlord managing 100,000 homes would be expected to generate roughly ten times as many cases as one managing 10,000, even if both performed identically. A league table without a denominator is partly a league table of size.</p>
       <p>That does not make raw counts worthless. Each number represents real residents and real disputes. But raw counts alone cannot tell us whether one landlord is performing worse than another. They tell us which landlords are generating the most Ombudsman casework in absolute terms.</p>
 
-      <h2>Count the homes</h2>
+      <h2 id="count-the-homes">Count the homes</h2>
       <p>To reduce the effect of landlord size, we divided each provider's published reports by the number of homes it owns or manages under the Ombudsman's jurisdiction. This produces a rate of decision reports per 10,000 homes.</p>
       <p>We applied a minimum of five published reports. Without a threshold, a landlord with a single report and a few hundred homes could appear at the top of the table through nothing more than arithmetic. The sensitivity table in the methodology below shows the effect of alternative thresholds.</p>
       <p>Forty-five providers met the threshold. The top five:</p>
@@ -374,7 +406,7 @@
       <p>Adjusting for size changes the picture substantially. Three of the original five disappear. Peabody falls from fourth to fifteenth. Clarion falls from second to fourteenth. Two smaller providers, Octavia and Hexagon, rise to the top.</p>
       <p>But the raw count and the adjusted rate are two views of the same data. They share the same numerator. One corrects for size; neither introduces new evidence. To test whether these results are consistent with an independent assessment, we turned to the regulator.</p>
 
-      <h2>Ask the regulator</h2>
+      <h2 id="ask-the-regulator">Ask the regulator</h2>
       <p>The Housing Ombudsman is not the only body assessing housing-association performance. The Regulator of Social Housing issues consumer grades as separate regulatory assessments, arising from programmed inspections or responsive engagement with individual providers.</p>
       <p>The current grades range from C1, delivering the consumer standards overall, to C4, very serious failings requiring fundamental change. Consumer grades assess compliance with the consumer standards, covering safety, quality, transparency, neighbourhood and community matters, and tenancy. They are distinct from the RSH's separate governance grades.</p>
       <p>We examined the RSH's current regulatory judgments table, covering 205 private registered provider entities as of 26 August 2026.</p>
@@ -413,7 +445,7 @@
       <p>If the regulator's consumer grade is the measure, there is no single worst landlord. Five housing associations share the lowest current grade, and the RSH has not ranked them within it. These are tied within a category, not ordered from worst to fifth-worst.</p>
       <p>An important caveat is that 79 providers have not yet received a consumer grade at all. The five C3 providers are the lowest-rated among those assessed, not necessarily the five worst in the sector. "Not yet assessed" does not mean C1.</p>
 
-      <h2>Where the results converge</h2>
+      <h2 id="where-the-results-converge">Where the results converge</h2>
       <p>The raw count and the adjusted rate offer two views of the Ombudsman's published archive. The RSH consumer grade is a separate regulatory assessment, although the regulator may take account of published complaints intelligence and Ombudsman findings when reaching its judgments.</p>
       <p>The question is whether these measures point in the same direction.</p>
       <div class="table-scroll">
@@ -440,26 +472,26 @@
       <p>Eleven providers appear in one or more of these groups. Most appear in only one. Only two appear in two.</p>
       <p><strong>One appears in all three.</strong></p>
 
-      <h2>Notting Hill Genesis</h2>
+      <h2 id="notting-hill-genesis">Notting Hill Genesis</h2>
       <p>Notting Hill Genesis is the only provider appearing in both Ombudsman top fives and among the five providers currently graded C3 by the RSH.</p>
       <p>It is third by raw report count, with 78 published reports. It is third after adjustment for its 63,584 homes, at a rate of 12.27 per 10,000. And it is one of only five housing associations currently graded C3, meaning the RSH has identified serious failings requiring significant improvement.</p>
       <p>No other provider examined produced this combination.</p>
 
 
-      <h2>Octavia Housing</h2>
+      <h2 id="octavia-housing">Octavia Housing</h2>
       <p>Octavia appears in two of the three groups: the highest adjusted report rate and the C3 regulatory grade.</p>
       <p>Its nine published reports across 5,437 homes produce the highest rate in the adjusted table, at 16.55 per 10,000. The RSH's C3 judgment, issued following responsive regulatory engagement, identified serious safety and quality failings across its stock.</p>
 
-      <h2>Peabody</h2>
+      <h2 id="peabody">Peabody</h2>
       <p>Peabody appears only in the raw top five. Its 60 published reports place it fourth by total count, but after adjustment for its 89,939 homes, it falls to fifteenth, with a rate of 6.67 per 10,000.</p>
       <p>Its RSH consumer grade is C2: material weaknesses identified, improvement required.</p>
       <p>Peabody's case illustrates why comparing multiple measures matters. Its scale places it prominently in the raw figures, but neither the adjusted rate nor the regulatory grade produces an equivalently adverse result. It falls below the leading group after adjustment, although it remains fifteenth of the 45 providers meeting the five-report threshold.</p>
 
-      <h2>Three C3 providers not identified by the Ombudsman top fives</h2>
+      <h2 id="three-c3-providers-not-identified-by-the-ombudsman-top-fives">Three C3 providers not identified by the Ombudsman top fives</h2>
       <p>Three of the five C3 providers do not appear in either Ombudsman top five: Anchor Hanover, North London Muslim Housing Association and Connexus Homes. They are not absent from the Ombudsman data; they simply fall below the headline figures.</p>
       <p>Anchor Hanover has four published reports in the filtered sample. Connexus has three. North London Muslim Housing Association has none identified in the filtered sample.</p>
 
-      <h2>So, which is England's worst housing association?</h2>
+      <h2 id="so-which-is-englands-worst-housing-association">So, which is England's worst housing association?</h2>
       <p>If you've read this far, you know the honest answer. The raw data doesn't produce a definitive verdict. By sheer numbers it's London &amp; Quadrant. Adjusted for size, it's Octavia Housing. The RSH grades do not produce a single winner, particularly when more than a third of providers have not yet been graded.</p>
       <p>The closest thing to a conclusive finding is Notting Hill Genesis: the only provider to appear in the five highest figures from each Ombudsman table and among the five providers holding the lowest current RSH consumer grade. Two Ombudsman lists, one C3 grade and one recurring name.</p>
       <p>But let's be real about why you clicked on this article. You wanted to see if your housing association was one of the worst in the country.</p>
@@ -564,7 +596,7 @@
     <footer class="site">
       <p>This site is written and run by leaseholders and residents, including members of the Residents' Association. It is independent of Peabody Trust and is not operated by or on behalf of Peabody Trust.</p>
       <p>Peabody Trust and anyone else referred to here is welcome to reply. See the <a href="../pages/corrections.html">right of reply</a>.</p>
-      <p><a href="../pages/privacy.html">Privacy</a> &middot; <a href="../pages/terms.html">Terms of use</a> &middot; <a href="../pages/disclaimer.html">Legal disclaimer</a></p>
+      <p><a href="../feed.xml">Subscribe to new articles</a> &middot; <a href="../pages/privacy.html">Privacy</a> &middot; <a href="../pages/terms.html">Terms of use</a> &middot; <a href="../pages/disclaimer.html">Legal disclaimer</a></p>
     </footer>
   </div>
 

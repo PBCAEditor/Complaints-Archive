@@ -239,6 +239,7 @@
       header.site h1, header.site h1 a { color: #000 !important; font-size: 13pt; }
       footer.site { border-top: 1pt solid #000; font-size: 9pt; color: #000; }
       a { color: #000; text-decoration: underline; }
+      article.post nav.contents { display: none; }
       article.post a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 8.5pt; }
       .further { border-top: 1pt solid #000; }
       .further .fr-item img { display: none; }
@@ -248,6 +249,22 @@
       p, blockquote, li { orphans: 3; widows: 3; }
       article.post { page-break-before: avoid; }
     }
+    article.post nav.contents {
+      margin: 26px 0 30px; padding: 16px 0;
+      border-top: 2px solid var(--accent); border-bottom: 1px solid var(--rule);
+    }
+    article.post nav.contents h2 {
+      font: 600 13px/1.3 system-ui, -apple-system, Arial, sans-serif !important;
+      letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent);
+      margin: 0 0 10px !important;
+    }
+    article.post nav.contents ol {
+      margin: 0; padding-left: 20px;
+      font: 16px/1.7 system-ui, -apple-system, Arial, sans-serif;
+    }
+    article.post nav.contents li { margin-bottom: 2px; }
+    article.post nav.contents a { text-decoration: none; }
+    article.post nav.contents a:hover { text-decoration: underline; }
   </style>
   <script data-goatcounter="https://pbcaeditor.goatcounter.com/count"
           async src="//gc.zgo.at/count.js"></script>
@@ -302,6 +319,18 @@
     <article class="post" id="content">
       <h1>Who Signed the Letter Calling for Housing Association Reform?</h1>
       <p class="byline">By David Wood &middot; <time datetime="2026-08-20">Published 20 August 2026</time></p>
+      <nav class="contents" aria-label="In this article">
+        <h2>In this article</h2>
+        <ol>
+          <li><a href="#the-letter">The letter</a></li>
+          <li><a href="#the-lead-signatory">The lead signatory</a></li>
+          <li><a href="#the-co-signatories">The co-signatories</a></li>
+          <li><a href="#the-overlap-with-parliaments-social-housing-group">The overlap with Parliament's social-housing group</a></li>
+          <li><a href="#who-did-not-sign">Who did not sign?</a></li>
+          <li><a href="#how-cross-party-was-it">How cross-party was it?</a></li>
+        </ol>
+      </nav>
+
       <p><em>On 29 July 2026, Bell Ribeiro-Addy MP wrote to Housing Minister Matthew Pennycook calling for stronger accountability, redress and legal protections for housing association residents. Twenty-eight other MPs and peers added their names. Who are they, and what experience do they bring to the subject?</em></p>
       <p>On 29 July 2026, Bell Ribeiro-Addy, Labour MP for Clapham and Brixton Hill, wrote to Housing Minister Matthew Pennycook with an unusually broad set of demands about the way housing association residents are treated by the current system.</p>
       <p>The letter was signed by 29 parliamentarians: 26 MPs and three members of the House of Lords. It called for stronger enforcement of Housing Ombudsman decisions, penalties for repeated non-compliance and service failures, a more consistent compensation framework, stronger protections for housing association leaseholders, greater transparency around service charges and information rights, and clearer protections for vulnerable residents.</p>
@@ -309,7 +338,7 @@
       <p>It has subsequently been described as a cross-party intervention. That is technically correct. But a list of names tells you very little about who those people actually are. Some of the signatories have direct professional or parliamentary experience of social housing, leasehold, local government or regulation. Others bring legal, accounting or public-administration backgrounds. Some are comparatively new MPs whose parliamentary records are still short.</p>
       <p>This is a factual guide to the people who signed it.</p>
 
-      <h2>The letter</h2>
+      <h2 id="the-letter">The letter</h2>
       <p>The letter is reproduced below as sent. The handwritten signature has been removed; nothing else has been altered.</p>
       <div class="doc-pages">
         <a href="../images/letter-p1.jpg"><img src="../images/letter-p1.jpg" alt="Page 1 of the letter, on House of Commons headed paper, addressed to Matthew Pennycook MP and dated 29 July 2026, setting out concerns about enforcement, redress and Ombudsman compliance"></a>
@@ -354,12 +383,12 @@
         </div>
       </details>
 
-      <h2>The lead signatory</h2>
+      <h2 id="the-lead-signatory">The lead signatory</h2>
       <p><strong>Bell Ribeiro-Addy MP</strong> &mdash; Labour, Clapham and Brixton Hill. MP since 2019.</p>
       <p>This was not Ribeiro-Addy's first intervention on the subject. Earlier in July she had spoken in a Commons debate on commonhold, leasehold and managing agents, focusing specifically on housing association leaseholders, service-charge transparency and the difficulty residents face when responsibility is split between landlords and managing agents. In 2025 she asked Matthew Pennycook how many service-charge challenges were being brought against councils, housing associations, private landlords and managing agents in the First-tier Tribunal. In the Commons debate on 2 July 2026 she argued directly that housing association freeholders needed to be addressed in future leasehold legislation.</p>
       <p>She sits on the Home Affairs Committee and is a member of the All-Party Parliamentary Group on Council and Social Housing. Her recent parliamentary record contains a substantial and growing body of housing-association and leasehold work.</p>
 
-      <h2>The co-signatories</h2>
+      <h2 id="the-co-signatories">The co-signatories</h2>
       <p><strong>Diane Abbott MP</strong> &mdash; Independent on the date of the letter, Hackney North and Stoke Newington. MP since 1987.</p>
       <p>Abbott is the longest-serving MP on the list. Her career has included service as Shadow Home Secretary, Shadow Health Secretary and Shadow International Development Secretary, and she has sat on the Home Affairs, Justice, Treasury and Foreign Affairs committees.</p>
       <p>There is a technical wrinkle about her party status. Parliament records her as an Independent from 17 July 2025. Her Labour affiliation resumed on 30 July 2026, the day after this letter was dated. She is a member of the APPG on Council and Social Housing.</p>
@@ -446,19 +475,19 @@
       <p><strong>Lord Woodley</strong> &mdash; Labour peer. Member of the House of Lords since 2020.</p>
       <p>Tony Woodley is a former General Secretary of the Transport and General Workers' Union and joint General Secretary of Unite. His background is in employment and industrial relations rather than housing.</p>
 
-      <h2>The overlap with Parliament's social-housing group</h2>
+      <h2 id="the-overlap-with-parliaments-social-housing-group">The overlap with Parliament's social-housing group</h2>
       <p>The APPG on Council and Social Housing is useful context because it provides an identifiable parliamentary network around the subject.</p>
       <p>Seventeen of the 29 signatories are members of the APPG: Ribeiro-Addy, Abbott, Begum, Berry, Buckley, Burgon, Byrne, Cane, Chowns, Duncan-Jordan, Hinchliff, Hussain, Johnson, McDonald, McDonnell, Mohamed and Whittome. Hinchliff chairs the group and Berry is a vice-chair.</p>
       <p>The APPG says it has 78 parliamentarians and exists to support debate and policy change around council and social housing. The overlap means that for a majority of the letter's signatories, this was not their only formal parliamentary association with the subject.</p>
 
-      <h2>Who did not sign?</h2>
+      <h2 id="who-did-not-sign">Who did not sign?</h2>
       <p>A list of non-signatories needs more care than a list of signatories. This site has no evidence about who was asked, who saw it, whether anyone declined, or what any non-signatory thinks about the proposals. The absence of a name should not be treated as evidence of opposition.</p>
       <p>There are nevertheless some omissions worth recording.</p>
       <p><strong>Rushanara Ali MP</strong>, Labour MP for Bethnal Green and Stepney, is perhaps the most obvious name to look for. She served as a Parliamentary Under-Secretary of State at MHCLG from July 2024 until August 2025 and had previously sat on the Housing, Communities and Local Government Committee. She is not among the 29 signatories. That fact establishes only that her name does not appear on the letter. Without evidence that she was invited to sign, nothing further can safely be inferred.</p>
       <p><strong>Bob Blackman MP</strong>, Conservative MP for Harrow East, has one of the longest parliamentary housing records of any MP who did not sign. He served on the Housing, Communities and Local Government Committee for much of the period from 2010 to 2024, sat on the bill committees for the Social Housing (Regulation) Bill and the Supported Housing (Regulatory Oversight) Bill, and chairs the APPG for Ending Homelessness. His absence is also relevant to the political composition of the letter: there are no Conservative signatories.</p>
       <p><strong>Lord Best</strong> is notable for a different reason. He is a Crossbench peer whose entire career has been concentrated on housing. He was chief executive of the National Housing Federation for 15 years, chief executive of the Joseph Rowntree Foundation, chair of Hanover Housing Association and chair of the Government's Regulation of Property Agents Working Group. As recently as March 2026 he gave evidence to the HCLG Committee on commonhold and leasehold reforms. He did not sign the letter, and there are no Crossbench peers among its signatories.</p>
 
-      <h2>How cross-party was it?</h2>
+      <h2 id="how-cross-party-was-it">How cross-party was it?</h2>
       <p>Calling the letter cross-party is factually correct. On the parliamentary affiliations recorded on its date, the 29 signatories comprised 24 Labour MPs or peers, two Green MPs, one Liberal Democrat MP and two Independents. One of those Independents was Diane Abbott, whose Labour affiliation resumed the following day. The other was Iqbal Mohamed, elected as an Independent and still recorded as such.</p>
       <p>The letter crossed party lines, but it was predominantly Labour. There were no Conservative signatories and no Crossbench peers.</p>
       <p>There is another dimension to that composition. Matthew Pennycook is a minister in a Labour Government. Most of the signatories were therefore members of the governing party asking their own Government to act. That is not necessarily a weakness. It may, depending on how the Government responds, turn out to be a strength.</p>
@@ -500,7 +529,7 @@
     <footer class="site">
       <p>This site is written and run by leaseholders and residents, including members of the Residents' Association. It is independent of Peabody Trust and is not operated by or on behalf of Peabody Trust.</p>
       <p>Peabody Trust and anyone else referred to here is welcome to reply. See the <a href="../pages/corrections.html">right of reply</a>.</p>
-      <p><a href="../pages/privacy.html">Privacy</a> &middot; <a href="../pages/terms.html">Terms of use</a> &middot; <a href="../pages/disclaimer.html">Legal disclaimer</a></p>
+      <p><a href="../feed.xml">Subscribe to new articles</a> &middot; <a href="../pages/privacy.html">Privacy</a> &middot; <a href="../pages/terms.html">Terms of use</a> &middot; <a href="../pages/disclaimer.html">Legal disclaimer</a></p>
     </footer>
   </div>
 

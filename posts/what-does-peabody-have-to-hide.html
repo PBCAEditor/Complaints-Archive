@@ -233,6 +233,7 @@
       header.site h1, header.site h1 a { color: #000 !important; font-size: 13pt; }
       footer.site { border-top: 1pt solid #000; font-size: 9pt; color: #000; }
       a { color: #000; text-decoration: underline; }
+      article.post nav.contents { display: none; }
       article.post a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 8.5pt; }
       article.post .proposals { background: none; border: 1pt solid #000; page-break-inside: avoid; }
       img.post-header-image { display: none; }
@@ -241,6 +242,22 @@
       p, blockquote, li { orphans: 3; widows: 3; }
       article.post { page-break-before: avoid; }
     }
+    article.post nav.contents {
+      margin: 26px 0 30px; padding: 16px 0;
+      border-top: 2px solid var(--accent); border-bottom: 1px solid var(--rule);
+    }
+    article.post nav.contents h2 {
+      font: 600 13px/1.3 system-ui, -apple-system, Arial, sans-serif !important;
+      letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent);
+      margin: 0 0 10px !important;
+    }
+    article.post nav.contents ol {
+      margin: 0; padding-left: 20px;
+      font: 16px/1.7 system-ui, -apple-system, Arial, sans-serif;
+    }
+    article.post nav.contents li { margin-bottom: 2px; }
+    article.post nav.contents a { text-decoration: none; }
+    article.post nav.contents a:hover { text-decoration: underline; }
   </style>
   <script data-goatcounter="https://pbcaeditor.goatcounter.com/count"
           async src="//gc.zgo.at/count.js"></script>
@@ -296,6 +313,21 @@
       <h1>What does Peabody have to hide?</h1>
       <p class="byline">By David Wood &middot; <time datetime="2026-09-05">Published 5 September 2026</time></p>
       <p class="standfirst">A detailed look at the documentary trail behind Peabody Trust's criminal conviction for failing to provide service-charge information.</p>
+      <nav class="contents" aria-label="In this article">
+        <h2>In this article</h2>
+        <ol>
+          <li><a href="#i-will-chase-this">"I will chase this"</a></li>
+          <li><a href="#fridays-meeting-mondays-response">Friday's meeting, Monday's response</a></li>
+          <li><a href="#peabody-investigates-itself">Peabody investigates itself</a></li>
+          <li><a href="#the-correction">The correction</a></li>
+          <li><a href="#this-should-not-have-happened">"This should not have happened"</a></li>
+          <li><a href="#the-disclosure-didnt-add-up">The disclosure didn't add up</a></li>
+          <li><a href="#then-the-complaints-process-declared-it-finished">Then the complaints process declared it finished</a></li>
+          <li><a href="#then-it-happened-again">Then it happened again</a></li>
+          <li><a href="#where-the-paper-trail-leads">Where the paper trail leads</a></li>
+        </ol>
+      </nav>
+
       <img src="../images/paper-trail-header.jpg" alt="Illustration: a figure on the telephone, half-buried in a landslide of files, invoices and folders, in a distressed printmaking style." class="post-header-image">
 
       <p class="lead">Peabody is in the news for the wrong reasons. <a href="https://www.lbc.co.uk/article/residents-threatened-peabody-trust-service-charge-5Hjdgzs_2/" target="_blank" rel="noopener noreferrer">Residents are being overcharged and threatened</a>. Others are <a href="https://shaction.org/2026/09/05/i-thought-i-was-just-checking-my-service-charges/" target="_blank" rel="noopener noreferrer">organising to force compliance with transparency laws</a>. <a href="./peabody-convicted.html">Peabody has been convicted of a criminal offence</a>.</p>
@@ -305,13 +337,13 @@
       <p>On 12 December 2024, I handed a formal request for service-charge information to Peabody's Area Manager at a meeting at a Peabody community centre. The request was in the correct legal format to fulfil leaseholders' statutory rights to a summary of costs and to inspect the documents behind them. I also emailed a copy and logged it on Peabody's website.</p>
       <p>Peabody did not process the request. It was not formally logged. It was not followed through. Those are not my allegations. Peabody itself later admitted both failures in its Stage One complaint response.</p>
 
-      <h2>"I will chase this"</h2>
+      <h2 id="i-will-chase-this">"I will chase this"</h2>
       <p>On 14 January 2025, a month after the handover, I wrote to the Area Manager again asking for a copy of the accounts and referring to the 30-day statutory timeframe. He replied that he would chase them and update me.</p>
       <p>He did not.</p>
       <p>On 17 February, more than two months after the original request, Peabody's Service Charge Specialist responded to the December webform with a high-level four-year breakdown and some EMA accounts and invoices. This was not the detailed, certified, supporting documentation that the law requires, and I told them as much immediately. But Peabody would go on to build its entire compliance case on that February response. For months, through two complaint stages and a letter to a Member of Parliament, Peabody maintained that this material satisfied its statutory obligations.</p>
       <p>It did not. Peabody's own review would later conclude as much. But that conclusion was still nine months away.</p>
 
-      <h2>Friday's meeting, Monday's response</h2>
+      <h2 id="fridays-meeting-mondays-response">Friday's meeting, Monday's response</h2>
       <p>By summer 2025, the matter had reached Peabody's formal complaints process. A Stage One response in July acknowledged the handling failures: the unlogged handover, the mislogged webform, the two-month delay. It offered &pound;100. But it maintained that the supporting information had now been provided.</p>
       <p>Then came Friday 8 August.</p>
       <p>Peabody staff sat down with residents and discussed service-charge documents that were still outstanding. Peabody's Assistant Director of Operations for North East London explained that they were still working on obtaining all the required documents and would continue to collate them and keep us updated. Peabody's Homeownership Property Manager said that most of the documents were held by the external property manager and that they were negotiating the fee to obtain the missing information.</p>
@@ -321,7 +353,7 @@
       <p>This was not the first time Peabody had contradicted itself. It would not be the last.</p>
       <p>At the same time, I raised the problem with my MP, Rushanara Ali, who said she would investigate. Peabody told her the same thing it had told me: that it had complied with the law and there was nothing else it was obligated to share. Peabody would later admit that this was not correct, and that it had given misleading information to an MP.</p>
 
-      <h2>Peabody investigates itself</h2>
+      <h2 id="peabody-investigates-itself">Peabody investigates itself</h2>
       <p>After sending an email every weekday in September 2025 asking for an update with no reply, I received an answer in early October. Peabody's Chief Operating Officer commissioned its Group Director of Organisational Effectiveness to conduct what Peabody described as an independent review.</p>
       <p>On 4 November, the review reached conclusions that reversed nearly everything Peabody had formally maintained.</p>
       <p>Peabody had not yet fulfilled its obligations under the law. The February disclosure had been deficient. Important superior-landlord information remained outstanding. Peabody had made inaccurate statements to me, to Rushanara Ali MP and to the Housing Ombudsman by saying that it had met its legal obligations. The review identified a "lack of understanding" of the statutory requirements where a superior landlord was involved.</p>
@@ -332,18 +364,18 @@
         <p>The organisation's own machinery had generated and distributed the wrong answer, and nobody in the chain caught it.</p>
       </div>
 
-      <h2>The correction</h2>
+      <h2 id="the-correction">The correction</h2>
       <p>On 13 November, Peabody corrected the record with Rushanara Ali MP. Peabody expressly acknowledged that it had previously stated it had fully complied. The review had found that additional information was legally required. The obligation remained with Peabody. Peabody was sorry this had been "misrepresented" to me and, in turn, to the MP's office.</p>
       <p>The correction contained a concrete commitment. FirstPort would supply the outstanding material by 30 November. Peabody would provide the required information to residents by 15 December 2025. Policy and process work would be completed by the end of December. Refresher training would be completed by the end of January 2026.</p>
       <p>This was not a vague aspiration. It was the timetable attached to a formal correction of a record given to a Member of Parliament. In substance, Peabody was saying: the previous assurance was wrong; we have investigated why; this is what we are doing to put it right; and this is when it will be done.</p>
 
-      <h2>"This should not have happened"</h2>
+      <h2 id="this-should-not-have-happened">"This should not have happened"</h2>
       <p>The 15 December deadline passed. Peabody did not consider it important to tell me. I had to chase them. I had to call the Group Director to get an update.</p>
       <p>The response: "I'm sorry that this deadline has not been met." The missed deadline "should not have happened."</p>
       <p>Peabody accepted that it should have told me about the certification delay affecting the timetable. It accepted that it had missed the deadline it had given me. A replacement date of 16 January 2026 was set.</p>
       <p>The remediation promise, the central commitment in Peabody's correction to a Member of Parliament, had failed on schedule.</p>
 
-      <h2>The disclosure didn't add up</h2>
+      <h2 id="the-disclosure-didnt-add-up">The disclosure didn't add up</h2>
       <p>On 16 January, more than a year after the original request, Peabody's Regional Service Charge Manager emailed a signed accounts summary for the 2023/24 year and supporting invoices.</p>
       <p>Something had been produced. But when the Residents' Association reconciled the invoices against Peabody's own expenditure ledger, the scale of the gaps was striking.</p>
       <p>The disclosure contained 300 unique invoice documents worth more than &pound;500,000. Of those, 292 invoices could be matched to entries in the ledger. But total ledger expenditure was more than a million pounds. That left more than half of the ledger, with no matching invoice in the packet.</p>
@@ -356,7 +388,7 @@
       <p>Peabody's own staff confirmed the picture. On 25 February, Peabody's Assistant Director of Service Charges admitted that Peabody had received "some, but not all, of the information required from FirstPort" in relation to the supporting invoices. The following afternoon, Peabody's Regional Service Charge Manager wrote that they "remain in contact with the managing agent regarding some of the points raised" and attached yet more invoices.</p>
       <p>The remediation exercise, the one that had itself been the remedy for Peabody's admitted failure, was plainly not finished.</p>
 
-      <h2>Then the complaints process declared it finished</h2>
+      <h2 id="then-the-complaints-process-declared-it-finished">Then the complaints process declared it finished</h2>
       <p>On 13 March, Peabody issued another Stage One complaint response.</p>
       <p>The response acknowledged that the 2023/24 disclosure had suffered from "a lack of supporting documents such as invoices." But it then took a remarkably definitive position.</p>
       <p>Peabody said it had provided "all documentation obtained from FirstPort." It said: "we have no further documents." And it concluded that I was now "in receipt of all relevant documentation."</p>
@@ -364,7 +396,7 @@
       <p>Fifteen days earlier, Peabody's service-charge team had still been corresponding with FirstPort about the accounts and supplying additional invoices.</p>
       <p>Once again, the service-charge team and Peabody's formal complaints process were giving residents different answers about whether the disclosure was complete.</p>
 
-      <h2>Then it happened again</h2>
+      <h2 id="then-it-happened-again">Then it happened again</h2>
       <p>There was another service-charge year running alongside all of this.</p>
       <p>Six days after the 16 January disclosure, on 22 January, I had served a fresh statutory request for the 2024/25 service-charge year. The email was expressly titled "FORMAL STATUTORY REQUEST" and went to multiple named Peabody officers. Peabody's Regional Service Charge Manager acknowledged it the next day, confirming that the request would be passed to external accountants for review.</p>
       <p>This was not a request that disappeared into a generic queue. Senior service-charge staff received it, understood what it was, and said so.</p>
@@ -378,7 +410,7 @@
         <p>The email was sent on 23 March. The promised deadline had already passed ten days earlier.</p>
       </div>
 
-      <h2>Where the paper trail leads</h2>
+      <h2 id="where-the-paper-trail-leads">Where the paper trail leads</h2>
       <p>I am not alleging that Peabody staff set out to deceive anyone. Peabody's own review found good faith, and I have published that finding alongside everything else. The documentary record tells a story that does not require dishonesty to be damning.</p>
       <p>Peabody was warned about the problem. It investigated the problem. It admitted the problem. It corrected information it had given to an MP. It promised new processes and training to prevent the problem happening again.</p>
       <p>Then it missed another deadline. Then the complaints process declared the disclosure finished while the service-charge team was still sending invoices. Then a fresh statutory request produced the same admitted failure. Then a new manager promised a response by a date that had already passed.</p>
@@ -416,7 +448,7 @@
     <footer class="site">
       <p>This site is written and run by leaseholders and residents, including members of the Residents' Association. It is independent of Peabody Trust and is not operated by or on behalf of Peabody Trust.</p>
       <p>Peabody Trust and anyone else referred to here is welcome to reply. See the <a href="../pages/corrections.html">right of reply</a>.</p>
-      <p><a href="../pages/privacy.html">Privacy</a> &middot; <a href="../pages/terms.html">Terms of use</a> &middot; <a href="../pages/disclaimer.html">Legal disclaimer</a></p>
+      <p><a href="../feed.xml">Subscribe to new articles</a> &middot; <a href="../pages/privacy.html">Privacy</a> &middot; <a href="../pages/terms.html">Terms of use</a> &middot; <a href="../pages/disclaimer.html">Legal disclaimer</a></p>
     </footer>
   </div>
 

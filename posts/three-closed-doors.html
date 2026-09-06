@@ -202,6 +202,7 @@
       header.site h1, header.site h1 a { color: #000 !important; font-size: 13pt; }
       footer.site { border-top: 1pt solid #000; font-size: 9pt; color: #000; }
       a { color: #000; text-decoration: underline; }
+      article.post nav.contents { display: none; }
       article.post a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 8.5pt; }
       .notes { border-top: 1pt solid #000; font-size: 9pt; }
       img.post-header-image { display: none; }
@@ -210,6 +211,22 @@
       p, blockquote, li { orphans: 3; widows: 3; }
       article.post { page-break-before: avoid; }
     }
+    article.post nav.contents {
+      margin: 26px 0 30px; padding: 16px 0;
+      border-top: 2px solid var(--accent); border-bottom: 1px solid var(--rule);
+    }
+    article.post nav.contents h2 {
+      font: 600 13px/1.3 system-ui, -apple-system, Arial, sans-serif !important;
+      letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent);
+      margin: 0 0 10px !important;
+    }
+    article.post nav.contents ol {
+      margin: 0; padding-left: 20px;
+      font: 16px/1.7 system-ui, -apple-system, Arial, sans-serif;
+    }
+    article.post nav.contents li { margin-bottom: 2px; }
+    article.post nav.contents a { text-decoration: none; }
+    article.post nav.contents a:hover { text-decoration: underline; }
   </style>
   <script data-goatcounter="https://pbcaeditor.goatcounter.com/count"
           async src="//gc.zgo.at/count.js"></script>
@@ -266,6 +283,18 @@
       <h1>The Three Closed Doors: A Stress Test of Leasehold Accountability</h1>
       <p class="byline">By David Wood &middot; <time datetime="2026-06">Published June 2026</time></p>
       <p class="updated">Substantively updated <time datetime="2026-09-01">1 September 2026</time>: new closing section on the scale and timescale of leasehold reform, and a revised conclusion.</p>
+      <nav class="contents" aria-label="In this article">
+        <h2>In this article</h2>
+        <ol>
+          <li><a href="#first-door-criminal-enforcement">First door: criminal enforcement</a></li>
+          <li><a href="#second-door-the-first-tier-tribunal">Second door: the First-tier Tribunal</a></li>
+          <li><a href="#third-door-the-right-to-manage">Third door: the Right to Manage</a></li>
+          <li><a href="#the-metrics-that-matter">The metrics that matter</a></li>
+          <li><a href="#displaced-accountability">Displaced accountability</a></li>
+          <li><a href="#the-doors-are-here-to-stay">The doors are here to stay</a></li>
+        </ol>
+      </nav>
+
       <img src="../images/three-doors-header.jpg" alt="Leasehold accountability and enforcement" class="post-header-image">
       <p class="lead">I became a banker in 2007. The lesson I took from the financial crisis was not that banks should cease to exist. It was that systems which appear robust on paper can contain weaknesses that only become visible when the system is stressed. Safeguards should be tested rather than assumed.</p>
       <p>Looking at leasehold, I increasingly wonder whether we face a similar problem, and whether the right question is not who should own what, but whether the protections Parliament created for residents actually function.</p>
@@ -273,10 +302,10 @@
       <p>Leasehold service charges are unusual because many of these disciplines are absent simultaneously. Residents bear the economic consequences of spending decisions they did not make, on services from suppliers they did not choose, at prices they cannot easily verify, from organisations they cannot readily replace. The mechanisms that would normally discipline that arrangement are largely absent.</p>
       <p>Parliament has created three mechanisms through which leaseholders are supposed to protect themselves.</p>
 
-      <h2>First door: criminal enforcement</h2>
+      <h2 id="first-door-criminal-enforcement">First door: criminal enforcement</h2>
       <p>Sections 21 and 22 of the Landlord and Tenant Act 1985 give leaseholders the right to obtain service charge information. Section 25 makes non-compliance a criminal offence. In practice, local authorities rarely prosecute. Residents seeking enforcement are often left to consider private prosecution themselves. A disclosure obligation without enforcement is not a discipline. The landlord who withholds information faces, in most cases, no meaningful consequence.</p>
 
-      <h2>Second door: the First-tier Tribunal</h2>
+      <h2 id="second-door-the-first-tier-tribunal">Second door: the First-tier Tribunal</h2>
       <p>This is the most important door to examine, and the most difficult to critique, precisely because it is not obviously locked. The Tribunal exists. People use it. A critic can point at any active case and say: the door is open. But the problem is not whether the door opens. The problem is stepping through.</p>
       <p>Effective accountability operates before decisions are made. The Tribunal operates after, requiring residents to challenge spending decisions in a quasi-judicial forum, carrying the full burden of investigation themselves, against organisations that engage with these processes professionally.</p>
       <p>A landlord arrives with invoices, contracts, procurement records and specialist lawyers. A resident arrives with a demand notice and whatever information they have managed to extract. To challenge a charge, you need evidence. To obtain the evidence, you have to challenge the charge.</p>
@@ -289,7 +318,7 @@
       <p>And the system depends heavily on unusually persistent individuals to function at all. Many disputes affect entire buildings, but the Tribunal model treats claims through individual applicants. In practice, those individuals end up acting as unpaid organisers, evidence gatherers and quasi-case managers for their neighbours. A system that requires that to work is not working.</p>
       <p>In functioning markets, litigation is typically a remedy of last resort. Leasehold often treats litigation as a primary accountability mechanism.</p>
 
-      <h2>Third door: the Right to Manage</h2>
+      <h2 id="third-door-the-right-to-manage">Third door: the Right to Manage</h2>
       <p>For many residents in mixed-tenure developments, this route is unavailable or impractical. Commonhold campaigners go further: they argue that the existence of an escape route from someone else's control is itself evidence of a structural problem, and that the answer is to give residents formal ownership from the outset.</p>
       <p>I have some sympathy with that argument. But I am also a sceptic.</p>
       <p>Commonhold makes the assumption that residents can operate as quasi-housing-professionals, setting long-term budgets, procuring contractors, managing reserves and running governance. These are not trivial skills. They are the skills that professional managing agents exist to provide.</p>
@@ -297,12 +326,12 @@
       <p>Unlike leasehold, residents would at least possess the power to appoint and dismiss those agents. Yet the underlying asymmetry of expertise would remain, and the effectiveness of that power would depend upon residents having the confidence, information and organisation necessary to exercise it.</p>
       <p>Formal control without practical capability may simply relocate the problem. If the reforms do not address the underlying asymmetry, the third door may turn out to be an entrance as much as an exit.</p>
 
-      <h2>The metrics that matter</h2>
+      <h2 id="the-metrics-that-matter">The metrics that matter</h2>
       <p>The accountability question is sharpest when examining regulation. The social housing regulatory framework focuses on viability, governance, lender confidence and development capacity. These are the metrics that matter to the organisations that lend to and invest in housing associations. They are legitimate. But they are not the same as protecting residents.</p>
       <p>A housing association can be financially strong, well-governed and highly rated by its regulator while residents simultaneously struggle to obtain basic information about their service charges. These are not contradictory outcomes. They reflect the fact that the regulatory framework was designed to answer a different question from the one the residents are asking. The regulator asks: is the provider viable? The resident asks: can I enforce my rights? It is therefore entirely possible for the regulatory system to conclude that a provider is succeeding while residents conclude that the accountability framework is failing.</p>
       <p>Financial strength and resident accountability are not mutually exclusive objectives. But neither are they the same objective. A framework designed primarily to assess institutional resilience will not necessarily reveal weaknesses in the mechanisms through which residents exercise their rights.</p>
 
-      <h2>Displaced accountability</h2>
+      <h2 id="displaced-accountability">Displaced accountability</h2>
       <p>Parliament created criminal enforcement. Parliament created tribunal oversight. Parliament created management rights. If those fragmented safeguards were intended to be used, the question is why so few residents succeed in doing so. If they were not intended to be used, the question is why they were created.</p>
       <p>Either answer is uncomfortable. Together they describe a system in which the formal rights exist, but many of the practical disciplines that make rights meaningful are weak or absent. Accountability is therefore displaced from the point at which decisions are made to the point at which residents are willing and able to challenge them. That is worth examining carefully, not as a complaint about any individual landlord or regulator, but as a question about who benefits from the current arrangement, and whether the proposed reforms genuinely change it.</p>
 
@@ -312,7 +341,7 @@
 
       <p>A system can survive considerable imperfection if accountability functions. It becomes intolerable when accountability fails, and the failure stays invisible because the people best placed to expose it are the least resourced to do so.</p>
 
-      <h2>The doors are here to stay</h2>
+      <h2 id="the-doors-are-here-to-stay">The doors are here to stay</h2>
       <p>There is also a question of scale and time. Even if commonhold ultimately proves to be a superior model, the transition will be measured in decades rather than years. Around one in five homes in England is leasehold. Annual housing supply in England amounted to 208,600 net additional dwellings in 2024-25, against a stock of roughly 25 million: under one per cent a year. Even a complete prohibition on new leasehold, which is not what the current proposals contain, would leave millions of existing leaseholders within the current system for the rest of their lives. New commonhold developments may shape the future of housing. They do nothing for the accountability problems experienced by residents today.</p>
       <p>The three doors described in this essay are not being abolished. They will remain the primary mechanisms through which existing leaseholders seek information, challenge costs and exercise control for the foreseeable future. Whatever one thinks about commonhold, the question of whether those mechanisms function effectively cannot be deferred to a future generation.</p>
       <p><strong>The residents living behind those doors are already here.</strong></p>
@@ -349,7 +378,7 @@
     <footer class="site">
       <p>This site is written and run by leaseholders and residents, including members of the Residents' Association. It is independent of Peabody Trust and is not operated by or on behalf of Peabody Trust.</p>
       <p>Peabody Trust and anyone else referred to here is welcome to reply. See the <a href="../pages/corrections.html">right of reply</a>.</p>
-      <p><a href="../pages/privacy.html">Privacy</a> &middot; <a href="../pages/terms.html">Terms of use</a> &middot; <a href="../pages/disclaimer.html">Legal disclaimer</a></p>
+      <p><a href="../feed.xml">Subscribe to new articles</a> &middot; <a href="../pages/privacy.html">Privacy</a> &middot; <a href="../pages/terms.html">Terms of use</a> &middot; <a href="../pages/disclaimer.html">Legal disclaimer</a></p>
     </footer>
   </div>
 

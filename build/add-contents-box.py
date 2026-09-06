@@ -17,25 +17,29 @@ from bs4 import BeautifulSoup
 
 MIN_SECTIONS = 5   # below this, a contents box is noise
 
-CSS = """    article.post nav.contents {
-      margin: 26px 0 30px; padding: 16px 0;
+CSS = """    article.post details.contents {
+      margin: 26px 0 30px; padding: 14px 0;
       border-top: 2px solid var(--accent); border-bottom: 1px solid var(--rule);
     }
-    article.post nav.contents h2 {
-      font: 600 13px/1.3 system-ui, -apple-system, Arial, sans-serif !important;
+    article.post details.contents summary {
+      cursor: pointer; list-style: revert;
+      font: 600 13px/1.3 system-ui, -apple-system, Arial, sans-serif;
       letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent);
-      margin: 0 0 10px !important;
     }
-    article.post nav.contents ol {
-      margin: 0; padding-left: 20px;
+    article.post details.contents ol {
+      margin: 12px 0 0; padding-left: 20px;
       font: 16px/1.7 system-ui, -apple-system, Arial, sans-serif;
     }
-    article.post nav.contents li { margin-bottom: 2px; }
-    article.post nav.contents a { text-decoration: none; }
-    article.post nav.contents a:hover { text-decoration: underline; }
+    article.post details.contents li { margin-bottom: 2px; }
+    article.post details.contents a { text-decoration: none; }
+    article.post details.contents a:hover { text-decoration: underline; }
+    @media (min-width: 46rem) {
+      article.post details.contents > summary { list-style: none; }
+      article.post details.contents > summary::-webkit-details-marker { display: none; }
+    }
 """
 
-PRINT_CSS = "      article.post nav.contents { display: none; }\n"
+PRINT_CSS = "      article.post details.contents { display: none; }\n"
 
 
 def slug(text, seen):
@@ -53,9 +57,10 @@ def build(root: Path):
         s = path.read_text(encoding="utf-8")
         rel = path.relative_to(root).as_posix()
 
-        if 'nav class="contents"' in s:
-            print(f"  {rel:44s} (already done)")
-            continue
+        # remove any existing box so it is rebuilt from the current headings
+        had = 'class="contents"' in s
+        if had:
+            s = re.sub(r'\n?      <(?:nav|details) class="contents".*?</(?:nav|details)>\n', "\n", s, flags=re.S)
 
         soup = BeautifulSoup(s, "html.parser")
         article = soup.find("article", class_="post")
@@ -79,13 +84,24 @@ def build(root: Path):
                 assert s.count(old) == 1, f"heading not unique in {rel}: {text[:40]}"
                 s = s.replace(old, new, 1)
 
-        box = ('      <nav class="contents" aria-label="In this article">\n'
-               '        <h2>In this article</h2>\n        <ol>\n'
+        box = ('      <details class="contents" open>\n'
+               '        <summary>In this article</summary>\n        <ol>\n'
                + "\n".join(f'          <li><a href="#{i}">{t}</a></li>' for i, t in items)
-               + "\n        </ol>\n      </nav>\n\n")
+               + "\n        </ol>\n      </details>\n\n")
 
-        # place it after the standfirst, or after the byline/updated line
-        anchor = re.search(r'(      <p class="standfirst">.*?</p>\n)', s, re.S) \
+        # order: title, byline, update, header image, standfirst, contents, body
+        img = re.search(r'(      <img src="\.\./images/[^"]+"[^>]*class="post-header-image">\n)', s)
+        sf = re.search(r'(      <p class="standfirst">.*?</p>\n)', s, re.S)
+        if img and sf and img.start(1) > sf.start(1):
+            # image currently sits after the standfirst: move it above
+            image_html = img.group(1)
+            s = s[:img.start(1)] + s[img.end(1):]
+            sf = re.search(r'(      <p class="standfirst">.*?</p>\n)', s, re.S)
+            s = s[:sf.start(1)] + image_html + s[sf.start(1):]
+            sf = re.search(r'(      <p class="standfirst">.*?</p>\n)', s, re.S)
+
+        sf = re.search(r'(      <p class="standfirst[^"]*">.*?</p>\n)', s, re.S)
+        anchor = sf or img \
             or re.search(r'(      <p class="updated">.*?</p>\n)', s, re.S) \
             or re.search(r'(      <p class="byline">.*?</p>\n)', s, re.S)
         s = s[:anchor.end(1)] + box + s[anchor.end(1):]

@@ -73,9 +73,7 @@ LOCAL_RULES_FILE = Path(__file__).with_name("check-rules.local.json")
 
 def load_local_rules():
     if not LOCAL_RULES_FILE.exists():
-        print(f"NOTE: {LOCAL_RULES_FILE.name} not found. The building-name and "
-              f"staff-name checks are NOT running.\n")
-        return []
+        return None
     data = json.loads(LOCAL_RULES_FILE.read_text(encoding="utf-8"))
     out = []
     for label, cfg in data.items():
@@ -119,7 +117,13 @@ def check_draft(path):
 
     for sev, label, ln, hit, ctx in unexpanded_initialisms(text, lines):
         findings.append((sev, label, ln, hit, ctx))
-    for label, pattern, sev, flags in DRAFT_RULES + load_local_rules():
+    local = load_local_rules()
+    if local is None:
+        findings.append(("BLOCK", "Privacy rules unavailable: "
+                         f"{LOCAL_RULES_FILE.name} not found, so the building-name "
+                         "and staff-name checks did NOT run", 0, "", ""))
+        local = []
+    for label, pattern, sev, flags in DRAFT_RULES + local:
         for i, line in enumerate(lines, 1):
             for m in re.finditer(pattern, line, flags):
                 findings.append((sev, label, i, m.group(0), line.strip()[:110]))
@@ -207,6 +211,13 @@ def check_site(root: Path):
                 if host and "peabodytrust.co.uk" not in host and host != "gc.zgo.at":
                     bad("BLOCK", rel, f"third-party resource loaded from {host}")
 
+        # fragment links point at ids that exist on the page
+        page_ids = {e["id"] for e in soup.find_all(id=True)}
+        for a in soup.find_all("a", href=True):
+            href = a["href"]
+            if href.startswith("#") and len(href) > 1 and href[1:] not in page_ids:
+                bad("BLOCK", rel, f"fragment link to a missing id: {href}")
+
         # internal links resolve
         for a in soup.find_all("a", href=True):
             href = a["href"].split("#")[0]
@@ -241,6 +252,11 @@ def check_site(root: Path):
     # ---- forbidden strings in ANY served file, not just HTML.
     # /build/ is served by GitHub Pages like everything else.
     local = load_local_rules()
+    if local is None:
+        bad("BLOCK", LOCAL_RULES_FILE.name,
+            "Privacy rules unavailable. The building-name and staff-name checks "
+            "did NOT run, so this check is incomplete.")
+        local = []
     if local:
         for f in root.rglob("*"):
             if not f.is_file() or ".git" in f.parts:

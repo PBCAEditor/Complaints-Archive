@@ -38,6 +38,15 @@ POST_DATES = {
 }
 
 
+# Articles substantively updated since publication. The feed's <updated> uses
+# this so readers' feed software sees the revision; <published> keeps the
+# original date.
+POST_UPDATED = {
+    "peabody-convicted.html": "2026-09-04",
+    "three-closed-doors.html": "2026-09-01",
+}
+
+
 def full_ts(iso):
     return (iso if len(iso) == 10 else iso + "-01") + "T00:00:00Z"
 
@@ -62,11 +71,12 @@ def build(root: Path):
                 "summary": html.escape(html.unescape(desc), quote=False),
                 "url": url,
                 "ts": full_ts(iso),
+                "updated": full_ts(POST_UPDATED.get(path.name, iso)),
             }
         )
 
     entries.sort(key=lambda e: e["sort"], reverse=True)
-    updated = entries[0]["ts"] if entries else "1970-01-01T00:00:00Z"
+    updated = max((e["updated"] for e in entries), default="1970-01-01T00:00:00Z")
 
     out = [
         '<?xml version="1.0" encoding="utf-8"?>',
@@ -88,7 +98,7 @@ def build(root: Path):
             f'    <link href="{e["url"]}" rel="alternate" type="text/html"/>',
             f'    <id>{e["url"]}</id>',
             f'    <published>{e["ts"]}</published>',
-            f'    <updated>{e["ts"]}</updated>',
+            f'    <updated>{e["updated"]}</updated>',
             f'    <summary type="text">{e["summary"]}</summary>',
             "  </entry>",
         ]

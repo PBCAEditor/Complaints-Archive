@@ -4,9 +4,24 @@ Live site: **https://peabodytrust.co.uk**
 Test address: https://pbcaeditor.github.io/Complaints-Archive/
 
 This folder holds the scripts that generate parts of the site, plus this note
-explaining how the whole thing fits together. **Nothing in `/build/` is served to
-visitors.** The site is plain static HTML; these are tools that run on a computer
-and produce files you then upload.
+explaining how the whole thing fits together. These are tools that run on a
+computer and produce files you then upload; the site itself is plain static HTML.
+
+**Everything in this folder IS served to visitors.** GitHub Pages publishes every
+file in the repository, so `peabodytrust.co.uk/build/check-site.py` resolves. The
+repository is public as well, so anything committed here is public twice over and
+stays in the commit history even after deletion.
+
+Consequences, which matter:
+
+- **Never commit `check-rules.local.json`.** It holds the building name and the
+  staff-name watchlist, which are precisely what the anonymisation rules exist to
+  keep off the web. It is in `.gitignore`; keep it local only.
+- `robots.txt` carries `Disallow: /build/`. That stops indexing. It is not access
+  control and does not make anything private.
+- `check-site.py` now scans every served file, not just HTML, for the forbidden
+  strings, and flags files in `/build/` as publicly served. That check exists
+  because this exact mistake was made and shipped.
 
 ---
 
@@ -32,7 +47,8 @@ free and maintenance near zero.
 
   /images/                     header artwork, share card, verification block
   /pages/                      about, contact, corrections, corrections-log,
-                               disclaimer, editorial-policy, privacy, terms
+                               disclaimer, editorial-policy, privacy,
+                               sending-evidence, terms
   /posts/                      the articles
   /resources/                  the Support & resources section
       index.html               landing page — generated
@@ -78,7 +94,8 @@ file** — typing `resources/index.html` makes the folder. There is no separate
    `add-site-features.py` too.
 5. Add its `<loc>` to `sitemap.xml`.
 6. Add an entry to the article list on `index.html`.
-7. Regenerate: `python3 build-search-index.py .` and `python3 build-feed.py .`
+7. Regenerate: `python3 build-search-index.py .`, `python3 build-feed.py .` and
+   `python3 add-contents-box.py .`
 8. Run the site check (§5).
 9. Upload the article, plus `index.html`, `sitemap.xml`, `feed.xml` and
    `search-index.json`.
@@ -100,6 +117,7 @@ They need Python 3 and, for some, `pip install beautifulsoup4 markdown`.
 | `build-guide-page.py` | Builds `/resources/index.html`, `guide.html` and `s21-guide.txt` from the guide sources | Guide text or version changed |
 | `add-og-and-share.py` | Adds Open Graph, Twitter and canonical tags, and the share row, to pages that lack them | New page added |
 | `add-site-features.py` | Adds favicon and feed links, print styles, skip link, `<time>` and JSON-LD | New page added |
+| `add-contents-box.py` | Adds an "In this article" box to posts with 5+ sections, and the feed link to every footer | New article added |
 | `check-site.py` | Pre-publication checks (§5) | Before every upload |
 
 `add-og-and-share.py` and `add-site-features.py` skip anything already done, so

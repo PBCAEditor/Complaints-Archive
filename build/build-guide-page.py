@@ -94,7 +94,8 @@ HEAD = """<!DOCTYPE html>
     <a href="/resources/"{res_current}>Support &amp; resources</a>
     <a href="/pages/about.html">About</a>
     <a href="/pages/editorial-policy.html">Editorial policy</a>
-    <a href="/pages/corrections.html">Corrections &amp; right of reply</a>
+    <a href="/evidence/">Evidence</a>
+    <a href="/pages/corrections.html">Corrections</a>
     <a href="/pages/contact.html">Contact</a>
   </div>
 </nav>

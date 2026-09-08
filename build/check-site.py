@@ -141,7 +141,7 @@ def check_draft(path):
 def html_files(root):
     out = []
     for pattern in ("index.html", "404.html", "pages/*.html", "posts/*.html",
-                    "resources/*.html"):
+                    "resources/*.html", "evidence/*.html"):
         out += sorted(root.glob(pattern))
     return [f for f in out if not f.name.startswith("google")]
 

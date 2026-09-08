@@ -1,1 +1,219 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Evidence log &middot; Peabody Complaints Archive</title>
+  <meta name="description" content="Primary documents relied on by articles on the Peabody Complaints Archive, published in redacted form with a note of exactly what was removed and why.">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="alternate" type="application/atom+xml" title="Peabody Complaints Archive - new articles" href="/feed.xml">
+  <link rel="canonical" href="https://peabodytrust.co.uk/evidence/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Peabody Complaints Archive">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:title" content="Evidence log">
+  <meta property="og:description" content="Primary documents relied on by articles on the Peabody Complaints Archive, published in redacted form with a note of exactly what was removed and why.">
+  <meta property="og:url" content="https://peabodytrust.co.uk/evidence/">
+  <meta property="og:image" content="https://peabodytrust.co.uk/images/share-default.jpg">
+  <meta property="og:image:alt" content="Peabody Complaints Archive: an independent, resident-run archive of housing complaints and disputes.">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Evidence log">
+  <meta name="twitter:description" content="Primary documents relied on by articles on the Peabody Complaints Archive, published in redacted form with a note of exactly what was removed and why.">
+  <meta name="twitter:image:alt" content="Peabody Complaints Archive: an independent, resident-run archive of housing complaints and disputes.">
+  <meta name="twitter:image" content="https://peabodytrust.co.uk/images/share-default.jpg">
+  <style>
+    :root {
+      --ink: #1a1a1a;
+      --muted: #5c5c5c;
+      --rule: #e2e2e2;
+      --accent: #0b6b6f;
+      --banner-bg: #fff4e5;
+      --banner-ink: #7a4b00;
+      --banner-rule: #e6b566;
+      --maxw: 680px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font: 18px/1.65 Georgia, "Times New Roman", serif;
+      color: var(--ink);
+      background: #fdfdfc;
+    }
+    .disclaimer {
+      background: var(--banner-bg);
+      color: var(--banner-ink);
+      border-bottom: 1px solid var(--banner-rule);
+      font: 14px/1.5 system-ui, -apple-system, Arial, sans-serif;
+      text-align: center;
+      padding: 10px 16px;
+    }
+    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 20px; }
+    header.site { padding: 40px 0 18px; border-bottom: 1px solid var(--rule); }
+    header.site h1 { font-size: 26px; line-height: 1.2; margin: 0; }
+    header.site h1 a { color: var(--ink); text-decoration: none; }
+    header.site .independent {
+      display: block; margin: 4px 0 0;
+      font: 11px/1.4 system-ui, -apple-system, Arial, sans-serif;
+      letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent);
+    }
+    nav.site {
+      font: 15px/1.5 system-ui, -apple-system, Arial, sans-serif;
+      padding: 14px 0; border-bottom: 1px solid var(--rule);
+    }
+    nav.site a { color: var(--accent); text-decoration: none; margin-right: 16px; }
+    nav.site a:hover { text-decoration: underline; }
+    main { padding: 30px 0 20px; }
+    main h2 { font-size: 27px; line-height: 1.25; margin: 0 0 8px; }
+    main h3 {
+      font: 600 16px/1.4 system-ui, -apple-system, Arial, sans-serif;
+      margin: 26px 0 4px; color: var(--ink);
+    }
+    main p, main li { margin: 0 0 14px; }
+    main ul { padding-left: 22px; }
+    main li { margin-bottom: 6px; }
+    .updated {
+      font: 14px/1.4 system-ui, -apple-system, Arial, sans-serif;
+      color: var(--muted); margin: 0 0 24px;
+    }
+    a { color: var(--accent); }
+    footer.site {
+      font: 14px/1.6 system-ui, -apple-system, Arial, sans-serif;
+      color: var(--muted);
+      padding: 26px 0 60px; border-top: 1px solid var(--rule); margin-top: 24px;
+    }
+    footer.site p { margin: 0 0 10px; }
+    footer.site a { color: var(--accent); }
 
+    /* Skip link and visible focus */
+    .skip-link {
+      position: absolute; left: -9999px; top: 0;
+      background: var(--accent); color: #fff;
+      padding: 10px 16px; z-index: 100;
+      font: 15px/1.4 system-ui, -apple-system, Arial, sans-serif;
+      text-decoration: none;
+    }
+    .skip-link:focus { left: 0; }
+    a:focus-visible, button:focus-visible, input:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    /* Print: strip site furniture, keep the evidence */
+    @media print {
+      body { background: #fff; color: #000; font-size: 11.5pt; }
+      .wrap { max-width: none; padding: 0; }
+      nav.site, .share, .backlink, .skip-link,
+      .search-wrap, #search-status, #search-results { display: none !important; }
+      .disclaimer {
+        background: none !important; color: #000 !important;
+        border: 1pt solid #000; padding: 6pt 8pt; margin: 0 0 12pt;
+        font-size: 9.5pt;
+      }
+      header.site { border: 0; padding: 0 0 6pt; }
+      header.site h1, header.site h1 a { color: #000 !important; font-size: 13pt; }
+      footer.site { border-top: 1pt solid #000; font-size: 9pt; color: #000; }
+      a { color: #000; text-decoration: underline; }
+      article.post a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 8.5pt; }
+      img.post-header-image { display: none; }
+      .pullquote { border-color: #000; }
+      h1, h2, h3 { page-break-after: avoid; }
+      p, blockquote, li { orphans: 3; widows: 3; }
+      article.post { page-break-before: avoid; }
+    }
+    figure.doc { margin: 0 0 26px; }
+    figure.doc img {
+      display: block; width: 100%; height: auto;
+      border: 1px solid var(--rule); background: #fff;
+    }
+    figure.doc a:hover img { border-color: var(--accent); }
+    figure.doc figcaption {
+      font: 14px/1.55 system-ui, -apple-system, Arial, sans-serif;
+      color: var(--muted); margin-top: 8px;
+    }
+    hr.section-break { border: 0; border-top: 1px solid var(--rule); margin: 34px 0 26px; }
+    main h4 { font-size: 17px; margin: 26px 0 8px; }
+  </style>
+  <script data-goatcounter="https://pbcaeditor.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
+</head>
+<body>
+
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <div class="disclaimer">
+    This is an independent site. It is <strong>not affiliated with, endorsed by, or operated by Peabody Trust</strong>.
+  </div>
+
+  <div class="wrap">
+    <header class="site">
+      <h1><a href="/">Peabody Complaints Archive</a></h1>
+      <span class="independent">Independent resident archive</span>
+    </header>
+
+    <nav class="site">
+      <a href="/">Home</a>
+      <a href="../resources/">Support &amp; resources</a>
+      <a href="../pages/about.html">About</a>
+      <a href="../pages/editorial-policy.html">Editorial policy</a>
+      <a href="../evidence/">Evidence</a>
+      <a href="../pages/corrections.html">Corrections</a>
+      <a href="../pages/contact.html">Contact</a>
+    </nav>
+
+    <main id="content">
+      <h2>Evidence log</h2>
+      <p class="meta">Last updated: 8 September 2026</p>
+
+      <p>This page publishes primary documents that articles on this site rely on, where they can be published safely. It exists so that a reader does not have to take the site's word for anything that a document can establish directly.</p>
+
+      <p>Not everything can go here. Much of the correspondence this site works from contains personal information about residents and staff, and some of it is subject to obligations that prevent publication. Where a document cannot be published, the relevant article names it, dates it and says what it shows. Peabody holds copies of all correspondence referred to on this site.</p>
+
+      <h3>How documents are prepared</h3>
+      <p>Every document published here is redacted before publication in accordance with the site's practice of not identifying the building or naming individual staff. Redaction is applied by converting the document to an image and removing the text permanently, rather than by covering it in a PDF, where the underlying text usually remains readable. Each entry below states exactly what was removed and why.</p>
+      <p>Nothing else is altered. No text is added, moved or rewritten.</p>
+
+      <hr class="section-break">
+
+      <h3 id="conviction">Peabody Trust: conviction under section 25(1), Landlord and Tenant Act 1985</h3>
+      <p class="meta">Thames Magistrates' Court &middot; case 2600359313 &middot; heard 11 August 2026</p>
+
+      <p>Peabody Trust pleaded guilty to failing, without reasonable excuse, to perform a duty imposed by section 21 of the Landlord and Tenant Act 1985. It was fined &pound;1,000 with a &pound;400 victim surcharge and no order for costs. The prosecution was brought privately by a leaseholder. The background is set out in <a href="../posts/peabody-convicted.html">Peabody Broke the Law. A Resident Had to Prosecute It.</a></p>
+
+      <h4>Memorandum of entry in the court register</h4>
+      <figure class="doc">
+        <a href="./conviction-memorandum.jpg"><img src="./conviction-memorandum.jpg" alt="Certified memorandum of an entry in the register of Thames Magistrates' Court for 11 August 2026, recording that Peabody Trust pleaded guilty to an offence contrary to section 25 of the Landlord and Tenant Act 1985, was fined one thousand pounds with a four hundred pound victim surcharge, and that no order for costs was made. The building name, street and postcode are redacted, as is the name of the person who entered the plea."></a>
+        <figcaption>Certified extract from the court register, printed 2 September 2026. Select to view full size.</figcaption>
+      </figure>
+      <p><strong>What it establishes.</strong> The plea, the date, the offence, the fine of &pound;1,000, the victim surcharge of &pound;400, that the guilty plea was taken into account in sentencing, and that no order for costs was made. It carries the court's certification that the extract is a true copy.</p>
+      <p><strong>Redactions.</strong> The building name, street and postcode are removed, in line with this site's practice of not identifying the building. The name of the person who entered the plea on Peabody's behalf is removed, in line with this site's practice of identifying individuals by role rather than by name. Nothing else is removed. The case number is left visible so that the record can be checked independently.</p>
+
+      <h4>Summons</h4>
+      <figure class="doc">
+        <a href="./conviction-summons.jpg"><img src="./conviction-summons.jpg" alt="Summons issued by Thames Magistrates' Court dated 1 July 2026 requiring Peabody Trust to attend on 11 August 2026, setting out the complaint that it failed without reasonable excuse to perform a duty imposed under section 21 of the Landlord and Tenant Act 1985. The applicant's address and the building address are redacted."></a>
+        <figcaption>Summons issued 1 July 2026. Select to view full size.</figcaption>
+      </figure>
+      <p><strong>What it establishes.</strong> That the court issued a summons on a private application, the date of the complaint, and the wording of the offence alleged. The second page carries only the words "Contrary to Section 25 Landlord and Tenant Act 1985" and is not reproduced.</p>
+      <p><strong>Redactions.</strong> The applicant's home address and the building address are removed. Both case numbers are left visible.</p>
+
+      <hr class="section-break">
+
+      <h3>Checking these records independently</h3>
+      <p>Court proceedings are public. Under rule 5.7 of the Criminal Procedure Rules, the register of a magistrates' court, or a certified extract from it, is admissible as evidence of the proceedings recorded in it. Anyone may apply to the court for information about a case under rule 5.8, and journalists may obtain court registers under the arrangements HM Courts and Tribunals Service operates with the news media.</p>
+      <p>The case number above is sufficient to identify the record. Requests should be made to Thames Magistrates' Court.</p>
+
+      <h3>Corrections</h3>
+      <p>If you believe anything published here is inaccurate, incomplete or wrongly redacted, please say so. See <a href="../pages/corrections.html">corrections and right of reply</a> and the <a href="../pages/corrections-log.html">corrections log</a>.</p>
+    </main>
+
+    <footer class="site">
+      <p>This site is written and run by leaseholders and residents, including members of the Residents' Association. It is independent of Peabody Trust and is not operated by or on behalf of Peabody Trust.</p>
+      <p><a href="../feed.xml">Subscribe to new articles</a> &middot; <a href="../pages/privacy.html">Privacy</a> &middot; <a href="../pages/terms.html">Terms of use</a> &middot; <a href="../pages/disclaimer.html">Legal disclaimer</a></p>
+    </footer>
+  </div>
+
+</body>
+</html>

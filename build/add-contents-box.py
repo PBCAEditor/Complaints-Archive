@@ -60,7 +60,7 @@ def build(root: Path):
         # remove any existing box so it is rebuilt from the current headings
         had = 'class="contents"' in s
         if had:
-            s = re.sub(r'\n?      <(?:nav|details) class="contents".*?</(?:nav|details)>\n', "\n", s, flags=re.S)
+            s = re.sub(r'\n?      <(?:nav|details) class="contents".*?</(?:nav|details)>\n+', "\n", s, flags=re.S)
 
         soup = BeautifulSoup(s, "html.parser")
         article = soup.find("article", class_="post")
@@ -108,9 +108,10 @@ def build(root: Path):
 
         css_anchor = "  </style>"
         assert s.count(css_anchor) == 1
-        s = s.replace(css_anchor, CSS + css_anchor, 1)
+        if CSS not in s:
+            s = s.replace(css_anchor, CSS + css_anchor, 1)
         pm = '      article.post a[href^="http"]::after'
-        if pm in s:
+        if pm in s and PRINT_CSS not in s:
             s = s.replace(pm, PRINT_CSS + pm, 1)
 
         path.write_text(s, encoding="utf-8")

@@ -84,7 +84,7 @@ def build(root: Path):
                 assert s.count(old) == 1, f"heading not unique in {rel}: {text[:40]}"
                 s = s.replace(old, new, 1)
 
-        box = ('      <details class="contents" open>\n'
+        box = ('      <details class="contents">\n'
                '        <summary>In this article</summary>\n        <ol>\n'
                + "\n".join(f'          <li><a href="#{i}">{t}</a></li>' for i, t in items)
                + "\n        </ol>\n      </details>\n\n")

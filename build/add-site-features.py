@@ -53,6 +53,14 @@ POST_IMAGES = {
 }
 DEFAULT_IMG = "images/share-default.jpg"
 
+
+def full_ts(iso):
+    """Month- or day-precision ISO date -> full UTC timestamp for schema.org,
+    which requires a timezone. Matches build-feed.py's full_ts(). The visible
+    byline and <time datetime> still carry only the precision the article
+    claims; this only affects the JSON-LD block."""
+    return (iso if len(iso) == 10 else iso + "-01") + "T00:00:00Z"
+
 HEAD_LINKS = """  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="/favicon.ico" sizes="32x32">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -175,9 +183,9 @@ def build(root: Path):
                 "@type": "Article",
                 "headline": title,
                 "description": desc,
-                "datePublished": iso,
-                "author": {"@type": "Person", "name": AUTHOR},
-                "publisher": {"@type": "Organization", "name": SITE_NAME},
+                "datePublished": full_ts(iso),
+                "author": {"@type": "Person", "name": AUTHOR, "url": f"{SITE}/"},
+                "publisher": {"@type": "Organization", "name": SITE_NAME, "url": f"{SITE}/"},
                 "image": f"{SITE}/{img}",
                 "mainEntityOfPage": {
                     "@type": "WebPage",

@@ -44,8 +44,9 @@ POST_DATES = {
 # this so readers' feed software sees the revision; <published> keeps the
 # original date.
 POST_UPDATED = {
-    "peabody-convicted.html": "2026-09-04",
+    "peabody-convicted.html": "2026-10-09",
     "three-closed-doors.html": "2026-09-01",
+    "what-does-peabody-have-to-hide.html": "2026-10-09",
 }
 
 

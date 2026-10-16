@@ -28,6 +28,7 @@ POST_IMAGES = {
     "leasehold-market-risk.html": "images/leasehold-header.jpg",
     "service-charge-maze.html": "images/service-charge-header.jpg",
     "three-closed-doors.html": "images/three-doors-header.jpg",
+    "does-it-cost-4000-to-ask-peabody.html": "images/asking-cost-header.jpg",
 }
 
 OG_MARKER = 'property="og:title"'

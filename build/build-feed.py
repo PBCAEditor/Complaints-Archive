@@ -47,6 +47,7 @@ POST_UPDATED = {
     "peabody-convicted.html": "2026-10-09",
     "three-closed-doors.html": "2026-09-01",
     "what-does-peabody-have-to-hide.html": "2026-10-09",
+    "does-it-cost-4000-to-ask-peabody.html": "2026-10-16",
 }
 
 

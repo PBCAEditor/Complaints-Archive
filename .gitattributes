@@ -1,0 +1,44 @@
+# Line endings.
+#
+# Windows and Linux end a line of text differently. The build scripts read a
+# file and write it back, so running them on a non-Windows machine rewrites
+# every line ending in the file. The visible text is unchanged, but git
+# compares line by line and reports the whole file as rewritten. One new
+# article then looks like thirteen articles rewritten, and the history stops
+# being useful.
+#
+# This file stops that happening. Git stores every text file with one
+# convention internally and hands the working copy the right one for whatever
+# machine it is checked out on, so the scripts can run anywhere.
+#
+# ONE-OFF STEP after adding this file. Check what git is doing today:
+#
+#     git config --get core.autocrlf
+#
+# If that prints "true", nothing further is needed: the repository is already
+# stored the way this file expects and you will see no change.
+#
+# If it prints "false" or nothing at all, run these two commands on their own,
+# with no other edits pending, and commit them as a change of their own:
+#
+#     git add --renormalize .
+#     git commit -m "Normalise line endings"
+#
+# That produces one large commit touching every text file. It is a one-off and
+# it is the whole point: after it, the problem cannot come back. Keeping it in
+# its own commit is what stops it burying a real change.
+
+* text=auto
+
+# Binary formats. Never convert these; doing so corrupts them.
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.ico   binary
+*.pdf   binary
+*.xlsx  binary
+*.docx  binary
+*.pptx  binary
+*.woff  binary
+*.woff2 binary

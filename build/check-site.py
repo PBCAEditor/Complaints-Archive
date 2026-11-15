@@ -258,8 +258,15 @@ def check_site(root: Path):
             "did NOT run, so this check is incomplete.")
         local = []
     if local:
+        # The rules file necessarily contains every pattern it defines, so
+        # matching against it is a false alarm. It is gitignored and never
+        # deployed. Skipping it is what lets a clean run report zero blocking;
+        # a blocking count that is never zero stops being read.
+        rules_path = LOCAL_RULES_FILE.resolve()
         for f in root.rglob("*"):
             if not f.is_file() or ".git" in f.parts:
+                continue
+            if f.resolve() == rules_path:
                 continue
             try:
                 content = f.read_text(encoding="utf-8", errors="ignore")
@@ -271,8 +278,10 @@ def check_site(root: Path):
                         f"{label} appears in a file served from the site")
 
     # ---- scripts and sources should not be served at all
+    # The local rules file is excluded: it is gitignored, so it is never pushed
+    # and never served. Listing it here claimed the opposite.
     for f in (root / "build").glob("*"):
-        if f.is_file() and f.name != "README.md":
+        if f.is_file() and f.name not in ("README.md", LOCAL_RULES_FILE.name):
             bad("CHECK", f.relative_to(root).as_posix(),
                 "served publicly; GitHub Pages serves everything in the repository")
 
@@ -294,7 +303,9 @@ def check_site(root: Path):
                     if ver not in t or code not in t:
                         bad("BLOCK", other, f"guide version/check code out of step (expected {ver} / {code})")
 
-    print(f"Checked {len(files)} pages, {len(posts)} articles.\n")
+    rules_note = (f"privacy rules loaded, {len(local)} patterns" if local
+                  else "PRIVACY RULES NOT LOADED")
+    print(f"Checked {len(files)} pages, {len(posts)} articles; {rules_note}.\n")
     if not problems:
         print("No problems found.")
         return False

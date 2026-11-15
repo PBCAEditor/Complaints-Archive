@@ -23,6 +23,7 @@ from bs4 import BeautifulSoup
 ORDER = [
     "does-it-cost-4000-to-ask-peabody.html",
     "mould-maggots-and-mismanagement.html",
+    "social-housing-bill-evidence.html",
     "what-does-peabody-have-to-hide.html",
     "worst-housing-association.html",
     "shared-ownership-incentives.html",

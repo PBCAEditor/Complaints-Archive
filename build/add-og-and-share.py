@@ -23,6 +23,7 @@ DEFAULT_IMG = "images/share-default.jpg"
 
 # Articles that have their own header image; others fall back to DEFAULT_IMG.
 POST_IMAGES = {
+    "mission-almost-impossible.html": "images/mission-impossible-header.jpg",
     "staircase-goes-nowhere.html": "images/staircase-header.jpg",
     "peabody-convicted.html": "images/conviction-header.jpg",
     "leasehold-market-risk.html": "images/leasehold-header.jpg",

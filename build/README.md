@@ -150,6 +150,32 @@ appears in the sitemap, feed and search index, that no generated data has been
 uploaded into `/images/`, and that the guide's version and check code agree
 across all three guide files.
 
+**Office files and PDFs.** A `.docx`, `.xlsx` or `.pptx` is a zip archive, so a plain
+text search cannot see inside it. Both modes unpack these files and apply the same
+rules to the body text, headers, footnotes, comments, deleted text, alt text, cell
+values and hyperlink targets (a hidden link can carry an email address that the
+visible text does not). They also report document hygiene: author, last-modified-by
+and company properties, tracked changes, comments, hidden text, hidden sheets or
+slides, speaker notes, macros, embedded thumbnails, and links to local file paths.
+Run it on a Word draft before you start converting it:
+
+```
+python3 build/check-site.py --draft "My article.docx"
+```
+
+Hygiene findings are CHECK for a draft but BLOCK in site mode, because a file in the
+repository is public. PDFs get the same treatment if PyMuPDF is installed
+(`pip install pymupdf`). A PDF with no text layer, and the old `.doc`/`.xls`/`.ppt`
+formats, cannot be read: the checker says so and the file needs checking by eye or
+saving in a newer format. To clear author properties in Word: File, Info, Check for
+Issues, Inspect Document, then Remove All beside Document Properties.
+
+**Orphaned files.** Site mode lists downloads and images that no page, feed or
+stylesheet refers to. They are still served at their own URL, so an unlinked draft
+or old document stays public with nobody watching it. Link it or delete it. Files
+that are deliberately unlinked are listed in `ORPHAN_ALLOWED` in `check-site.py`,
+with the reason.
+
 It exits with status 1 if anything blocking is found.
 
 ---

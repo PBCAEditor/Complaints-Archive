@@ -97,8 +97,10 @@ Any exception to the staff-name rule is the editor's explicit, per-document deci
 
 - Prosecution guide (section 25) at `/resources/prosecution/`: not built. `guide.html` and
   `s21-guide.txt` must keep their URLs because prompts in circulation point at them.
-- Make `check-site.py` look inside Office files (hidden links, author properties) and spot
-  orphaned downloads.
+- `check-site.py` now inspects Office files and PDFs and flags orphaned downloads and
+  images (build/README.md section 5). Run `--draft` on any .docx the editor supplies before
+  converting it. Possible follow-ups: image metadata (EXIF) checks, and a Word/PDF template
+  for the downloads in the prosecution guide.
 - Deferred: one source file for all article metadata, nav wrapping on desktop, image sizes,
   heading structure on information pages, topic labels.
 - The deployment section of `build/README.md` still describes uploading through the GitHub

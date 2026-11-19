@@ -31,9 +31,9 @@ AUTHOR = "David Wood"
 # article itself claims.
 POST_DATES = {
     "mission-almost-impossible.html": "2026-11-19",
+    "social-housing-bill-evidence.html": "2026-11-15",
     "does-it-cost-4000-to-ask-peabody.html": "2026-10-08",
     "mould-maggots-and-mismanagement.html": "2026-09-18",
-    "social-housing-bill-evidence.html": "2026-09-18",
     "what-does-peabody-have-to-hide.html": "2026-09-05",
     "worst-housing-association.html": "2026-09-04",
     "shared-ownership-incentives.html": "2026-08-25",

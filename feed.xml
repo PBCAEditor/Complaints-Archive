@@ -5,9 +5,17 @@
   <link href="https://peabodytrust.co.uk/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://peabodytrust.co.uk/" rel="alternate" type="text/html"/>
   <id>https://peabodytrust.co.uk/</id>
-  <updated>2026-11-19T00:00:00Z</updated>
+  <updated>2026-11-20T00:00:00Z</updated>
   <author><name>David Wood</name></author>
   <rights>This site is independent of Peabody Trust and is not affiliated with, endorsed by, or operated by Peabody Trust.</rights>
+  <entry>
+    <title>Service Charge Abuse: Getting Answers and Organising Residents</title>
+    <link href="https://peabodytrust.co.uk/posts/service-charge-abuse.html" rel="alternate" type="text/html"/>
+    <id>https://peabodytrust.co.uk/posts/service-charge-abuse.html</id>
+    <published>2026-11-20T00:00:00Z</published>
+    <updated>2026-11-20T00:00:00Z</updated>
+    <summary type="text">The text and slides of a talk to Unite Community's National Housing Group: three routes to getting answers about service charges, what changes from April 2027, and why residents should organise.</summary>
+  </entry>
   <entry>
     <title>Mission (Almost) Impossible: The Librarian Taking Her Landlord to Criminal Court</title>
     <link href="https://peabodytrust.co.uk/posts/mission-almost-impossible.html" rel="alternate" type="text/html"/>

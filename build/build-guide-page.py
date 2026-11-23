@@ -5,8 +5,11 @@ Build the Support & resources pages from the guide markdown.
 Usage:  python3 build-guide-page.py [repo_root]
 
 Produces, from <repo_root>/resources/s21-guide.md:
-  /resources/index.html   landing page: two-column hero, verification stamp,
-                          assistant prompt, how-to steps, closing warning.
+  /resources/requesting/index.html
+                          the AI-prompt page: two-column hero, verification stamp,
+                          assistant prompt, how-to steps, closing warning. (It was
+                          /resources/ until 23 Nov 2026; /resources/ is now the hub
+                          of all the guides, built by build-prosecution-pages.py.)
   /resources/guide.html   the full guide with a sticky sidebar contents list.
 
 Both link /resources/style.css, which is shared by this section only. The rest
@@ -29,7 +32,7 @@ import markdown
 SITE = "https://peabodytrust.co.uk"
 GUIDE_TEXT_URL = f"{SITE}/resources/s21-guide.txt"
 GUIDE_PAGE_URL = f"{SITE}/resources/guide.html"
-LANDING_URL = f"{SITE}/resources/"
+REQUESTING_URL = f"{SITE}/resources/requesting/"
 GUIDE_URL = f"{SITE}/resources/guide.html"
 
 ASSISTANT_PROMPT = f"""Please open and read this document:
@@ -282,18 +285,19 @@ def build(root: Path):
         "A guide for residents in England and Wales requesting service charge information "
         "under sections 21, 22 and 23 of the Landlord and Tenant Act 1985. Written to be "
         "used with an AI assistant.",
-        LANDING_URL, ' aria-current="page"',
+        REQUESTING_URL, ' aria-current="page"',
     ) + f'''
   <section class="hero">
     <div class="wrap hero-grid">
       <div>
-        <p class="eyebrow">Landlord and Tenant Act 1985, ss.21&ndash;23</p>
+        <p class="eyebrow"><a href="/resources/">Support &amp; resources</a> &middot; Landlord and Tenant Act 1985, ss.21&ndash;23</p>
         <h1>Ask your landlord what they <em>actually spent</em></h1>
         <p class="standfirst">If your service charge goes up and down with your landlord's costs, you can require a written summary of those costs, and then inspect the invoices and receipts behind it. This guide covers making the request, working out the deadline, and checking whether what comes back is good enough.</p>
         <p class="standfirst">It is written to be handed to an AI assistant, which drafts and checks alongside you. You can also just read it.</p>
         <div class="btn-row">
           <a class="btn btn-primary" href="/resources/guide.html">Read the full guide</a>
           <a class="btn" href="/resources/s21-guide.txt" download="s21-guide.txt">Download plain text <small>{txt_kb} KB</small></a>
+          <a class="btn" href="/resources/">All the guides</a>
         </div>
       </div>
 
@@ -302,7 +306,7 @@ def build(root: Path):
           <strong>Version check</strong>
           <span class="stamp-beta">Beta</span>
         </div>
-        <img class="stamp-img" src="/images/guide-verification.png" alt="Version check. Version numbers and check codes for both the full guide and the short version, shown as an image so they cannot be copied from this page's text. The full guide is version 0.2.5.4.3.7L, the short version 0.2.5.4.3.7S; each carries its own check code at the end of the document. Legal sources last verified 29 August 2026.">
+        <img class="stamp-img" src="/images/guide-verification.png" alt="Version check. Version numbers and check codes for both the full guide and the short version, shown as an image so they cannot be copied from this page's text. The full guide is version 0.2.6.1.8.4L, the short version 0.2.6.1.8.4S; each carries its own check code at the end of the document. Legal sources last verified 29 August 2026.">
         <dl>
           <dt>Jurisdiction</dt><dd>England &amp; Wales</dd>
           <dt>Based on</dt><dd>SHAC guide, 2026</dd>
@@ -371,7 +375,7 @@ def build(root: Path):
     <div class="wrap">
       <p class="eyebrow"><a href="/resources/">Support &amp; resources</a> &middot; The guide</p>
       <h1>Requesting service charge information</h1>
-      <p class="standfirst">The complete guide to sections 21 to 23 of the Landlord and Tenant Act 1985. To use it with an AI assistant, start from the <a href="/resources/">Support &amp; resources page</a>, which has the prompt and the verification block.</p>
+      <p class="standfirst">The complete guide to sections 21 to 23 of the Landlord and Tenant Act 1985. To use it with an AI assistant, start from the <a href="/resources/requesting/">AI assistant page</a>, which has the prompt and the verification block.</p>
       <div class="btn-row">
         <button class="btn btn-primary" id="copyGuideBtn" data-label="Copy the whole guide">Copy the whole guide</button>
         <a class="btn" href="/resources/s21-guide.txt" download="s21-guide.txt">Download plain text <small>{txt_kb} KB</small></a>
@@ -407,9 +411,10 @@ def build(root: Path):
     # given directly, and the one people download to attach to a conversation.
     (root / "resources" / "s21-guide.txt").write_text(txt_header + body_md, encoding="utf-8")
 
-    (root / "resources" / "index.html").write_text(landing, encoding="utf-8")
+    (root / "resources" / "requesting").mkdir(parents=True, exist_ok=True)
+    (root / "resources" / "requesting" / "index.html").write_text(landing, encoding="utf-8")
     (root / "resources" / "guide.html").write_text(guide_page, encoding="utf-8")
-    print(f"  resources/index.html  {len(landing)/1024:5.1f} KB  landing")
+    print(f"  resources/requesting/index.html  {len(landing)/1024:5.1f} KB  AI-prompt page")
     print(f"  resources/guide.html  {len(guide_page)/1024:5.1f} KB  full guide, {len(toc)} sections")
     print(f"  version {version}, verified {verified}")
 

@@ -216,6 +216,19 @@ h2.block-title{
 .doc th{background:var(--raised);font-weight:600}
 .doc strong{font-weight:600}
 
+/* prosecution guides: download sizes and the list of sibling guides */
+.doc .fsize{font-family:var(--mono);font-size:.72rem;color:var(--ink-faint);white-space:nowrap}
+.toc ol.guide-list a[aria-current="page"]{color:var(--seal);font-weight:600}
+
+/* the /resources/ hub: one card per guide */
+.guide-card{border-top:2px solid var(--ink);padding:1.1rem 0 .6rem;margin:0 0 1rem}
+.guide-card h2{font-family:var(--serif);font-weight:600;font-size:1.4rem;line-height:1.25;margin:0 0 .5rem}
+.guide-card p{margin:0 0 .8rem;max-width:var(--measure)}
+.guide-card .use-when{color:var(--ink-soft);font-style:italic}
+.guide-card .btn{margin-right:.5rem}
+.hero .standfirst + p{max-width:var(--measure)}
+.hero .caution{max-width:var(--measure)}
+
 .doc-status{
   font-family:var(--mono);font-size:.85rem;color:var(--ink-soft);
   border:1px dashed var(--rule-strong);padding:1.1rem;

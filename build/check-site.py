@@ -424,7 +424,7 @@ ORPHAN_EXT = (OFFICE_EXT | UNINSPECTABLE_EXT |
 ORPHAN_IGNORE = {"README.md", "CLAUDE.md", "robots.txt"}
 # Deliberately unlinked files, with the reason. Keep this list short.
 ORPHAN_ALLOWED = {
-    "resources/s21-guide-compact.md": "embedded in the resources landing page and copied by "
+    "resources/s21-guide-compact.md": "embedded in the resources/requesting page and copied by "
                                       "its button (build/README.md section 6)",
     "resources/s21-guide.md": "markdown source of guide.html and s21-guide.txt, public by design "
                               "(build/README.md section 6)",
@@ -461,7 +461,7 @@ def find_orphans(root: Path):
 def html_files(root):
     out = []
     for pattern in ("index.html", "404.html", "pages/*.html", "posts/*.html",
-                    "resources/*.html", "evidence/*.html"):
+                    "resources/*.html", "resources/*/*.html", "evidence/*.html"):
         out += sorted(root.glob(pattern))
     return [f for f in out if not f.name.startswith("google")]
 

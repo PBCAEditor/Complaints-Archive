@@ -55,10 +55,12 @@ free and maintenance near zero.
                                sending-evidence, terms
   /posts/                      the articles
   /resources/                  the Support & resources section
-      index.html               landing page — generated
-      guide.html               full guide — generated
+      index.html               hub: all the guides, with the disclaimer — generated
+      requesting/index.html    the AI-prompt page for the s21/22 guide — generated
+      guide.html               full s21/22 guide — generated
+      prosecution/             the section 25 guides and their .docx downloads
       style.css                stylesheet for this section only
-      s21-guide.txt            plain-text full guide — generated
+      s21-guide.txt            plain-text full s21/22 guide — generated
   /build/                      these scripts (not part of the website)
 ```
 
@@ -119,7 +121,9 @@ They need Python 3 and the packages in `requirements.txt`:
 |---|---|---|
 | `build-search-index.py` | Rebuilds `search-index.json` from `/posts/` | Any article added or edited |
 | `build-feed.py` | Rebuilds `feed.xml`, newest first | Any article added, or a date changed |
-| `build-guide-page.py` | Builds `/resources/index.html`, `guide.html` and `s21-guide.txt` from the guide sources | Guide text or version changed |
+| `build-guide-page.py` | Builds `/resources/requesting/index.html`, `guide.html` and `s21-guide.txt` from the guide sources | Guide text or version changed |
+| `build-prosecution-pages.py` | Builds the four section 25 guide pages and the `/resources/` hub | Prosecution text, or the hub copy, changed |
+| `split-prosecution-docs.py` | Cuts the editor's Word masters into the `.docx` downloads (section 6) | A master Word file changed |
 | `add-og-and-share.py` | Adds Open Graph, Twitter and canonical tags, and the share row, to pages that lack them | New page added |
 | `add-site-features.py` | Adds favicon and feed links, print styles, skip link, `<time>` and JSON-LD | New page added |
 | `add-contents-box.py` | Adds an "In this article" box to posts with 5+ sections, and the feed link to every footer | New article added |
@@ -185,30 +189,65 @@ It exits with status 1 if anything blocking is found.
 Three files hold the guide, and they must move together:
 
 - `s21-guide.md` — the full guide. The source of `guide.html` and `s21-guide.txt`.
-- `s21-guide-compact.md` — the short version, embedded in the landing page and
-  copied by the button. It is not linked from anywhere, but GitHub Pages serves
+- `s21-guide-compact.md` — the short version, embedded in the AI-prompt page
+  (`/resources/requesting/`) and copied by the button. It is not linked from anywhere, but GitHub Pages serves
   every file in the repository, so it IS reachable at its own URL. That is not a
   problem (the guide is meant to be public) but nothing should claim otherwise.
-- generated: `guide.html`, `s21-guide.txt`, `resources/index.html`.
+- generated: `guide.html`, `s21-guide.txt`, `resources/requesting/index.html`.
 
 Each carries a version number at the top and a check code at the very end. The
 codes differ so an assistant quoting them reveals which document it read:
 
 | | Version | Check code |
 |---|---|---|
-| Full guide | `0.2.5.4.3.7L` | `L32463` |
-| Short version | `0.2.5.4.3.7S` | `SMRFDI` |
+| Full guide | `0.2.6.1.8.4L` | `L70918` |
+| Short version | `0.2.6.1.8.4S` | `SWQHPN` |
 
 The version proves the file was opened; the check code at the end proves it
-arrived complete. Both are shown on the landing page **as an image**, so they
+arrived complete. Both are shown on the AI-prompt page **as an image**, so they
 cannot be scraped from the page text by an assistant that never opened the file.
 
 **When revising the guide:** edit both markdown files, bump both version numbers
-and both check codes, regenerate the verification image, run
-`build-guide-page.py`, then upload `index.html`, `guide.html`, `s21-guide.txt`
+and both check codes, regenerate the verification image
+(`python build/make-verification-image.py .`, which reads the numbers from the two
+markdown files), run `build-guide-page.py`, then upload `index.html`, `guide.html`, `s21-guide.txt`
 and the new image. `check-site.py` will catch it if the generated files fall
 behind, but nothing will catch `s21-guide-compact.md` drifting, because it has no
 URL. Change the two markdown files in the same sitting.
+
+### The hub, and where things live
+
+`/resources/` is the hub of all the guides (copy in `HUB_GUIDES` and `build_hub()` in
+`build-prosecution-pages.py`). The AI-prompt page that used to be `/resources/` is now
+`/resources/requesting/`. `guide.html`, `s21-guide.txt` and `s21-guide.md` did not move,
+because prompts in circulation point at them.
+
+### The section 25 prosecution guides
+
+Four pages under `/resources/prosecution/`, plus Word downloads. The URLs are
+permanent (rule 8): `index.html` (main guide), `if-they-plead-guilty.html`,
+`if-they-plead-not-guilty.html`, `costs.html`, and `downloads/s25-*.docx`.
+
+- **Page text:** `build/prosecution/{main,guilty,not-guilty,costs}.md`, built by
+  `python build/build-prosecution-pages.py .` (needs `markdown`). Edit the markdown,
+  never the generated HTML. A link to a `.docx` in the markdown gets a download
+  attribute and the file size added automatically.
+- **Downloads:** the editor keeps four master Word files (main guide with its
+  appendices, costs, guilty plea, not-guilty booklet) outside the repo.
+  `python build/split-prosecution-docs.py --main M.docx --costs C.docx --guilty G.docx
+  --notguilty N.docx .` cuts them into nine files (checklists, six model documents,
+  the proposed directions and the whole booklet), blanks the author properties, and
+  swaps the masters' example address for an invented one with no postcode. It finds
+  each piece by its text, so editing a master does not break it. Needs `python-docx`.
+  Re-run it, then re-run the page builder, whenever a master changes.
+- **Examples:** the model documents use an invented case (Jane Smith against Example
+  Housing Association) and the invented address "Meadow Court, Mill Lane, Anytown
+  [postcode]". `check-site.py` blocks anything shaped like a postcode or a numbered
+  street address, so do not put a realistic one back.
+- The court form SP001 is **not** reproduced. The download holds only the wording for
+  its boxes, with a note to use the court's own form.
+- Not versioned: unlike the s21 guide, these pages carry no version number or check
+  code, only "last reviewed" (see `REVIEWED` in the page builder).
 
 ---
 

@@ -13,15 +13,27 @@ description: >
 
 # Requesting Service Charge Information (LTA 1985 ss.21-23)
 
-**Version 0.2.5.4.3.7L (beta). Legal sources last verified 29 August 2026. Check code L32463.**
+**Version 0.2.6.1.8.4L (beta). Legal sources last verified 29 August 2026. Check code L70918.**
+
+## Update, 23 November 2026: the law is changing in England
+
+The Leasehold and Freehold Reform Act 2024 (Commencement No. 4 and Saving Provision) (England) Regulations 2026 (SI 2026/1128) set the dates on which the rights in this guide are replaced in England. Until 1 April 2027 nothing in this guide changes.
+
+From 1 April 2027, the section 22 inspection right and the section 23 superior landlord duty are abolished, and so is the section 25 offence for breaching them. A new right to request service charge and management information (new sections 21F and 21G) replaces them. If you want to use section 22, make your request by the end of December 2026, so the whole inspection period ends before 1 April 2027.
+
+Section 21 continues until 1 November 2027 for private landlords and until 1 November 2028 for social landlords, including housing associations. Until then you can still make a section 21 request, and a landlord that fails to comply can still be prosecuted under section 25. After those dates, section 21 is replaced by annual reports and accounts in a set form, and the remedy for failure is a tribunal application, not a prosecution.
+
+These dates apply to England only. The rest of this guide has not been revised for these changes.
+
+Tell the user about these dates whenever a request, deadline or inspection period would run on or after 1 April 2027.
 
 | | |
 |---|---|
 | **Guide** | Requesting Service Charge Information under ss.21-23 LTA 1985 |
-| **Version** | 0.2.5.4.3.7L (beta) |
-| **Check code** | L32463 |
+| **Version** | 0.2.6.1.8.4L (beta) |
+| **Check code** | L70918 |
 | **Legal sources last verified** | 29 August 2026 |
-| **Guide revised** | 30 August 2026 |
+| **Guide revised** | 23 November 2026 |
 | **Jurisdiction** | England and Wales |
 | **Based on** | SHAC guide "Requesting Your Service Charge Information" (2026) |
 | **Published by** | Peabody Complaints Archive (independent, resident-run) |
@@ -1087,7 +1099,7 @@ advising, and check the s.25(3)(a) exemption which is already Wales-specific.
 
 ---
 
-END OF FULL GUIDE. Check code: L32463. Version 0.2.5.4.3.7L.
+END OF FULL GUIDE. Check code: L70918. Version 0.2.6.1.8.4L.
 
 A reader who cannot quote both the version number at the top and the check code above did not
 receive this document in full, and should say so before relying on it.

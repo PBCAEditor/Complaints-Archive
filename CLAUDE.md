@@ -95,8 +95,12 @@ Any exception to the staff-name rule is the editor's explicit, per-document deci
 
 ## Open work (as of November 2026)
 
-- Prosecution guide (section 25) at `/resources/prosecution/`: not built. `guide.html` and
-  `s21-guide.txt` must keep their URLs because prompts in circulation point at them.
+- Prosecution guides (section 25) at `/resources/prosecution/`: built 23 November 2026
+  (build/README.md section 6). `/resources/` is now the hub of all the guides and the
+  AI-prompt page is `/resources/requesting/`. `guide.html` and `s21-guide.txt` must keep
+  their URLs because prompts in circulation point at them. Still open: the "Preparing for
+  Trial" guide, the £15 Memorandum of Conviction fee (sources say £60) and the Wales dates
+  in the guides' notice, which the editor has not yet confirmed.
 - `check-site.py` now inspects Office files and PDFs and flags orphaned downloads and
   images (build/README.md section 5). Run `--draft` on any .docx the editor supplies before
   converting it. Possible follow-ups: image metadata (EXIF) checks, and a Word/PDF template

@@ -30,6 +30,7 @@ AUTHOR = "David Wood"
 # month-precision (YYYY-MM) so nothing more exact is asserted than the
 # article itself claims.
 POST_DATES = {
+    "commonhold-who-pays-for-the-past.html": "2026-11-23",
     "service-charge-abuse.html": "2026-11-20",
     "mission-almost-impossible.html": "2026-11-19",
     "social-housing-bill-evidence.html": "2026-11-15",
@@ -49,6 +50,7 @@ POST_DATES = {
 }
 
 POST_IMAGES = {
+    "commonhold-who-pays-for-the-past.html": "images/commonhold-who-pays-for-the-past-header.jpg",
     "service-charge-abuse.html": "images/service-charge-abuse-header.jpg",
     "mission-almost-impossible.html": "images/mission-impossible-header.jpg",
     "staircase-goes-nowhere.html": "images/staircase-header.jpg",

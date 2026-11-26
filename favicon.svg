@@ -1,7 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Peabody Complaints Archive">
-  <rect width="64" height="64" rx="10" fill="#0b6b6f"/>
-  <rect x="16" y="17" width="32" height="5" rx="2.5" fill="#faf8f3"/>
-  <rect x="16" y="29" width="32" height="5" rx="2.5" fill="#faf8f3"/>
-  <rect x="16" y="41" width="16" height="5" rx="2.5" fill="#faf8f3"/>
-  <rect x="36" y="41" width="12" height="5" rx="2.5" fill="#faf8f3" opacity="0.35"/>
+  <rect width="64" height="64" rx="13" fill="#21252a"/>
+  <path fill="#fff2db" d="M14.9 14.8 20 11.7h15.2V7.7h8.1v4H48.9v44.9H36.9V50H26.9v6.6H15.2z"/>
+  <g fill="#21252a">
+    <rect x="20.6" y="17.9" width="8.5" height="6.2"/>
+    <rect x="34.9" y="17.9" width="8.5" height="6.2"/>
+    <rect x="20.6" y="28.7" width="8.5" height="6.4"/>
+    <rect x="20.6" y="39.6" width="8.5" height="6.3"/>
+    <rect x="34.9" y="39.6" width="8.5" height="6.3"/>
+  </g>
+  <rect x="34.9" y="28.7" width="8.6" height="6.4" fill="#b82f20"/>
 </svg>

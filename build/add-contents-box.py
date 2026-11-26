@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Add an "In this article" contents box to long articles, and a visible feed
-subscription link to every footer.
+Add an "In this article" contents box to long articles, and "Email updates"
+and "RSS feed" links to every footer.
 
 Usage:  python3 add-contents-box.py [repo_root]
 
@@ -16,6 +16,11 @@ from pathlib import Path
 from bs4 import BeautifulSoup
 
 MIN_SECTIONS = 5   # below this, a contents box is noise
+
+# Sign-up page for the email list (Buttondown). A plain link: the browser makes
+# no request to Buttondown unless the reader clicks it.
+EMAIL_URL = "https://buttondown.com/pbcaeditor"
+EMAIL_LINK = f'<a href="{EMAIL_URL}" target="_blank" rel="noopener noreferrer">Email updates</a>'
 
 CSS = """    article.post details.contents {
       margin: 26px 0 30px; padding: 14px 0;
@@ -117,25 +122,39 @@ def build(root: Path):
         path.write_text(s, encoding="utf-8")
         print(f"  {rel:44s} + contents box ({len(items)} sections)")
 
-    # visible feed link in every footer
+    # "Email updates" and "RSS feed" links in every footer. Files are read and
+    # written with newline="" so each file keeps its own line endings.
     files = ([root / "index.html", root / "404.html"]
              + sorted((root / "pages").glob("*.html"))
-             + sorted((root / "posts").glob("*.html")))
+             + sorted((root / "posts").glob("*.html"))
+             + sorted((root / "evidence").glob("*.html"))
+             + sorted((root / "resources").rglob("*.html")))
     n = 0
     for path in files:
-        s = path.read_text(encoding="utf-8")
-        if ">RSS feed</a>" in s or "Subscribe to new articles" in s:
+        with open(path, encoding="utf-8", newline="") as fh:
+            s = fh.read()
+        if "Email updates</a>" in s:
             continue
-        m = re.search(r'(<footer class="site">.*?)(<a href="([^"]*)privacy\.html">Privacy</a>)', s, re.S)
-        if not m:
-            continue
-        prefix = m.group(3)
-        feed = "./feed.xml" if path.name in ("index.html",) else (
-            "/feed.xml" if path.name == "404.html" else "../feed.xml")
-        s = s.replace(m.group(2), f'<a href="{feed}">RSS feed</a> &middot; ' + m.group(2), 1)
-        path.write_text(s, encoding="utf-8")
+        rss = re.search(r'<a href="[^"]*feed\.xml">RSS feed</a>', s)
+        if rss:
+            s = s[:rss.start()] + EMAIL_LINK + " &middot; " + s[rss.start():]
+        else:
+            m = re.search(r'(<footer class="site">.*?)(<a href="[^"]*privacy\.html">Privacy</a>)', s, re.S)
+            if not m:
+                continue
+            rel = path.relative_to(root).parts
+            if rel[0] in ("resources", "evidence") or path.name == "404.html":
+                feed = "/feed.xml"
+            elif path.name == "index.html":
+                feed = "./feed.xml"
+            else:
+                feed = "../feed.xml"
+            s = (s[:m.start(2)] + EMAIL_LINK + f' &middot; <a href="{feed}">RSS feed</a> &middot; '
+                 + s[m.start(2):])
+        with open(path, "w", encoding="utf-8", newline="") as fh:
+            fh.write(s)
         n += 1
-    print(f"\nfeed link added to {n} footers")
+    print(f"\nemail and feed links added to {n} footers")
 
 
 if __name__ == "__main__":

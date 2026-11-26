@@ -105,6 +105,7 @@ file** — typing `resources/index.html` makes the folder. There is no separate
 8. Run the site check (§5).
 9. Upload the article, plus `index.html`, `sitemap.xml`, `feed.xml` and
    `search-index.json`.
+10. Once the article is live, send the email update (§11).
 
 Steps 5 to 7 are the tax on every new article. Skip them and the page works while
 search, the feed and the sitemap silently go stale.
@@ -126,7 +127,7 @@ They need Python 3 and the packages in `requirements.txt`:
 | `split-prosecution-docs.py` | Cuts the editor's Word masters into the `.docx` downloads (section 6) | A master Word file changed |
 | `add-og-and-share.py` | Adds Open Graph, Twitter and canonical tags, and the share row, to pages that lack them | New page added |
 | `add-site-features.py` | Adds favicon and feed links, print styles, skip link, `<time>` and JSON-LD | New page added |
-| `add-contents-box.py` | Adds an "In this article" box to posts with 5+ sections, and the feed link to every footer | New article added |
+| `add-contents-box.py` | Adds an "In this article" box to posts with 5+ sections, and the "Email updates" and "RSS feed" links to every footer | New article or page added |
 | `check-site.py` | Pre-publication checks (§5) | Before every upload |
 
 `add-og-and-share.py` and `add-site-features.py` skip anything already done, so
@@ -374,6 +375,59 @@ editor, not a rule to be resolved here.
 4. No ads, nothing for sale, domain not for sale.
 5. Corrections and right of reply stays prominent.
 6. No cookies, localStorage or sessionStorage. GoatCounter is the only external
-   request any page makes.
+   request any page makes on its own. The "Email updates" links and the homepage
+   sign-up form send nothing to Buttondown until a reader clicks or presses
+   Subscribe. Never use Buttondown's iframe or script embeds, or load any image
+   from them (§11).
 7. Keep the "no response received" lines accurate as things change.
 8. Published URLs never change.
+
+---
+
+## 11. Email updates (Buttondown)
+
+Readers who do not use RSS can get an email when an article is published. The
+list is held by Buttondown, and the sign-up page is
+`https://buttondown.com/pbcaeditor`. The account belongs to the editor; Claude
+cannot log in to it and never has the subscriber list.
+
+**How it reaches the site.** The homepage box has Buttondown's plain `<form>` embed
+(the "form" option on Buttondown's Settings → Embedding page), restyled to match
+the site, with their "Powered by Buttondown" referral link removed (rule 4). Never
+use their `<iframe>` option: it contacts Buttondown on every page load. "Email
+updates" is a plain link in every footer (added
+by `add-contents-box.py`, so new pages get it automatically) and in the box on the
+homepage (`section.emailupdates` in `index.html`). Neither makes any request to
+Buttondown until a reader uses it. Keep it that way (rule 6). The
+homepage box sits under the intro while the list is new; once it is established,
+move it to the bottom of the page, above "Get in touch" (the editor's decision,
+26 November 2026).
+
+**Settings that must stay as they are.** The privacy notice (`pages/privacy.html`,
+"Email updates") describes these, so if one changes, change the notice first.
+
+- Double opt-in on: a reader is subscribed only after clicking the confirmation email.
+- Open and click tracking off.
+- Sender name "Peabody Complaints Archive"; a public sender address, never the
+  editor's private one.
+- No promotion in the emails (rule 4).
+- The free plan covers the first 100 subscribers. Check Buttondown's pricing page
+  for what happens beyond that. RSS-to-email is a paid add-on, which is why each
+  email is written by hand.
+
+**Sending an update for a new article** (about five minutes), after the page is
+live and checked:
+
+1. In Buttondown choose New email. Subject: the article's title.
+2. Body: two or three sentences taken from the article's own standfirst or feed
+   summary, then the article's full `https://peabodytrust.co.uk/posts/<slug>.html`
+   link. Do not paste the article in. Do not state anything the article does not.
+3. Send a test to the editor's own address and read it on a phone.
+4. Send. Claude can draft step 2 from the article on request.
+
+**Requests from subscribers.** Unsubscribing is the link in every email. To delete
+an address entirely, remove the subscriber in Buttondown's dashboard. Any other
+request goes through the privacy notice's normal route.
+
+**If the provider changes,** update `EMAIL_URL` in `add-contents-box.py`, the
+homepage box, the privacy notice, and this section.

@@ -29,7 +29,10 @@ never be committed. Do not print its contents into chat or into any file.
 3. Staff by job title.
 4. No ads, nothing for sale.
 5. Corrections and right of reply stays prominent.
-6. No cookies, localStorage or sessionStorage. GoatCounter is the only external request.
+6. No cookies, localStorage or sessionStorage. GoatCounter is the only external request a
+   page makes on its own. The "Email updates" links and the homepage sign-up form send
+   nothing to Buttondown until used; never use its iframe or script embeds
+   (build/README.md section 11).
 7. Keep "no response received" lines accurate. Ask the editor to confirm them at publication.
 8. Published URLs never change. A slug is permanent once published.
 
@@ -53,6 +56,8 @@ Never delete `CNAME`, `.nojekyll` or the `google*.html` verification file.
    then stop the server.
 7. Show the editor the changes and any claims you could not verify. **Commit and push only
    after the editor says to.** Afterwards confirm the live page, image and feed.
+8. Offer a draft email update for the editor to paste into Buttondown (build/README.md
+   section 11). You cannot log in to it or send it; the editor does that.
 
 Updates to an existing article are not corrections. Add the `<p class="updated">` line
 under the byline, set `article:modified_time` and JSON-LD `dateModified`, add a

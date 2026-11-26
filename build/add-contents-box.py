@@ -124,7 +124,7 @@ def build(root: Path):
     n = 0
     for path in files:
         s = path.read_text(encoding="utf-8")
-        if "Subscribe to new articles" in s:
+        if ">RSS feed</a>" in s or "Subscribe to new articles" in s:
             continue
         m = re.search(r'(<footer class="site">.*?)(<a href="([^"]*)privacy\.html">Privacy</a>)', s, re.S)
         if not m:
@@ -132,7 +132,7 @@ def build(root: Path):
         prefix = m.group(3)
         feed = "./feed.xml" if path.name in ("index.html",) else (
             "/feed.xml" if path.name == "404.html" else "../feed.xml")
-        s = s.replace(m.group(2), f'<a href="{feed}">Subscribe to new articles</a> &middot; ' + m.group(2), 1)
+        s = s.replace(m.group(2), f'<a href="{feed}">RSS feed</a> &middot; ' + m.group(2), 1)
         path.write_text(s, encoding="utf-8")
         n += 1
     print(f"\nfeed link added to {n} footers")

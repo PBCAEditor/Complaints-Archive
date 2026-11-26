@@ -127,7 +127,7 @@ They need Python 3 and the packages in `requirements.txt`:
 | `split-prosecution-docs.py` | Cuts the editor's Word masters into the `.docx` downloads (section 6) | A master Word file changed |
 | `add-og-and-share.py` | Adds Open Graph, Twitter and canonical tags, and the share row, to pages that lack them | New page added |
 | `add-site-features.py` | Adds favicon and feed links, print styles, skip link, `<time>` and JSON-LD | New page added |
-| `add-contents-box.py` | Adds an "In this article" box to posts with 5+ sections, and the "Email updates" and "RSS feed" links to every footer | New article or page added |
+| `add-contents-box.py` | Adds an "In this article" box to posts with 5+ sections, the sign-up box to the end of every post, and the "Email updates" and "RSS feed" links to every footer | New article or page added |
 | `check-site.py` | Pre-publication checks (§5) | Before every upload |
 
 `add-og-and-share.py` and `add-site-features.py` skip anything already done, so
@@ -391,7 +391,9 @@ list is held by Buttondown, and the sign-up page is
 `https://buttondown.com/pbcaeditor`. The account belongs to the editor; Claude
 cannot log in to it and never has the subscriber list.
 
-**How it reaches the site.** The homepage box has Buttondown's plain `<form>` embed
+**How it reaches the site.** The same sign-up box ends every article, between the
+article and the share buttons; `add-contents-box.py` adds it to new articles (its
+`SIGNUP_BOX` and `SIGNUP_CSS`). The homepage box has Buttondown's plain `<form>` embed
 (the "form" option on Buttondown's Settings → Embedding page), restyled to match
 the site, with their "Powered by Buttondown" referral link removed (rule 4). Never
 use their `<iframe>` option: it contacts Buttondown on every page load. "Email

@@ -224,6 +224,29 @@
     figure.slide figcaption { font: 14px/1.5 system-ui, -apple-system, Arial, sans-serif; color: var(--muted); margin-top: 6px; }
     article.post p.intro-note { font: 15px/1.6 system-ui, -apple-system, Arial, sans-serif; color: var(--muted); font-style: italic; margin: 0 0 22px; }
     @media print { figure.slide { break-inside: avoid; } }
+    section.emailupdates {
+      margin: 30px 0 0; padding: 16px 20px 14px;
+      border: 1px solid var(--rule); border-left: 4px solid var(--accent);
+      background: #f6f2ea;
+      font: 16px/1.55 system-ui, -apple-system, Arial, sans-serif;
+    }
+    section.emailupdates h2 { font: 600 17px/1.4 system-ui, -apple-system, Arial, sans-serif; margin: 0 0 6px; }
+    section.emailupdates p { margin: 0 0 10px; }
+    section.emailupdates p:last-child { margin-bottom: 0; }
+    section.emailupdates form.signup { margin: 0 0 10px; }
+    section.emailupdates form.signup label { display: block; font-weight: 600; font-size: 14px; margin: 0 0 4px; }
+    section.emailupdates .signup-row { display: flex; gap: 8px; flex-wrap: wrap; }
+    section.emailupdates input[type="email"] {
+      flex: 1 1 220px; min-width: 0; padding: 9px 12px;
+      font: 16px/1.4 system-ui, -apple-system, Arial, sans-serif;
+      border: 1px solid #b9b9b9; border-radius: 5px; background: #fff; color: var(--ink);
+    }
+    section.emailupdates button {
+      padding: 9px 18px; font: 600 16px/1.4 system-ui, -apple-system, Arial, sans-serif;
+      background: var(--accent); color: #fff; border: 0; border-radius: 5px; cursor: pointer;
+    }
+    section.emailupdates button:hover { text-decoration: underline; }
+    @media print { section.emailupdates { display: none !important; } }
   </style>
   <script data-goatcounter="https://pbcaeditor.goatcounter.com/count"
           async src="//gc.zgo.at/count.js"></script>
@@ -446,6 +469,19 @@
         <p><strong>First-hand account.</strong> The author's own private prosecution of Peabody Trust under section 25, which concluded with a guilty plea at Thames Magistrates' Court on 11 August 2026. The talk was given to Unite Community's National Housing Group on 20 November 2026.</p>
       </section>
     </article>
+
+    <section class="emailupdates" aria-labelledby="email-updates-heading">
+      <h2 id="email-updates-heading">New articles by email</h2>
+      <p>Get a short email when a new article is published. Sign-up is run by Buttondown, a US email service: when you press Subscribe, your address is sent to Buttondown, which emails you to confirm it. Every email has an unsubscribe link, and your address is used for nothing else. See the <a href="../pages/privacy.html#email-updates">privacy notice</a>.</p>
+      <form class="signup" action="https://buttondown.com/api/emails/embed-subscribe/pbcaeditor" method="post" target="_blank">
+        <label for="signup-email">Your email address</label>
+        <span class="signup-row">
+          <input type="email" name="email" id="signup-email" required autocomplete="email" placeholder="you@example.com">
+          <button type="submit">Subscribe</button>
+        </span>
+      </form>
+      <p>Or follow the <a href="../feed.xml">RSS feed</a> in a feed reader.</p>
+    </section>
 
     <div class="share">
       <span class="share-label">Share this article</span>

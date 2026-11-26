@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Add an "In this article" contents box to long articles, and "Email updates"
-and "RSS feed" links to every footer.
+Add an "In this article" contents box to long articles, a sign-up box to the end
+of every article, and "Email updates" and "RSS feed" links to every footer.
 
 Usage:  python3 add-contents-box.py [repo_root]
 
@@ -45,6 +45,47 @@ CSS = """    article.post details.contents {
 """
 
 PRINT_CSS = "      article.post details.contents { display: none; }\n"
+
+# Sign-up box at the end of every article (between the article and the share row).
+# The homepage has its own hand-written copy of this box in index.html.
+SIGNUP_CSS = """    section.emailupdates {
+      margin: 30px 0 0; padding: 16px 20px 14px;
+      border: 1px solid var(--rule); border-left: 4px solid var(--accent);
+      background: #f6f2ea;
+      font: 16px/1.55 system-ui, -apple-system, Arial, sans-serif;
+    }
+    section.emailupdates h2 { font: 600 17px/1.4 system-ui, -apple-system, Arial, sans-serif; margin: 0 0 6px; }
+    section.emailupdates p { margin: 0 0 10px; }
+    section.emailupdates p:last-child { margin-bottom: 0; }
+    section.emailupdates form.signup { margin: 0 0 10px; }
+    section.emailupdates form.signup label { display: block; font-weight: 600; font-size: 14px; margin: 0 0 4px; }
+    section.emailupdates .signup-row { display: flex; gap: 8px; flex-wrap: wrap; }
+    section.emailupdates input[type="email"] {
+      flex: 1 1 220px; min-width: 0; padding: 9px 12px;
+      font: 16px/1.4 system-ui, -apple-system, Arial, sans-serif;
+      border: 1px solid #b9b9b9; border-radius: 5px; background: #fff; color: var(--ink);
+    }
+    section.emailupdates button {
+      padding: 9px 18px; font: 600 16px/1.4 system-ui, -apple-system, Arial, sans-serif;
+      background: var(--accent); color: #fff; border: 0; border-radius: 5px; cursor: pointer;
+    }
+    section.emailupdates button:hover { text-decoration: underline; }
+    @media print { section.emailupdates { display: none !important; } }
+"""
+
+SIGNUP_BOX = f"""    <section class="emailupdates" aria-labelledby="email-updates-heading">
+      <h2 id="email-updates-heading">New articles by email</h2>
+      <p>Get a short email when a new article is published. Sign-up is run by Buttondown, a US email service: when you press Subscribe, your address is sent to Buttondown, which emails you to confirm it. Every email has an unsubscribe link, and your address is used for nothing else. See the <a href="../pages/privacy.html#email-updates">privacy notice</a>.</p>
+      <form class="signup" action="https://buttondown.com/api/emails/embed-subscribe/pbcaeditor" method="post" target="_blank">
+        <label for="signup-email">Your email address</label>
+        <span class="signup-row">
+          <input type="email" name="email" id="signup-email" required autocomplete="email" placeholder="you@example.com">
+          <button type="submit">Subscribe</button>
+        </span>
+      </form>
+      <p>Or follow the <a href="../feed.xml">RSS feed</a> in a feed reader.</p>
+    </section>
+"""
 
 
 def slug(text, seen):
@@ -121,6 +162,25 @@ def build(root: Path):
 
         path.write_text(s, encoding="utf-8")
         print(f"  {rel:44s} + contents box ({len(items)} sections)")
+
+    # sign-up box at the end of every article (newline style kept per file)
+    m_added = 0
+    for path in sorted((root / "posts").glob("*.html")):
+        with open(path, encoding="utf-8", newline="") as fh:
+            s = fh.read()
+        if 'class="emailupdates"' in s:
+            continue
+        nl = "\r\n" if "\r\n" in s else "\n"
+        end_art, end_css = "    </article>" + nl, "  </style>"
+        if s.count(end_art) != 1 or s.count(end_css) != 1:
+            print(f"  WARNING {path.name}: could not place the sign-up box")
+            continue
+        s = s.replace(end_art, end_art + nl + SIGNUP_BOX.replace("\n", nl), 1)
+        s = s.replace(end_css, SIGNUP_CSS.replace("\n", nl) + end_css, 1)
+        with open(path, "w", encoding="utf-8", newline="") as fh:
+            fh.write(s)
+        m_added += 1
+    print(f"\nsign-up box added to {m_added} articles")
 
     # "Email updates" and "RSS feed" links in every footer. Files are read and
     # written with newline="" so each file keeps its own line endings.

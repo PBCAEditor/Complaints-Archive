@@ -21,6 +21,7 @@ from pathlib import Path
 from bs4 import BeautifulSoup
 
 ORDER = [
+    "designed-to-cost.html",
     "commonhold-who-pays-for-the-past.html",
     "service-charge-abuse.html",
     "mission-almost-impossible.html",

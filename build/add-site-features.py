@@ -30,6 +30,7 @@ AUTHOR = "David Wood"
 # month-precision (YYYY-MM) so nothing more exact is asserted than the
 # article itself claims.
 POST_DATES = {
+    "designed-to-cost.html": "2026-11-28",
     "commonhold-who-pays-for-the-past.html": "2026-11-23",
     "service-charge-abuse.html": "2026-11-20",
     "mission-almost-impossible.html": "2026-11-19",
